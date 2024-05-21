@@ -1,0 +1,11 @@
+configstore/
+deluge/
+flutter/
+htop/
+node_modules/
+rstudio/
+wandb/
+xm1/
+package-lock.json 
+package.json
+nvim.bak/
