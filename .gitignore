@@ -9,3 +9,4 @@ xm1/
 package-lock.json 
 package.json
 nvim.bak/
+.env
