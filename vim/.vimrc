@@ -7,7 +7,6 @@ let mapleader = " "
 call plug#begin()
 Plug 'sheerun/vim-polyglot'
 Plug 'lilydjwg/colorizer'
-" Plug 'wellle/context.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -27,12 +26,13 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'ghifarit53/tokyonight-vim'
 Plug 'ayu-theme/ayu-vim'
 Plug 'joshdick/onedark.vim'
-" Plug 'RRethy/vim-illuminate'
+Plug 'RRethy/vim-illuminate'
 Plug 'preservim/tagbar'
+" Plug 'wellle/context.vim'
 
 "language
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'dart-lang/dart-vim-plugin'
+" Plug 'dart-lang/dart-vim-plugin'
 call plug#end()
 
 " Tagbar
@@ -47,12 +47,12 @@ set termguicolors
 set foldcolumn=0
 set signcolumn=yes
 
-let ayucolor="dark"   " for dark version of theme
-" let ayucolor="mirage"
+let ayucolor="mirage"   " for dark version of theme
 
 let g:tokyonight_style = 'night' " available: night, storm
 let g:tokyonight_enable_italic = 1
 colorscheme tokyonight
+" colorscheme ayu
 
 " whitespace visualization
 highlight link ExtraWhitespace IncSearch
@@ -62,7 +62,7 @@ nnoremap <leader>gb :<C-u>call gitblame#echo()<CR>
 
 " symbol highlighting
 " coc-highlight
-autocmd CursorHold * silent call CocActionAsync('highlight')
+" autocmd CursorHold * silent call CocActionAsync('highlight')
 " autocmd ColorScheme * highlight CocHighlightText     term=bold,reverse ctermfg=0 ctermbg=121 guifg=#a9b1d6 guibg=#32344a
 " ToolbarLine
 
@@ -392,3 +392,7 @@ let g:tagbar_type_rust = {
       \ 'P': 'method',
   \ },
 \ }
+
+
+" Set tab size for Dart files
+autocmd FileType dart setlocal shiftwidth=2 softtabstop=2 expandtab

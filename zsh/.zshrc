@@ -10,10 +10,10 @@ source $ZSH/oh-my-zsh.sh
 
 
 # autoload -Uz compinit && compinit
-# zinit config
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
+# # zinit config
+# # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# # Initialization code that may require console input (password prompts, [y/n]
+# # confirmations, etc.) must go above this block; everything else may go below.
 # if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
 #   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 # fi
@@ -63,7 +63,9 @@ source <(argo completion zsh)
 source <(minikube completion zsh)
 source <(k3d completion zsh)
 
-# ripgrep
+
+# cargo
+export PATH="$HOME/.cargo/bin:$PATH"
 alias rgf='rg --files | rg'
 
 # go
@@ -83,26 +85,28 @@ export PATH=/usr/local/bin/ctags:$PATH
 export PATH="/home/nnethercott/development/flutter/bin:$PATH"
 export PATH="$PATH:/opt/android-studio/bin"
 eval "$(flutter zsh-completion)"
+export PATH="$PATH:$HOME/.pub-cache/bin"
+export JAVA_HOME="/usr/lib/jvm/java-17-openjdk-amd64"
 
 # pyenv old
-# export PYENV_ROOT="$HOME/.pyenv"
-# command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-# eval "$(pyenv init -)"
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 
 # pyenv lazy
-PYENV_ROOT="${HOME}/.pyenv"
-if [[ -d "$PYENV_ROOT}" ]]; then
-  pyenv () {
-    if ! (($path[(Ie)${PYENV_ROOT}/bin])); then
-      path[1,0]="${PYENV_ROOT}/bin"
-    fi
-    eval "$(command pyenv init -)"
-    pyenv "$@"
-    unfunction pyenv
-  }
-else
-  unset PYENV_ROOT
-fi
+# PYENV_ROOT="${HOME}/.pyenv"
+# if [[ -d "$PYENV_ROOT}" ]]; then
+#   pyenv () {
+#     if ! (($path[(Ie)${PYENV_ROOT}/bin])); then
+#       path[1,0]="${PYENV_ROOT}/bin"
+#     fi
+#     eval "$(command pyenv init -)"
+#     pyenv "$@"
+#     unfunction pyenv
+#   }
+# else
+#   unset PYENV_ROOT
+# fi
 
 # fnm
 FNM_PATH="/home/nnethercott/.local/share/fnm"
@@ -118,3 +122,5 @@ alias nvm="fnm"
 # export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+source /home/nnethercott/.dmake/config.sh
