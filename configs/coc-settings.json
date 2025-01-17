@@ -1,0 +1,43 @@
+{
+    "colors.enable": true,
+    "python.jediEnabled": false,
+    "pyright.enable": true,
+    "pyright.disableCompletion": false,
+    "pyright.disableDiagnostics": false,
+    "pyright.organizeimports.provider": "ruff",
+    "python.analysis.typeCheckingMode": "off",
+    "python.analysis.useLibraryCodeForTypes": false,
+    "pyright.inlayHints.variableTypes": false,
+    "pyright.inlayHints.parameterTypes": false,
+    "python.linting.enabled": true,
+    "python.analysis.stubPath": "typings",
+    "python.analysis.exclude": [
+        "**/node_modules",
+        "**/__pycache__",
+        "**/build",
+        "**/.venv"
+    ],
+    "python.pythonPath": "python",
+    "ruff": {
+        "enable": true,
+        "autoFixOnSave": false,
+        "disableDocumentFormatting": false,
+        "fixAll": true
+    },
+    "rust-analyzer.enable": true,
+    "rust-analyzer.cargo.autoreload": true,
+    "rust-analyzer.checkOnSave": false,
+    "coc.preferences.formatOnSaveTimeout": 200,
+    "coc.preferences.formatOnSave": false,
+    "flutter.enabled": true,
+    "flutter.provider.enableSnippet": true,
+    "list.source.FlutterSDKs.defaultArgs": [],
+    "flutter.sdk.path": "/home/nnethercott/development/flutter/bin/flutter",
+    "workspace.ignoredFolders": [
+        "$HOME",
+        "$HOME/.cargo/**",
+        "$HOME/.rustup/**",
+        "$HOME/pkg/mod/**",
+        "$HOMEBREW_PREFIX/**"
+    ]
+}
