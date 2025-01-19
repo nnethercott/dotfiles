@@ -57,16 +57,16 @@ let g:tokyonight_enable_italic = 1
 colorscheme tokyonight
 " colorscheme ayu
 
-" Some nice colors
+" Some nice colors for side cols
 " Set signcolumn and foldcolumn to match Normal highlight group
 highlight SignColumn guifg=#a9b1d6 guibg=#1a1b26
 highlight FoldColumn guifg=#a9b1d6 guibg=#1a1b26
 
-" Disable background for GitGutter signs
-highlight GitGutterAdd    guibg=NONE guifg=#00ff00  " Adjust colors as needed
-highlight GitGutterChange guibg=NONE guifg=#3e72c7  " Adjust colors as needed
+highlight GitGutterAdd guibg=NONE guifg=#50C878  " Adjust colors as needed
+highlight GitGutterChange guibg=NONE guifg=#87CEEB  " Adjust colors as needed
 highlight GitGutterDelete guibg=NONE guifg=#ff0000  " Adjust colors as needed
-highlight GitGutter   guibg=NONE guifg=NONE   " Reset all GitGutter signs' highlights
+highlight CocWarningSign guifg=NONE guifg=#ffcc00
+highlight CocErrorSign guifg=NONE guifg=#D2042D
 
 " whitespace visualization
 highlight link ExtraWhitespace IncSearch
@@ -97,6 +97,9 @@ let g:airline_section_z = airline#section#create(['%3p%%', ':%l/%L'])
 " gitgutter
 autocmd BufWritePost * GitGutter
 let g:gitgutter_sign_allow_clobber=1
+let g:gitgutter_sign_added ='┃'
+let g:gitgutter_sign_modified ='┃'
+let g:gitgutter_sign_removed ='_'
 
 " fzf
 nmap <leader>rg :Rg<CR>
