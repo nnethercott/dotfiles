@@ -19,6 +19,7 @@ Plug 'junegunn/gv.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'preservim/nerdtree'
+Plug 'ryanoasis/vim-devicons'
 Plug 'tpope/vim-surround'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'ntpeters/vim-better-whitespace'
@@ -32,7 +33,8 @@ Plug 'preservim/tagbar'
 
 "language
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" Plug 'dart-lang/dart-vim-plugin'
+" Plug 'ervandew/supertab'
+Plug 'dart-lang/dart-vim-plugin'
 call plug#end()
 
 " Tagbar
@@ -47,12 +49,24 @@ set termguicolors
 set foldcolumn=0
 set signcolumn=yes
 
-let ayucolor="mirage"   " for dark version of theme
+let ayucolor="dark"   " for dark version of theme
+" let ayucolor="mirage"
 
 let g:tokyonight_style = 'night' " available: night, storm
 let g:tokyonight_enable_italic = 1
 colorscheme tokyonight
 " colorscheme ayu
+
+" Some nice colors
+" Set signcolumn and foldcolumn to match Normal highlight group
+highlight SignColumn guifg=#a9b1d6 guibg=#1a1b26
+highlight FoldColumn guifg=#a9b1d6 guibg=#1a1b26
+
+" Disable background for GitGutter signs
+highlight GitGutterAdd    guibg=NONE guifg=#00ff00  " Adjust colors as needed
+highlight GitGutterChange guibg=NONE guifg=#3e72c7  " Adjust colors as needed
+highlight GitGutterDelete guibg=NONE guifg=#ff0000  " Adjust colors as needed
+highlight GitGutter   guibg=NONE guifg=NONE   " Reset all GitGutter signs' highlights
 
 " whitespace visualization
 highlight link ExtraWhitespace IncSearch
@@ -63,29 +77,7 @@ nnoremap <leader>gb :<C-u>call gitblame#echo()<CR>
 " symbol highlighting
 " coc-highlight
 " autocmd CursorHold * silent call CocActionAsync('highlight')
-" autocmd ColorScheme * highlight CocHighlightText     term=bold,reverse ctermfg=0 ctermbg=121 guifg=#a9b1d6 guibg=#32344a
-" ToolbarLine
 
-" vim-illuminate
-" let g:Illuminate_delay = 0
-
-" augroup illuminate_augroup
-"     autocmd!
-"     autocmd VimEnter * hi link illuminatedWord Visual
-" augroup END
-
-" adds underline to stuff
-" augroup illuminate_augroup
-"     autocmd!
-"     autocmd VimEnter * hi illuminatedWord cterm=underline gui=underline
-" augroup END
-
-" augroup illuminate_augroup
-"     autocmd!
-"     autocmd VimEnter * hi illuminatedCurWord cterm=italic gui=italic
-" augroup END
-
-"
 " Show function context after scroll
 let g:context_enabled = 1
 let g:context_add_mappings = 0 "don't add keymaps
@@ -259,7 +251,7 @@ function! ShowDocumentation()
 endfunction
 
 " Highlight the symbol and its references when holding the cursor
-autocmd CursorHold * silent call CocActionAsync('highlight')
+" autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Symbol renaming
 nmap <leader>rn <Plug>(coc-rename)
