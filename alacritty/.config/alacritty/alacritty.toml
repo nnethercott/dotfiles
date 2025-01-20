@@ -1,4 +1,4 @@
-import = [
+general.import = [
   "~/.config/alacritty/alacritty-theme/themes/monokai_charcoal.toml",
   # "~/.config/alacritty/alacritty-theme/themes/xterm.toml"
 ]
@@ -14,8 +14,9 @@ padding.y = 0
 
 decorations = "Full"
 decorations_theme_variant = "Light" # "Dark"
-
 startup_mode = "Maximized"
+
+option_as_alt = "OnlyLeft"
 
 [font]
 size = 12

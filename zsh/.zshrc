@@ -45,7 +45,7 @@ setopt sharehistory
 setopt hist_ignore_space
 
 # https://www.reddit.com/r/linux4noobs/comments/tkvs8o/kitty_terminal_with_ssh_issues/
-export TERM=xterm-256color
+# export TERM=xterm-256color
 
 # binaries
 export PATH="$PATH:$HOME/.local/bin"
@@ -72,7 +72,7 @@ alias rgf='rg --files | rg'
 export PATH=$PATH:/usr/local/go/bin
 
 # uv
-eval "$(uv generate-shell-completion zsh)"
+# eval "$(uv generate-shell-completion zsh)"
 
 # libtorch
 export LIBTORCH=~/libtorch
@@ -93,21 +93,6 @@ export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
-# pyenv lazy
-# PYENV_ROOT="${HOME}/.pyenv"
-# if [[ -d "$PYENV_ROOT}" ]]; then
-#   pyenv () {
-#     if ! (($path[(Ie)${PYENV_ROOT}/bin])); then
-#       path[1,0]="${PYENV_ROOT}/bin"
-#     fi
-#     eval "$(command pyenv init -)"
-#     pyenv "$@"
-#     unfunction pyenv
-#   }
-# else
-#   unset PYENV_ROOT
-# fi
-
 # fnm
 FNM_PATH="/home/nnethercott/.local/share/fnm"
 if [ -d "$FNM_PATH" ]; then
@@ -122,5 +107,3 @@ alias nvm="fnm"
 # export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-source /home/nnethercott/.dmake/config.sh
