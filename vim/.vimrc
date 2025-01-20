@@ -14,8 +14,6 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-sensible'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive' " needed to display git branch in airline
-Plug 'zivyangll/git-blame.vim'
-Plug 'junegunn/gv.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'preservim/nerdtree'
@@ -25,23 +23,15 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'ntpeters/vim-better-whitespace'
 " themes
 Plug 'ghifarit53/tokyonight-vim'
-Plug 'ayu-theme/ayu-vim'
-Plug 'joshdick/onedark.vim'
 Plug 'RRethy/vim-illuminate'
-Plug 'preservim/tagbar'
+Plug 'Yggdroot/indentLine'
+" cool but slow ://
+" Plug 'preservim/tagbar'
 " Plug 'wellle/context.vim'
 
-"language
+"language-stuff
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" Plug 'ervandew/supertab'
-Plug 'dart-lang/dart-vim-plugin'
 call plug#end()
-
-" Tagbar
-nmap <leader>w :TagbarToggle<CR>
-
-"context
-" let g:context_nvim_no_redraw = 1
 
 " Terminal
 syntax on
@@ -49,30 +39,32 @@ set termguicolors
 set foldcolumn=0
 set signcolumn=yes
 
-let ayucolor="dark"   " for dark version of theme
-" let ayucolor="mirage"
-
 let g:tokyonight_style = 'night' " available: night, storm
 let g:tokyonight_enable_italic = 1
 colorscheme tokyonight
-" colorscheme ayu
 
 " Some nice colors for side cols
+let _green="#50C878"
+let _red = "#FAA0A0	"
+let _blue = "#87CEEB"
+let _yellow = "#fcdb5b"
+
 " Set signcolumn and foldcolumn to match Normal highlight group
 highlight SignColumn guifg=#a9b1d6 guibg=#1a1b26
 highlight FoldColumn guifg=#a9b1d6 guibg=#1a1b26
 
-highlight GitGutterAdd guibg=NONE guifg=#50C878  " Adjust colors as needed
-highlight GitGutterChange guibg=NONE guifg=#87CEEB  " Adjust colors as needed
-highlight GitGutterDelete guibg=NONE guifg=#ff0000  " Adjust colors as needed
-highlight CocWarningSign guifg=NONE guifg=#ffcc00
-highlight CocErrorSign guifg=NONE guifg=#D2042D
+execute 'highlight GitGutterAdd guibg=NONE guifg=' . _green
+execute 'highlight GitGutterChange guibg=NONE guifg=' . _blue
+execute 'highlight GitGutterDelete guibg=NONE guifg=' . _red
+execute 'highlight CocWarningSign guibg=NONE guifg=' . _yellow
+execute 'highlight CocErrorSign guibg=NONE guifg=' . _red
+execute 'highlight CocInfoSign guibg=NONE guifg=' . _blue
+
+" indentation
+let g:indentLine_char = '│'
 
 " whitespace visualization
 highlight link ExtraWhitespace IncSearch
-
-" Git blame
-nnoremap <leader>gb :<C-u>call gitblame#echo()<CR>
 
 " symbol highlighting
 " coc-highlight
@@ -120,12 +112,6 @@ set timeout timeoutlen=150
 " Relative line numbers
 set relativenumber
 set number
-
-" Tabs & indentation
-set tabstop=4
-set shiftwidth=4
-set expandtab
-set autoindent
 
 " Folding
 set nofoldenable
@@ -349,6 +335,7 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
+" loop over placeholders
 let g:coc_snippet_next = '<Tab>'
 let g:coc_snippet_prev = '<S-Tab>'
 
@@ -393,3 +380,11 @@ let g:tagbar_type_rust = {
 
 " Set tab size for Dart files
 autocmd FileType dart setlocal shiftwidth=2 softtabstop=2 expandtab
+
+" Tabs & indentation
+set tabstop=2
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+set autoindent
+
