@@ -21,10 +21,11 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'tpope/vim-surround'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'justinmk/vim-sneak'
 " themes
 Plug 'ghifarit53/tokyonight-vim'
 Plug 'RRethy/vim-illuminate'
-Plug 'Yggdroot/indentLine'
+" Plug 'Yggdroot/indentLine'
 " cool but slow ://
 " Plug 'preservim/tagbar'
 " Plug 'wellle/context.vim'
@@ -383,7 +384,7 @@ autocmd FileType dart setlocal shiftwidth=2 softtabstop=2 expandtab
 
 " Tabs & indentation
 set tabstop=2
-set shiftwidth=4
-set softtabstop=4
+set shiftwidth=2
+set softtabstop=2
 set expandtab
 set autoindent
