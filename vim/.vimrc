@@ -5,7 +5,6 @@ let mapleader = " "
 
 " vim plug
 call plug#begin()
-Plug 'sheerun/vim-polyglot'
 Plug 'lilydjwg/colorizer'
 Plug 'jiangmiao/auto-pairs'
 Plug 'vim-airline/vim-airline'
@@ -21,16 +20,22 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'tpope/vim-surround'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'justinmk/vim-sneak'
+" Plug 'easymotion/vim-easymotion'
+
 " themes
 Plug 'ghifarit53/tokyonight-vim'
 Plug 'RRethy/vim-illuminate'
-Plug 'Yggdroot/indentLine'
+Plug 'sheerun/vim-polyglot'
+" Plug 'Yggdroot/indentLine'
+
 " cool but slow ://
 " Plug 'preservim/tagbar'
 " Plug 'wellle/context.vim'
 
 "language-stuff
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'dart-lang/dart-vim-plugin'
 call plug#end()
 
 " Terminal
@@ -43,15 +48,14 @@ let g:tokyonight_style = 'night' " available: night, storm
 let g:tokyonight_enable_italic = 1
 colorscheme tokyonight
 
-" Some nice colors for side cols
+"" Set signcolumn and foldcolumn to match Normal highlight group
+highlight SignColumn guifg=#a9b1d6 guibg=#1a1b26
+highlight FoldColumn guifg=#a9b1d6 guibg=#1a1b26
+
 let _green="#50C878"
 let _red = "#FAA0A0	"
 let _blue = "#87CEEB"
 let _yellow = "#fcdb5b"
-
-" Set signcolumn and foldcolumn to match Normal highlight group
-highlight SignColumn guifg=#a9b1d6 guibg=#1a1b26
-highlight FoldColumn guifg=#a9b1d6 guibg=#1a1b26
 
 execute 'highlight GitGutterAdd guibg=NONE guifg=' . _green
 execute 'highlight GitGutterChange guibg=NONE guifg=' . _blue
@@ -65,6 +69,7 @@ let g:indentLine_char = '│'
 
 " whitespace visualization
 highlight link ExtraWhitespace IncSearch
+nmap <leader>ww :StripWhitespace<CR>
 
 " symbol highlighting
 " coc-highlight
@@ -94,20 +99,33 @@ let g:gitgutter_sign_modified ='┃'
 let g:gitgutter_sign_removed ='_'
 
 " fzf
+let $FZF_DEFAULT_OPTS = '--bind tab:up,shift-tab:down'
+
 nmap <leader>rg :Rg<CR>
 nmap <leader>f :Files<CR>
 nmap <leader>fr :Files ~<CR>
-"
+
 " NERDTree
 nnoremap <leader>e :NERDTreeToggle<CR>
 nnoremap <leader>ef :NERDTreeFind<CR>
 let g:NERDTreeWinPos = "left"
+
+" If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
+autocmd BufEnter * if winnr() == winnr('h') && bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
+    \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
 
 " changes the pop up color
 highlight Pmenu ctermbg=236 ctermfg=255 guibg=#2e2e2e guifg=#ffffff
 
 " timeout
 set timeout timeoutlen=150
+
+" tabs & indentation
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set expandtab
+set autoindent
 
 " Relative line numbers
 set relativenumber
@@ -339,52 +357,5 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 let g:coc_snippet_next = '<Tab>'
 let g:coc_snippet_prev = '<S-Tab>'
 
-" tagbar
-" let $TMPDIR=$HOME . '/.tmp'
-let g:rust_use_custom_ctags_defs = 1
-
-let g:tagbar_type_rust = {
-  \ 'ctagsbin' : '/usr/local/bin/ctags',
-  \ 'ctagstype' : 'rust',
-  \ 'kinds' : [
-      \ 'n:modules',
-      \ 's:structures:1',
-      \ 'i:interfaces',
-      \ 'c:implementations',
-      \ 'f:functions:1',
-      \ 'g:enumerations:1',
-      \ 't:type aliases:1:0',
-      \ 'C:constants:1:0',
-      \ 'M:macros:1',
-      \ 'm:fields:1:0',
-      \ 'e:enum variants:1:0',
-      \ 'P:methods:1',
-  \ ],
-  \ 'sro': '::',
-  \ 'kind2scope' : {
-      \ 'n': 'module',
-      \ 's': 'struct',
-      \ 'i': 'interface',
-      \ 'c': 'implementation',
-      \ 'f': 'function',
-      \ 'g': 'enum',
-      \ 't': 'typedef',
-      \ 'v': 'variable',
-      \ 'M': 'macro',
-      \ 'm': 'field',
-      \ 'e': 'enumerator',
-      \ 'P': 'method',
-  \ },
-\ }
-
-
 " Set tab size for Dart files
 autocmd FileType dart setlocal shiftwidth=2 softtabstop=2 expandtab
-
-" Tabs & indentation
-set tabstop=2
-set shiftwidth=4
-set softtabstop=4
-set expandtab
-set autoindent
-
