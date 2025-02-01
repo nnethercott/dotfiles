@@ -1,18 +1,17 @@
+# https://stackoverflow.com/questions/66338988/complete13-command-not-found-compdef
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# extra completions
+fpath+=$HOME/.zfunc
+autoload -U +X compinit && compinit -C
+
 # antitode
 source $HOME/.antidote/antidote.zsh
 zsh_plugins=$HOME/.zsh_plugins
-[[ -f ${zsh_plugins}.txt || -L ${zsh_plugins}.txt ]] || touch ${zsh_plugins}.txt
+[ -f ${zsh_plugins}.txt ] || touch ${zsh_plugins}.txt
 antidote load
-
-# ZSH_THEME="natenethercott"
-
-# extra completions
-fpath+=$HOME/.zfunc
-autoload -U +X compinit && compinit
 
 # history (persists across windows)
 HISTSIZE=5000
@@ -24,9 +23,9 @@ setopt sharehistory
 setopt hist_ignore_space
 
 # https://www.reddit.com/r/linux4noobs/comments/tkvs8o/kitty_terminal_with_ssh_issues/
-# export TERM=xterm-256color
+export TERM=xterm-256color
 
-# binaries
+# # binaries
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$HOME/.cargo/bin:$PATH"  #cargo
 export PATH=$PATH:/usr/local/go/bin #go
@@ -35,7 +34,7 @@ export PATH="$PATH:/opt/android-studio/bin" #android studio
 export PATH="$PATH:$HOME/.pub-cache/bin" #pub
 export PATH="$PATH:/opt/nvim-linux64/bin"  #nvim
 
-# k8s stuff
+# # k8s stuff
 alias kubectl="kubecolor"
 alias k='kubectl'
 alias kx='kubectx'
@@ -44,26 +43,19 @@ alias kn='kubens'
 # cargo
 alias rgf='rg --files | rg'
 
-# flutter
-export JAVA_HOME="/usr/lib/jvm/java-17-openjdk-amd64"
+# pyenv (not sure if i actually need this)
+# export PYENV_ROOT="$HOME/.pyenv"
+# [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init - --no-rehash zsh)"
 
-# pyenv old
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-
-# fnm
+# # fnm
 FNM_PATH="/home/nnethercott/.local/share/fnm"
 if [ -d "$FNM_PATH" ]; then
   export PATH="/home/nnethercott/.local/share/fnm:$PATH"
   eval "`fnm env`"
 fi
-source <(fnm completions --shell zsh)
 eval "$(fnm env --use-on-cd --shell zsh)"
 alias nvm="fnm"
 
-# FIXING VIM COLORS
-export TERM=xterm-256color
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+# # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh  ]] || source ~/.p10k.zsh
