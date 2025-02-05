@@ -5,7 +5,12 @@ fi
 # antitode
 source $HOME/.antidote/antidote.zsh
 zsh_plugins=$HOME/.zsh_plugins
+# ZSH_THEME="natenethercott"
 [[ -f ${zsh_plugins}.txt || -L ${zsh_plugins}.txt ]] || touch ${zsh_plugins}.txt
+
+# zsh-autosuggest
+# bindkey '^ ' autosuggest-accept
+
 antidote load
 
 # ZSH_THEME="natenethercott"
@@ -16,9 +21,9 @@ autoload -U +X compinit && compinit
 
 # history (persists across windows)
 HISTSIZE=5000
-HISTFILE=~/.zsh_history
+HISTFILE=~/.local/share/zsh/history
 SAVE_HIST=$HISTFILE
-HISTDUP=erase
+setopt hist_ignore_all_dups
 setopt appendhistory
 setopt sharehistory
 setopt hist_ignore_space
@@ -36,13 +41,13 @@ export PATH="$PATH:$HOME/.pub-cache/bin" # pub
 export PATH="$PATH:/opt/nvim-linux64/bin"  #nvim
 
 # k8s stuff
-alias kubectl="kubecolor"
 alias k='kubectl'
 alias kx='kubectx'
 alias kn='kubens'
 
-# cargo
+# misc aliases
 alias rgf='rg --files | rg'
+alias ls="ls --color=auto"
 
 # libtorch
 # export LIBTORCH=~/libtorch
@@ -62,8 +67,6 @@ if [ -d "$FNM_PATH" ]; then
   export PATH="/home/nnethercott/.local/share/fnm:$PATH"
   eval "`fnm env`"
 fi
-source <(fnm completions --shell zsh)
-eval "$(fnm env --use-on-cd --shell zsh)"
 alias nvm="fnm"
 
 # deepomatic
