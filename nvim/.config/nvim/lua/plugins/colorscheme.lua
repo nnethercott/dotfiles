@@ -2,6 +2,7 @@ return {
   {
     "folke/tokyonight.nvim",
     priority = 1000,
+    enabled = true,
     config = function()
       local transparent = false
 
@@ -22,7 +23,7 @@ return {
     enabled = false,
     lazy = false,
     priority = 1000,
-    config = function ()
+    config = function()
       vim.cmd("colorscheme nightfly")
     end
   },
