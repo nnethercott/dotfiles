@@ -1,18 +1,29 @@
 return {
-  "folke/tokyonight.nvim",
-  priority = 1000,
-  config = function()
-    local transparent = false
+  {
+    "folke/tokyonight.nvim",
+    priority = 1000,
+    config = function()
+      local transparent = false
 
-    require("tokyonight").setup({
-      style = "night",
-      transparent = transparent,
-      styles = {
-        sidebars = transparent and "transparent" or "dark",
-        floats = transparent and "transparent" or "dark",
-      },
-    })
+      require("tokyonight").setup({
+        style = "night",
+        transparent = transparent,
+        styles = {
+          sidebars = transparent and "transparent" or "dark",
+          floats = transparent and "transparent" or "dark",
+        },
+      })
 
-    vim.cmd("colorscheme tokyonight")
-  end,
+      vim.cmd("colorscheme tokyonight")
+    end,
+  },
+  {
+    "bluz71/vim-nightfly-colors",
+    enabled = false,
+    lazy = false,
+    priority = 1000,
+    config = function ()
+      vim.cmd("colorscheme nightfly")
+    end
+  },
 }

@@ -5,8 +5,8 @@ return {
         local lint = require('lint')
 
       lint.linters_by_ft = {
-        rust = {'clippy'},
-        -- python = {'ruff'}
+        -- rust = {'clippy'},
+        python = {'ruff'},
       }
 
       vim.api.nvim_create_autocmd({ "BufWritePost", "BufEnter" }, {
