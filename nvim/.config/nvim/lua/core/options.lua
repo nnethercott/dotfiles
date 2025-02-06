@@ -41,3 +41,4 @@ o.clipboard:append({ "unnamedplus", "unnamed" })
 -- Split windows
 o.splitright = true
 o.splitbelow = true
+

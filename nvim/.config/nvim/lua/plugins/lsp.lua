@@ -58,10 +58,10 @@ return {
       -- used to enable autocompletion (assign to every lsp server config)
       local capabilities = cmp_nvim_lsp.default_capabilities()
 
-      -- restrict hover width
+      -- restrict hover width to range
       vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
         vim.lsp.handlers.hover, {
-          border = "single", -- Optional: Adds border to hover window
+          border = "rounded", -- Optional: Adds border to hover window
           max_width = 65,
           max_height = 20
         }
