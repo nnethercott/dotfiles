@@ -5,9 +5,12 @@ return {
       local conform = require('conform')
       conform.setup({
         lua = { "stylua" },
-        rust = { "rustfmt", lsp_format = "fallback" },
-        -- python = {"ruff_format", "ruff_organize_imports", "ruff_fix"}
-
+        rust = {
+          command = "rustfmt",
+          lsp_format = "fallback",
+          args = { "--config", "tab_spaces=2" }, -- doesn't work :(
+        },
+        python = { "ruff_format" },
         -- passes this table to conform.format() and enables
         -- OR we define the au_group (below)
         -- format_on_save = {
@@ -25,13 +28,6 @@ return {
           timeout_ms = 500,
         })
       end)
-
-      vim.api.nvim_create_autocmd("BufWritePre", {
-        pattern = "*",
-        callback = function(args)
-          require("conform").format({ bufnr = args.buf })
-        end,
-      })
     end
   }
 }
