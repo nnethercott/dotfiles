@@ -32,6 +32,7 @@ Plug 'RRethy/vim-illuminate'
 
 "language-stuff
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'wuelnerdotexe/vim-astro'
 call plug#end()
 
 " Terminal
@@ -122,7 +123,7 @@ set ignorecase
 set smartcase
 
 " Cursor line
-set cursorline
+set nocursorline
 
 " Backspace settings
 set backspace=indent,eol,start
@@ -339,45 +340,6 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 " loop over placeholders
 let g:coc_snippet_next = '<Tab>'
 let g:coc_snippet_prev = '<S-Tab>'
-
-" tagbar
-" let $TMPDIR=$HOME . '/.tmp'
-let g:rust_use_custom_ctags_defs = 1
-
-let g:tagbar_type_rust = {
-  \ 'ctagsbin' : '/usr/local/bin/ctags',
-  \ 'ctagstype' : 'rust',
-  \ 'kinds' : [
-      \ 'n:modules',
-      \ 's:structures:1',
-      \ 'i:interfaces',
-      \ 'c:implementations',
-      \ 'f:functions:1',
-      \ 'g:enumerations:1',
-      \ 't:type aliases:1:0',
-      \ 'C:constants:1:0',
-      \ 'M:macros:1',
-      \ 'm:fields:1:0',
-      \ 'e:enum variants:1:0',
-      \ 'P:methods:1',
-  \ ],
-  \ 'sro': '::',
-  \ 'kind2scope' : {
-      \ 'n': 'module',
-      \ 's': 'struct',
-      \ 'i': 'interface',
-      \ 'c': 'implementation',
-      \ 'f': 'function',
-      \ 'g': 'enum',
-      \ 't': 'typedef',
-      \ 'v': 'variable',
-      \ 'M': 'macro',
-      \ 'm': 'field',
-      \ 'e': 'enumerator',
-      \ 'P': 'method',
-  \ },
-\ }
-
 
 " Set tab size for Dart files
 autocmd FileType dart setlocal shiftwidth=2 softtabstop=2 expandtab
