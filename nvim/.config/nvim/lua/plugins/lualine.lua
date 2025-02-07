@@ -9,8 +9,6 @@ return {
         options = {
           theme = 'auto', -- uses colorscheme
           icons_enabled = true,
-          -- component_separators = { left = '', right = ''},
-          -- section_separators = { left = '', right = ''},
           section_separators = { left = '', right = ''},
           component_separators = { left = '', right = ''}, -- │
           refresh = {
@@ -35,14 +33,4 @@ return {
       }
     end
   },
-  -- bufferline (tabline alt)
-  {
-    'akinsho/bufferline.nvim',
-    enabled = false,
-    version = "*",
-    dependencies = { 'nvim-tree/nvim-web-devicons' },
-    config = function ()
-       require('bufferline').setup()
-    end
-  }
 }

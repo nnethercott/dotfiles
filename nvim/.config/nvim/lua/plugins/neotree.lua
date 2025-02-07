@@ -15,7 +15,7 @@ return {
                 position = "left",
                 width = 32,
             },
-            use_popups_for_input = true,
+            use_popups_for_input = false,
         })
 
 

@@ -6,5 +6,18 @@ return {
     config = function()
       require("fidget").setup()
     end
+  },
+  {
+    "rcarriga/nvim-notify",
+    enabled = true,
+    config = function()
+      local notify = require("notify")
+      vim.notify = notify
+      notify.setup({
+        render = "compact",
+        stages = "static",
+        timeout = 2500,
+      })
+    end
   }
 }
