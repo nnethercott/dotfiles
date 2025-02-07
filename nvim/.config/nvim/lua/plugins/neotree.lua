@@ -1,5 +1,6 @@
 return {
     "nvim-neo-tree/neo-tree.nvim",
+    enabled = true,
     lazy = false,
     priority = 2,
     branch = "v3.x",
@@ -13,7 +14,8 @@ return {
             window = {
                 position = "left",
                 width = 32,
-            }
+            },
+            use_popups_for_input = true,
         })
 
 

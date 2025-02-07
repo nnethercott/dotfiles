@@ -49,6 +49,9 @@ alias kn='kubens'
 alias rgf='rg --files | rg'
 alias ls="ls --color=auto"
 
+# fzf 
+export FZF_DEFAULT_OPTS='--bind=tab:down,shift-tab:up'
+
 # libtorch
 # export LIBTORCH=~/libtorch
 # export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/libtorch/lib
