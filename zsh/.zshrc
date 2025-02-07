@@ -48,6 +48,9 @@ alias rgf='rg --files | rg'
 # [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 # eval "$(pyenv init - --no-rehash zsh)"
 
+# fzf
+export FZF_DEFAULT_OPTS='--bind=tab:down,shift-tab:up'
+
 # # fnm
 FNM_PATH="/home/nnethercott/.local/share/fnm"
 if [ -d "$FNM_PATH" ]; then

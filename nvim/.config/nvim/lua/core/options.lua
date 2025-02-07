@@ -1,4 +1,6 @@
 local o = vim.opt
+vim.hl = vim.highlight
+
 vim.g.mapleader = " "
 
 -- using tree sitter we can modify highlight groups !
@@ -12,6 +14,7 @@ o.relativenumber = true
 o.number = true
 
 o.termguicolors = true
+o.syntax = "enable"
 o.syntax = "on"
 o.signcolumn = "yes"
 -- o.foldcolumn = "yes"
@@ -36,7 +39,7 @@ o.cursorline = false
 o.backspace = { "indent", "eol", "start" }
 
 -- Clipboard
-o.clipboard:append({ "unnamedplus", "unnamed" })
+vim.o.clipboard = "unnamedplus"
 
 -- Split windows
 o.splitright = true

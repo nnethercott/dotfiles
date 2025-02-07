@@ -2,6 +2,7 @@ return {
   -- mason
   {
     "williamboman/mason.nvim",
+    enabled = true,
     dependencies = {
       "williamboman/mason-lspconfig.nvim",
     },
@@ -16,6 +17,9 @@ return {
           "rust_analyzer", -- rust
           "ruff",          -- python
           "pyright",
+          "ast_grep",      -- dart
+          "dockerls",      -- docker
+          "yamlls",        --yaml
         }
       })
     end
@@ -24,6 +28,7 @@ return {
   -- lspconfig (should go after mason)
   {
     "neovim/nvim-lspconfig",
+    enabled = true,
     event = { "BufReadPre", "BufNewFile" }, -- load plugin on new buffers
     dependencies = {
       "nvim-lua/plenary.nvim",
@@ -42,8 +47,8 @@ return {
       local on_attach = function(client, bufnr)
         opts.buffer = bufnr
 
-        keymap.set("n", "<leader>d", vim.lsp.buf.hover, opts)
         keymap.set({ "n", "x" }, "<leader>a", vim.lsp.buf.code_action, opts)
+        keymap.set("n", "<leader>d", vim.lsp.buf.hover, opts)
         keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
         keymap.set("n", "gd", vim.lsp.buf.definition, opts)
         keymap.set("n", "gr", vim.lsp.buf.references, opts)
@@ -58,12 +63,12 @@ return {
       -- used to enable autocompletion (assign to every lsp server config)
       local capabilities = cmp_nvim_lsp.default_capabilities()
 
-      -- restrict hover width to range
+      -- hover style
       vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
         vim.lsp.handlers.hover, {
-          border = "rounded", -- Optional: Adds border to hover window
+          border = "none",
           max_width = 65,
-          max_height = 20
+          max_height = 20,
         }
       )
 
@@ -78,8 +83,8 @@ return {
         end
       })
 
-    lspconfig.rust_analyzer.setup({
-        filetypes = { "python" },
+      lspconfig.rust_analyzer.setup({
+        filetypes = { "rust" },
         on_attach = on_attach,
         capabilities = capabilities,
 
@@ -112,6 +117,18 @@ return {
             }
           }
         }
+      })
+
+      -- lua add `vim` to global
+      lspconfig.lua_ls.setup({
+        capabilities = capabilities,
+        settings = {
+          Lua = {
+            diagnostics = {
+              globals = { "vim" },
+            },
+          },
+        },
       })
 
       -- change icons in gutter
