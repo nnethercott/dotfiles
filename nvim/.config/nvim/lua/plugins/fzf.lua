@@ -5,7 +5,21 @@ return {
     opts = {},
     config = function()
       require('fzf-lua').setup({
-        'hide'
+        'telescope',
+        winopts = {
+          height = 0.40,
+          width = 0.70,
+          backdrop = 100,
+
+          preview = {
+            hidden       = true,
+            border       = "rounded",
+            layout       = "flex",
+            vertical     = "up:62%",    -- up|down:size
+            horizontal   = "right:60%", -- right|left:size
+            flip_columns = 90,
+          }
+        },
       })
 
       local keymap = vim.keymap -- for conciseness

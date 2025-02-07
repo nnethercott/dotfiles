@@ -18,13 +18,4 @@ return {
       vim.cmd("colorscheme tokyonight")
     end,
   },
-  {
-    "bluz71/vim-nightfly-colors",
-    enabled = false,
-    lazy = false,
-    priority = 1000,
-    config = function()
-      vim.cmd("colorscheme nightfly")
-    end
-  },
 }

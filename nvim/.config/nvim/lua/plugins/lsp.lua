@@ -60,17 +60,18 @@ return {
         -- keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", opts) -- show  diagnostics for file
       end
 
+      -- hover style
+      -- vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
+      --   vim.lsp.handlers.hover, {
+      --     border = "none",
+      --     max_width = 65,
+      --     max_height = 20,
+      --   }
+      -- )
+
       -- used to enable autocompletion (assign to every lsp server config)
       local capabilities = cmp_nvim_lsp.default_capabilities()
 
-      -- hover style
-      vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
-        vim.lsp.handlers.hover, {
-          border = "none",
-          max_width = 65,
-          max_height = 20,
-        }
-      )
 
       -- LSP SETUP
       -- default handler for installed servers

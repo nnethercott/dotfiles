@@ -5,11 +5,7 @@ return {
       local conform = require('conform')
       conform.setup({
         lua = { "stylua" },
-        rust = {
-          command = "rustfmt",
-          lsp_format = "fallback",
-          args = { "--config", "tab_spaces=2" }, -- doesn't work :(
-        },
+        rust = {"rustfmt"},
         python = { "ruff_format" },
         dart = {"dart_format"},
         -- passes this table to conform.format() and enables
