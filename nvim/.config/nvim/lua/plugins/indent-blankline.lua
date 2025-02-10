@@ -5,8 +5,6 @@ return {
   config = function()
     require("ibl").setup({
       indent = { char = "│" },
-      -- whitespace = {char = "..."},
-
       scope = {
         enabled = true,
         show_start = false,
