@@ -16,7 +16,7 @@ return {
       notify.setup({
         render = "compact",
         stages = "static",
-        timeout = 2500,
+        timeout = 3000,
       })
     end
   }

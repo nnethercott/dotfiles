@@ -48,5 +48,13 @@ return {
         -- Configuration here, or leave empty to use defaults
       })
     end
+  },
+  -- comments
+  {
+    'numToStr/Comment.nvim',
+    config = function ()
+      require('Comment').setup()
+    end
   }
+
 }

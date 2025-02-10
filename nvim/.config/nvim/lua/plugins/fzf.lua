@@ -25,6 +25,7 @@ return {
       local keymap = vim.keymap -- for conciseness
       keymap.set("n", "<leader>f", ":FzfLua files<cr>", { desc = "Fuzzy find files in cwd" })
       keymap.set("n", "<leader>fr", ":FzfLua oldfiles<cr>", { desc = "Fuzzy find old files" })
+      keymap.set("n", "<leader>fb", ":FzfLua buffers<cr>", { desc = "get open buffers" })
       keymap.set("n", "<leader>rg", ":FzfLua live_grep<cr>", { desc = "live grep" })
 
       -- lsp commands
