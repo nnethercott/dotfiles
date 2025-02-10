@@ -48,7 +48,7 @@ return {
         opts.buffer = bufnr
 
         keymap.set({ "n", "x" }, "<leader>a", vim.lsp.buf.code_action, opts)
-        keymap.set("n", "<leader>d", vim.lsp.buf.hover, opts)
+        -- keymap.set("n", "<leader>d", vim.lsp.buf.hover, opts)
         keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
         keymap.set("n", "gd", vim.lsp.buf.definition, opts)
         keymap.set("n", "gr", vim.lsp.buf.references, opts)
@@ -82,6 +82,12 @@ return {
             capabilities = capabilities,
           })
         end
+      })
+
+      -- dartls not managed by mason
+      lspconfig.dartls.setup({
+            on_attach = on_attach,
+            capabilities = capabilities,
       })
 
       lspconfig.rust_analyzer.setup({
