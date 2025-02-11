@@ -1,7 +1,7 @@
 return {
     "nvim-neo-tree/neo-tree.nvim",
     enabled = true,
-    lazy = false,
+    event = "VeryLazy",
     priority = 2,
     branch = "v3.x",
     dependencies = {
