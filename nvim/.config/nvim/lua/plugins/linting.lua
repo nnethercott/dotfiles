@@ -1,7 +1,7 @@
 return {
   {
     "mfussenegger/nvim-lint",
-    enabled = true,
+    event = { "BufReadPre", "BufWritePost" }, -- load plugin on new buffers
     config = function ()
         local lint = require('lint')
 

@@ -3,6 +3,7 @@ return {
   {
     "norcalli/nvim-colorizer.lua",
     enabled = true,
+    event = "VeryLazy",
     config = function()
       require('colorizer').setup()
     end
@@ -11,6 +12,7 @@ return {
   {
     "RRethy/vim-illuminate",
     enabled = true,
+    event = { "BufEnter" },
     config = function()
       require('illuminate').configure({
         -- providers: provider used to get references in the buffer, ordered by priority
@@ -29,13 +31,20 @@ return {
   {
     "ggandor/leap.nvim",
     enabled = true,
+    event = { "BufEnter" },
     config = function()
       require('leap').create_default_mappings()
 
       -- above should be equivalent to this
       vim.keymap.set({ 'n', 'x', 'o' }, 's', '<Plug>(leap-forward)')
       vim.keymap.set({ 'n', 'x', 'o' }, 'S', '<Plug>(leap-backward)')
-      vim.keymap.set({ 'n', 'x', 'o' }, 'gs', '<Plug>(leap-from-window)')
     end
+  },
+  {
+    "dstein64/vim-startuptime",
+    cmd = "StartupTime",
+    config = function()
+      vim.g.startuptime_tries = 10
+    end,
   },
 }
