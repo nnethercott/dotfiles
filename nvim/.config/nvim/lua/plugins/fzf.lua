@@ -14,10 +14,19 @@ return {
           preview = {
             hidden       = true,
             border       = "rounded",
-            layout       = "flex",
+            layout       = "horizontal",
             vertical     = "up:62%",    -- up|down:size
             horizontal   = "right:60%", -- right|left:size
-            flip_columns = 90,
+            flip_columns = 120,
+          }
+        },
+        keymap = {
+          builtin = {
+            ['?'] = 'toggle-preview',
+          },
+          fzf = {
+            ['tab'] = 'up',
+            ['shift-tab'] = 'down',
           }
         },
       })
@@ -27,21 +36,6 @@ return {
       keymap.set("n", "<leader>fr", ":FzfLua oldfiles<cr>", { desc = "Fuzzy find old files" })
       keymap.set("n", "<leader>fb", ":FzfLua buffers<cr>", { desc = "get open buffers" })
       keymap.set("n", "<leader>rg", ":FzfLua live_grep<cr>", { desc = "live grep" })
-
-      -- lsp commands
-      -- keymap.set({ "n" }, "gr", function()
-      --   require('fzf-lua').lsp_references({
-      --     previewer = false,
-      --     -- preview = {},
-      --     winopts = {
-      --       height = 0.2, -- Set height (30% of screen)
-      --       width = 1.0, -- Full width
-      --       row = 1.0, -- Push to the bottom
-      --       border = "none",
-      --       backdrop = 100,
-      --     }
-      --   })
-      -- end, { desc = "LSP references at bottom without preview" })
     end
   }
 }

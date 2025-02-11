@@ -4,8 +4,14 @@ return {
   main = "ibl",
   opts = {
     indent = { char = "│", highlight = "IblIndent" },
-    scope = { char = "│", highlight = "IblScope", enabled = true, show_start = false, show_end = false },
-    exclude = { filetypes = { "lua" } } -- exclude langs here
+    scope = {
+      char = "│",
+      highlight = "IblScope",
+      enabled = true,
+      show_start = false,
+      show_end = false
+    },
+    exclude = { filetypes = { "lua", "yaml"} } -- exclude langs here
   },
   config = function(_, opts)
     require("ibl").setup(opts)

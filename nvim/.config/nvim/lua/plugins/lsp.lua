@@ -56,8 +56,6 @@ return {
         keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
         keymap.set("n", "]g", vim.diagnostic.goto_prev, opts)
         keymap.set("n", "[g", vim.diagnostic.goto_next, opts)
-        keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts)
-        -- keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", opts) -- show  diagnostics for file
       end
 
       -- hover style
