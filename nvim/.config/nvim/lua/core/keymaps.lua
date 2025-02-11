@@ -6,7 +6,7 @@ local map = vim.api.nvim_set_keymap
 map('n', '<C-d>', '<C-d>zz', { noremap = true })
 map('n', '<C-s>', ':w<CR>', { noremap = true })
 map('n', '<C-c>', '<ESC>', { noremap = true })
-map('n', '<leader>qq', '<ESC>:qa<CR>', { noremap = true })
+map('n', 'q', ':cclose<CR>', {noremap = true, silent = true})
 map('n', '<S-l>', ':bnext<CR>', { noremap = true })
 map('n', '<S-h>', ':bprevious<CR>', { noremap = true })
 map('n', '<leader>bd', ':bd<CR>', { noremap = true })
