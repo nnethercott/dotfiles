@@ -1,0 +1,18 @@
+theme = Monokai Remastered
+
+background-opacity = 0.85
+background-blur = false
+
+font-family = JetBrains Mono
+font-size = 13
+
+keybind = alt+left=unbind
+macos-option-as-alt = true
+
+mouse-hide-while-typing=true
+
+window-padding-x=0
+window-padding-y=0
+window-padding-balance=true
+window-padding-color=background
+

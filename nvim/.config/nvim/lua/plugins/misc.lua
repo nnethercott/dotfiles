@@ -8,6 +8,7 @@ return {
       require('colorizer').setup()
     end
   },
+  --
   -- highlight word under cursor
   {
     "RRethy/vim-illuminate",
