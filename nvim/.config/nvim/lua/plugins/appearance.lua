@@ -53,33 +53,4 @@ return {
       vim.keymap.set("n", "<leader>d", hover.hover)
     end
   },
-  -- quickfix
-  {
-    "kevinhwang91/nvim-bqf",
-    ft = "qf",
-    enabled = true,
-    config = function()
-      require("bqf").setup({
-        auto_enable = true,
-        auto_resize_height = true,
-        preview = {
-          win_height = 12,
-          win_vheight = 12,
-          delay_syntax = 50,
-          border = "single",
-          show_scroll_bar = true,
-        },
-        func_map = {
-          open = "<CR>",
-          openc = "o",
-          drop = "O",
-          split = "<C-s>",
-          vsplit = "<C-v>",
-          tab = "<C-t>",
-          prev = "k",
-          next = "j",
-        },
-      })
-    end,
-  }
 }

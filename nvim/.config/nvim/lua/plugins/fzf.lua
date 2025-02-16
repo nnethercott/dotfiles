@@ -6,10 +6,10 @@ return {
     opts = {},
     config = function()
       require('fzf-lua').setup({
-        'telescope',
+        'default',
         winopts = {
-          height = 0.40,
-          width = 0.70,
+          height = 0.50,
+          width = 0.60,
           backdrop = 100,
 
           preview = {
@@ -26,17 +26,23 @@ return {
             ['?'] = 'toggle-preview',
           },
           fzf = {
-            ['tab'] = 'up',
-            ['shift-tab'] = 'down',
+            ['tab'] = 'down',
+            ['shift-tab'] = 'up',
+            ["ctrl-q"] = 'select-all+accept',
           }
         },
+        fzf_opts = {
+          ["--cycle"] = true,
+        }
       })
 
       local keymap = vim.keymap -- for conciseness
       keymap.set("n", "<leader>f", ":FzfLua files<cr>", { desc = "Fuzzy find files in cwd" })
       keymap.set("n", "<leader>fr", ":FzfLua oldfiles<cr>", { desc = "Fuzzy find old files" })
       keymap.set("n", "<leader>fb", ":FzfLua buffers<cr>", { desc = "get open buffers" })
+      keymap.set("n", "<leader>ib", ":FzfLua grep_curbuf<cr>", { desc = "get open buffers" })
       keymap.set("n", "<leader>rg", ":FzfLua live_grep<cr>", { desc = "live grep" })
+
     end
   }
 }

@@ -10,6 +10,7 @@ return {
   },
   --
   -- highlight word under cursor
+
   {
     "RRethy/vim-illuminate",
     enabled = true,
