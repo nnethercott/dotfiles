@@ -1,10 +1,13 @@
+# title = "Ghostty"
 theme = Monokai Remastered
 
+maximize = true
 background-opacity = 0.85
 background-blur = false
 
 font-family = JetBrains Mono
 font-size = 13
+font-feature = -calt, -liga, -dlig  # no ligatures
 
 keybind = alt+left=unbind
 macos-option-as-alt = true
@@ -14,5 +17,9 @@ mouse-hide-while-typing=true
 window-padding-x=0
 window-padding-y=0
 window-padding-balance=true
-window-padding-color=background
+window-padding-color = extend
+window-save-state = always
 
+
+# mac
+# macos-titlebar-proxy-icon=hidden
