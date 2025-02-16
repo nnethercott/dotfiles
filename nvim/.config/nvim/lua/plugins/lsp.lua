@@ -42,31 +42,17 @@ return {
       local mason_lsp = require("mason-lspconfig")
       local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
+      -- keymaps
       local keymap = vim.keymap
-      local opts = { noremap = true, silent = true }
-
-      local on_attach = function(client, bufnr)
-        opts.buffer = bufnr
-
-        keymap.set({ "n", "x" }, "<leader>a", vim.lsp.buf.code_action, opts)
-        -- keymap.set("n", "<leader>d", vim.lsp.buf.hover, opts)
-        keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
-        keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-        keymap.set("n", "gr", vim.lsp.buf.references, opts)
-        keymap.set("n", "gy", vim.lsp.buf.type_definition, opts)
-        keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-        keymap.set("n", "]g", vim.diagnostic.goto_prev, opts)
-        keymap.set("n", "[g", vim.diagnostic.goto_next, opts)
-      end
-
-      -- hover style
-      -- vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
-      --   vim.lsp.handlers.hover, {
-      --     border = "none",
-      --     max_width = 65,
-      --     max_height = 20,
-      --   }
-      -- )
+      keymap.set({ "n", "x" }, "<leader>a", vim.lsp.buf.code_action)
+      -- keymap.set("n", "<leader>d", vim.lsp.buf.hover)
+      keymap.set("n", "<leader>rn", vim.lsp.buf.rename)
+      keymap.set("n", "gd", vim.lsp.buf.definition)
+      keymap.set("n", "gr", vim.lsp.buf.references)
+      keymap.set("n", "gy", vim.lsp.buf.type_definition)
+      keymap.set("n", "gD", vim.lsp.buf.declaration)
+      keymap.set("n", "]g", vim.diagnostic.goto_prev)
+      keymap.set("n", "[g", vim.diagnostic.goto_next)
 
       -- used to enable autocompletion (assign to every lsp server config)
       local capabilities = cmp_nvim_lsp.default_capabilities()
@@ -77,21 +63,18 @@ return {
       mason_lsp.setup_handlers({
         function(server_name)
           lspconfig[server_name].setup({
-            on_attach = on_attach,
             capabilities = capabilities,
           })
         end
       })
 
-      -- dartls not managed by mason
+      -- dartls NOT managed by mason
       lspconfig.dartls.setup({
-            on_attach = on_attach,
             capabilities = capabilities,
       })
 
       lspconfig.rust_analyzer.setup({
         filetypes = { "rust" },
-        on_attach = on_attach,
         capabilities = capabilities,
 
         settings = {
@@ -106,7 +89,6 @@ return {
       -- override pyright defaults
       lspconfig.pyright.setup({
         filetypes = { "python" },
-        on_attach = on_attach,
         capabilities = capabilities,
 
         settings = {
