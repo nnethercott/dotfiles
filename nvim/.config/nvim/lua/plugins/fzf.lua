@@ -42,7 +42,6 @@ return {
       keymap.set("n", "<leader>fb", ":FzfLua buffers<cr>", { desc = "get open buffers" })
       keymap.set("n", "<leader>ib", ":FzfLua grep_curbuf<cr>", { desc = "get open buffers" })
       keymap.set("n", "<leader>rg", ":FzfLua live_grep<cr>", { desc = "live grep" })
-
     end
   }
 }

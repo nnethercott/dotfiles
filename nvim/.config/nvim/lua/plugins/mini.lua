@@ -19,7 +19,7 @@ return {
     require("mini.splitjoin").setup()
     require("mini.surround").setup({
       mappings = {
-        add = 'ys',
+        add = 'ye',
         delete = 'ds',
         replace = 'cs',
         find = 'ef',
