@@ -47,4 +47,10 @@ return {
       vim.g.startuptime_tries = 10
     end,
   },
+  {
+    'numToStr/Comment.nvim',
+    config = function()
+      require('Comment').setup()
+    end
+  },
 }

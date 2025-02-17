@@ -8,7 +8,6 @@ return {
     require("mini.diff").setup({
       view = { style = 'sign', },
     })
-    require("mini.comment").setup()
 
     local trailspace = require("mini.trailspace")
     trailspace.setup({
@@ -18,7 +17,7 @@ return {
     require("mini.splitjoin").setup()
     require("mini.surround").setup({
       mappings = {
-        add = 'e',
+        add = 'ye',
         delete = 'ds',
         replace = 'cs',
         find = 'ef',

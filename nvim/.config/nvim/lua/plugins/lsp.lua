@@ -20,6 +20,7 @@ return {
           "ast_grep",      -- dart
           "dockerls",      -- docker
           "yamlls",        --yaml
+          "ts_ls",         -- typescript
         }
       })
     end

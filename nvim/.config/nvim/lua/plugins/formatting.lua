@@ -9,6 +9,7 @@ return {
         rust = {"rustfmt"},
         python = { "ruff_format" },
         dart = {"dart_format"},
+        typescript = {"biome"},
         -- passes this table to conform.format() and enables
         -- OR we define the au_group (below)
         -- format_on_save = {

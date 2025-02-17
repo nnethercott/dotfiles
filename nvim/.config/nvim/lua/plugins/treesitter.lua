@@ -24,7 +24,8 @@ return {
           "python",
           "yaml",
           "dart",
-          "dockerfile"
+          "dockerfile",
+          "typescript",
         },
       }
     end
