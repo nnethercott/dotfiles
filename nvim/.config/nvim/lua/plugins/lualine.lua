@@ -4,13 +4,13 @@ return {
     'nvim-lualine/lualine.nvim',
     enabled = true,
     dependencies = { 'nvim-tree/nvim-web-devicons' },
-    config = function ()
+    config = function()
       require('lualine').setup {
         options = {
           theme = 'auto', -- uses colorscheme
           icons_enabled = true,
-          section_separators = { left = '', right = ''},
-          component_separators = { left = '', right = ''}, -- │
+          section_separators = { left = '', right = '' },
+          component_separators = { left = '', right = '' }, -- │
           refresh = {
             statusline = 100,
             tabline = 100,
@@ -18,23 +18,38 @@ return {
           }
         },
         sections = {
-          lualine_a = {'mode'},
-          lualine_b = {'branch', 'diff', 'diagnostics'},
+          lualine_a = { 'mode' },
+          lualine_b = { 'branch', 'diff', 'diagnostics' },
           lualine_c = { {
             'filename',
             path = 1,
             shorting_target = 40,
-          }},
-          lualine_x = {'encoding', 'fileformat', 'filetype'},
-          lualine_y = {'progress'},
-          lualine_z = {'location'}
+          } },
+          lualine_x = { 'encoding', 'fileformat', 'filetype' },
+          lualine_y = { 'progress' },
+          lualine_z = { 'location' }
         },
 
         -- show buffers at top of screen
-        tabline = {
-          lualine_a = {'buffers'},
-        }
+        -- tabline = {
+        --   lualine_a = {'buffers'},
+        -- }
       }
     end
+  },
+  {
+    'romgrk/barbar.nvim',
+    dependencies = {
+      'lewis6991/gitsigns.nvim',     -- OPTIONAL: for git status
+      'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
+    },
+    init = function() vim.g.barbar_auto_setup = false end,
+    opts = {
+      -- lazy.nvim will automatically call setup for you. put your options here, anything missing will use the default:
+      -- animation = true,
+      -- insert_at_start = true,
+      -- …etc.
+    },
+    version = '^1.0.0', -- optional: only update when a new 1.x version is released
   },
 }
