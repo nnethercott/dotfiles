@@ -17,8 +17,9 @@ o.termguicolors = true
 o.syntax = "enable"
 o.syntax = "on"
 o.signcolumn = "yes"
--- o.foldcolumn = "yes"
-o.foldenable = false
+
+-- folding
+-- o.foldenable = false
 
 -- Tabs & indentation
 o.tabstop = 2

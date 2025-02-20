@@ -8,14 +8,14 @@ return {
       require('fzf-lua').setup({
         'default',
         winopts = {
-          height = 0.50,
+          height = 0.60,
           width = 0.60,
           backdrop = 100,
 
           preview = {
             hidden       = true,
             border       = "rounded",
-            layout       = "horizontal",
+            layout       = "vertical",
             vertical     = "up:62%",    -- up|down:size
             horizontal   = "right:60%", -- right|left:size
             flip_columns = 120,
@@ -39,10 +39,10 @@ return {
       local keymap = vim.keymap -- for conciseness
       keymap.set("n", "<leader>f", ":FzfLua files<cr>", { desc = "Fuzzy find files in cwd" })
       keymap.set("n", "fr", ":FzfLua oldfiles<cr>", { desc = "Fuzzy find old files" })
-      keymap.set("n", "bb", ":FzfLua buffers<cr>", { desc = "get open buffers" })
+      keymap.set("n", "<leader>fb", ":FzfLua buffers<cr>", { desc = "get open buffers" })
       keymap.set("n", "fs", ":FzfLua lsp_document_symbols<cr>", { desc = "treesitter symbols" })
       keymap.set("n", "fd", ":FzfLua lsp_document_diagnostics<cr>", { desc = "treesitter symbols" })
-      keymap.set("n", "fb", ":FzfLua grep_curbuf<cr>", { desc = "get open buffers" })
+      keymap.set("n", "ib", ":FzfLua grep_curbuf<cr>", { desc = "get open buffers" })
       keymap.set("n", "<leader>rg", ":FzfLua live_grep<cr>", { desc = "live grep" })
     end
   }

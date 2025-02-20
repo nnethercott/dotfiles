@@ -11,6 +11,8 @@ return {
   },
   config = function()
     require("neo-tree").setup({
+      open_on_setup = false,
+
       window = {
         position = "left",
         width = 32,

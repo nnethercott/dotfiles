@@ -31,10 +31,30 @@ return {
         },
 
         -- show buffers at top of screen
-        tabline = {
-          lualine_a = {'buffers'},
-        }
+        -- tabline = {
+        --   lualine_a = {'buffers'},
+        -- }
       }
+    end
+  },
+  {
+    'romgrk/barbar.nvim',
+    enabled = true,
+    dependencies = {
+      'lewis6991/gitsigns.nvim',     -- OPTIONAL: for git status
+      'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
+    },
+    init = function() vim.g.barbar_auto_setup = false end,
+    config = function()
+      require("barbar").setup({
+        animation = true,
+        insert_at_end = true,
+        icons = {
+          pinned = {button = '󰐃', filename = true},
+        }
+      })
+      vim.keymap.set('n', '<S-l>', ':bnext<CR>', { noremap = true })     -- remap :bnext
+      vim.keymap.set('n', '<S-h>', ':bprevious<CR>', { noremap = true }) -- remap :bprev
     end
   },
 }
