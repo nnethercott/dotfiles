@@ -39,6 +39,7 @@ return {
   },
   {
     'romgrk/barbar.nvim',
+    enabled = true,
     dependencies = {
       'lewis6991/gitsigns.nvim',     -- OPTIONAL: for git status
       'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
@@ -51,5 +52,10 @@ return {
       -- …etc.
     },
     version = '^1.0.0', -- optional: only update when a new 1.x version is released
+    config = function()
+      require("barbar").setup()
+      vim.keymap.set('n', '<S-l>', ':bnext<CR>', { noremap = true })     -- remap :bnext
+      vim.keymap.set('n', '<S-h>', ':bprevious<CR>', { noremap = true }) -- remap :bprev
+    end
   },
 }

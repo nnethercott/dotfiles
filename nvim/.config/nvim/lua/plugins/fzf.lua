@@ -8,14 +8,14 @@ return {
       require('fzf-lua').setup({
         'default',
         winopts = {
-          height = 0.50,
+          height = 0.60,
           width = 0.60,
           backdrop = 100,
 
           preview = {
             hidden       = true,
             border       = "rounded",
-            layout       = "horizontal",
+            layout       = "vertical",
             vertical     = "up:62%",    -- up|down:size
             horizontal   = "right:60%", -- right|left:size
             flip_columns = 120,
