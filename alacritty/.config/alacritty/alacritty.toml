@@ -29,15 +29,7 @@ size = 12
 # bold_italic.family= "JetBrains Mono"
 # bold_italic.style= "Bold Italic"
 
-normal.family = "FiraCode Nerd Font"
-normal.style = "Medium"
-bold.family = "FiraCode Nerd Font"
-bold.style = "Bold"
-italic.family = "FiraCode Nerd Font"
-italic.style = "Italic"
-bold_italic.family = "FiraCode Nerd Font"
-bold_italic.style = "Bold Italic"
-
+normal.family = "FiraCode Nerd Font Mono"
 # normal.family= "MesloLGS Nerd Font Mono"
 # normal.style= "Medium"
 # bold.family= "MesloLGS Nerd Font Mono"
