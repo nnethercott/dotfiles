@@ -10,7 +10,6 @@ return {
   },
   --
   -- highlight word under cursor
-
   {
     "RRethy/vim-illuminate",
     enabled = true,
@@ -43,11 +42,10 @@ return {
     end
   },
   {
-    "dstein64/vim-startuptime",
-    cmd = "StartupTime",
+    'numToStr/Comment.nvim',
     config = function()
-      vim.g.startuptime_tries = 10
-    end,
+      require('Comment').setup()
+    end
   },
   --maximizer
   {

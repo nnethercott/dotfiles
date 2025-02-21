@@ -1,8 +1,9 @@
 # title = "Ghostty"
-theme = Monokai Remastered
+# theme = Monokai Remastered
+theme = cyberdream
 
 maximize = true
-background-opacity = 0.85
+background-opacity = 0.8
 background-blur = false
 
 font-family = JetBrains Mono
