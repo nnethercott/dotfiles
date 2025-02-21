@@ -3,6 +3,7 @@ return {
   dependencies = {
     'kevinhwang91/promise-async'
   },
+  -- TODO: add stuff here to stylize collapsed view
   config = function()
     vim.o.foldcolumn = '0'  -- no symbols in column
     vim.o.foldlevel = 99

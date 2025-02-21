@@ -26,5 +26,6 @@ return {
         update_n_lines = 'en',
       }
     })
+    require("mini.hipatterns").setup()
   end,
 }

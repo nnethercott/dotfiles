@@ -45,15 +45,15 @@ return {
       'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
     },
     init = function() vim.g.barbar_auto_setup = false end,
-    opts = {
-      -- lazy.nvim will automatically call setup for you. put your options here, anything missing will use the default:
-      -- animation = true,
-      -- insert_at_start = true,
-      -- …etc.
-    },
     version = '^1.0.0', -- optional: only update when a new 1.x version is released
     config = function()
-      require("barbar").setup()
+      require("barbar").setup({
+        animation = true,
+        icons = {
+          pinned = {button = '󰐃', filename = true},
+        },
+        insert_at_end = true,
+      })
       vim.keymap.set('n', '<S-l>', ':bnext<CR>', { noremap = true })     -- remap :bnext
       vim.keymap.set('n', '<S-h>', ':bprevious<CR>', { noremap = true }) -- remap :bprev
     end
