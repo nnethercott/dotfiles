@@ -3,19 +3,18 @@ return {
   {
     "folke/tokyonight.nvim",
     priority = 1000,
-    enabled = true,
+    enabled = false,
     config = function()
-      local transparent = true
+      local transparent = false
 
       require("tokyonight").setup({
-        style = "night",
+        style = "moon",
         transparent = transparent,
         styles = {
           sidebars = transparent and "transparent" or "dark",
           floats = transparent and "transparent" or "dark",
         },
         day_brightness = 0.3,
-
 
         -- lualine transparency: https://github.com/folke/tokyonight.nvim/issues/516
         on_colors = function(colors)
@@ -27,6 +26,27 @@ return {
 
       vim.cmd("colorscheme tokyonight")
     end,
+  },
+  {
+    "craftzdog/solarized-osaka.nvim",
+    lazy = false,
+    enabled = true,
+    priority = 1000,
+    opts = {},
+    config = function()
+      require("solarized-osaka").setup({
+        transparent = true,
+        terminal_colors = true,
+        styles = {
+          comments = { italic = true },
+          keywords = { italic = true },
+          sidebars = "dark", -- style for sidebars, see below
+          floats = "dark", -- style for floating windows
+        },
+
+      vim.cmd("colorscheme solarized-osaka")
+      })
+    end
   },
   {
     "scottmckendry/cyberdream.nvim",

@@ -50,7 +50,7 @@ return {
   --maximizer
   {
     "szw/vim-maximizer",
-    config = function ()
+    config = function()
       vim.keymap.set({ 'n', 'x', 'o' }, '<leader>w', ':MaximizerToggle<CR>')
     end
   }

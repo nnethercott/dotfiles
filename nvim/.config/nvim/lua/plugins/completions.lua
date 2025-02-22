@@ -101,6 +101,8 @@ return {
       floating_window = true,
       hint_enable = false,
       hint_prefix = "",
+      toggle_key = "<M-i>",
+      toggle_key_flip_floatwin_setting = false,
     },
     config = function(_, opts) require 'lsp_signature'.setup(opts) end
   }

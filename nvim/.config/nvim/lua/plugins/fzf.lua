@@ -38,7 +38,7 @@ return {
 
       local keymap = vim.keymap -- for conciseness
       keymap.set("n", "<leader>f", ":FzfLua files<cr>", { desc = "Fuzzy find files in cwd" })
-      keymap.set("n", "fr", ":FzfLua oldfiles<cr>", { desc = "Fuzzy find old files" })
+      keymap.set("n", "<leader>fr", ":FzfLua oldfiles<cr>", { desc = "Fuzzy find old files" })
       keymap.set("n", "<leader>fb", ":FzfLua buffers<cr>", { desc = "get open buffers" })
       keymap.set("n", "fs", ":FzfLua lsp_document_symbols<cr>", { desc = "treesitter symbols" })
       keymap.set("n", "fd", ":FzfLua lsp_document_diagnostics<cr>", { desc = "treesitter symbols" })

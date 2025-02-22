@@ -2,7 +2,7 @@ return {
   -- A sidebar with a tree-like outline of symbols from your code, powered by LSP.
   {
     "hedyhli/outline.nvim",
-    enabled = false,
+    enabled = true,
     dependencies = {
       "onsails/lspkind.nvim",
     },
@@ -14,11 +14,25 @@ return {
         outline_window = {
           position = 'right',
           symbols = {
-            -- icon_source = "lspkind", -- match with our nvim-cmp
+            icon_source = "lspkind", -- match with our nvim-cmp
           }
         }
       }
     end,
+  },
+  {
+    'kosayoda/nvim-lightbulb',
+    enabled = false,
+    config = function()
+      require("nvim-lightbulb").setup({
+        autocmd = {
+          enabled = true
+        },
+        sign = {enabled = true,},
+        virtual_text = {enabled = false,},
+        float = {enabled = false,},
+      })
+    end
   },
 }
 

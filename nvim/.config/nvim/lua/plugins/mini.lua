@@ -29,5 +29,10 @@ return {
       }
     })
     require("mini.hipatterns").setup()
+    -- animate cursor
+    require("mini.animate").setup({
+      cursor = { enable = false, timing = function() return 5 end },
+      scroll = { enable = false, timing = function() return 5 end },
+    })
   end,
 }
