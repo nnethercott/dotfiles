@@ -28,6 +28,7 @@ return {
   {
     'neovim/nvim-lspconfig',
     dependencies = { 'saghen/blink.cmp' },
+
     -- refer to each lsp's docs for config
     opts = {
       servers = {
