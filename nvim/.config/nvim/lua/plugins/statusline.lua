@@ -50,7 +50,7 @@ return {
       require("barbar").setup({
         animation = true,
         icons = {
-          pinned = {button = '󰐃', filename = true},
+          pinned = { button = '󰐃', filename = true },
         },
         insert_at_end = true,
       })
@@ -58,4 +58,21 @@ return {
       vim.keymap.set('n', '<S-h>', ':bprevious<CR>', { noremap = true }) -- remap :bprev
     end
   },
+  {
+    "b0o/incline.nvim",
+    dependencies = { "craftzdog/solarized-osaka.nvim" },
+    event = "BufReadPre",
+    priority = 1200,
+    config = function()
+      local colors = require("solarized-osaka.colors").setup()
+      require("incline").setup({
+        highlight = {
+          groups = {
+            InclineNormal = { guibg = colors.magenta500, guifg = colors.base04 },
+            InclineNormalNC = { guifg = colors.violet500, guibg = colors.base03 },
+          },
+        },
+      })
+    end,
+  }
 }
