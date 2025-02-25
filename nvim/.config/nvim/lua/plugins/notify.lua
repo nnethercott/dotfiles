@@ -16,7 +16,7 @@ return {
   {
     "rcarriga/nvim-notify",
     enabled = true,
-    config = function()
+    opts = function()
       local notify = require("notify")
       vim.notify = notify
       notify.setup({

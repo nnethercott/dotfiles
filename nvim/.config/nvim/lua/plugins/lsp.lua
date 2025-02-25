@@ -5,7 +5,7 @@ return {
     opts = function(_, opts)
       vim.list_extend(opts.ensure_installed, {
         "stylua",
-        "rust-analyzer"
+        "rust-analyzer",
       })
     end,
   },
@@ -35,21 +35,16 @@ return {
     "neovim/nvim-lspconfig",
     opts = function()
       local keys = require("lazyvim.plugins.lsp.keymaps").get()
-      -- diable a keymap
-      keys[#keys + 1] = { "K", false }
-
-      -- adding more keys ...
-      -- vim.list_extend(keys, {
-      --   {
-      --     "gd",
-      --     function()
-      --       -- DO NOT RESUSE WINDOW
-      --       require("telescope.builtin").lsp_definitions({ reuse_win = false })
-      --     end,
-      --     desc = "Goto Definition",
-      --     has = "definition",
-      --   },
-      -- })
+      vim.list_extend(keys, {
+        -- uncomment to stop using default picker ... 
+        -- { "gd", vim.lsp.buf.definition, desc = "Goto Definition", has = "definition" },
+        -- { "gD", vim.lsp.buf.declaration, desc = "Goto Declaration", has = "definition" },
+        -- { "gy", vim.lsp.buf.type_definition, desc = "Goto T[y]pe Definition" },
+        -- { "gr", vim.lsp.buf.references, desc = "References", nowait = true },
+        { "]g", vim.diagnostic.goto_prev, desc = "Goto T[y]pe Definition" },
+        { "[g", vim.diagnostic.goto_next, desc = "Goto T[y]pe Definition" },
+        { "<leader>rn", vim.lsp.buf.rename, desc = "Rename symbol" }, -- TODO: maybe change to dedicated plugin
+      })
     end,
   },
 }

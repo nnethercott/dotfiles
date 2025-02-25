@@ -44,3 +44,10 @@ vim.o.clipboard = "unnamedplus"
 -- Split windows
 o.splitright = true
 o.splitbelow = true
+
+
+-- LazyVim
+vim.g.lazyvim_picker = "fzf"
+vim.opt.listchars = {
+  trail = " ",
+}

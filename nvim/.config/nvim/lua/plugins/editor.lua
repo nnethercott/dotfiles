@@ -1,13 +1,15 @@
 return {
+  -- trouble
   { "folke/trouble.nvim", enabled = false }, -- TODO: read docs
+
+  -- illuminate
+  { "RRethy/vim-illuminate", enabled = false },
+
+  -- leap 
   {
-    "saghen/blink.cmp",
-    opts = {
-      keymap = {
-        preset = "enter",
-        ["<S-Tab>"] = { "select_prev", "fallback" },
-        ["<Tab>"] = { "select_next", "fallback" },
-      },
-    },
+    "ggandor/leap.nvim",
+    config = function()
+      require("leap").create_default_mappings()
+    end,
   },
 }

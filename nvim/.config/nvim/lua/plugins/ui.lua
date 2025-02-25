@@ -33,7 +33,7 @@ return {
     end,
   },
 
-  -- replaces bufferline
+  -- barbar
   {
     "romgrk/barbar.nvim",
     enabled = true,
@@ -58,27 +58,26 @@ return {
     end,
   },
 
-  -- snacks TODO: read docs
-{
-  "snacks.nvim",
-  opts = {
-    indent = { enabled = false },
-    input = { enabled = true },
-    notifier = { enabled = true },
-    scope = { enabled = false },
-    scroll = { enabled = false },
-    statuscolumn = { enabled = false }, -- we set this in options.lua
-    words = { enabled = false },
+  -- indent-blankline
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    event = { "BufEnter" },
+    main = "ibl",
+    opts = {
+      indent = { char = "│", highlight = "IblIndent" },
+      scope = {
+        char = "│",
+        highlight = "IblScope",
+        enabled = true,
+        show_start = false,
+        show_end = false,
+      },
+      exclude = { filetypes = { "lua", "yaml" } }, -- exclude langs here
+    },
+    config = function(_, opts)
+      require("ibl").setup(opts)
+      local hooks = require("ibl.hooks")
+      hooks.register(hooks.type.WHITESPACE, hooks.builtin.hide_first_space_indent_level)
+    end,
   },
-  -- stylua: ignore
-  -- keys = { { "<leader>n", function()
-  --     if Snacks.config.picker and Snacks.config.picker.enabled then
-  --       Snacks.picker.notifications()
-  --     else
-  --       Snacks.notifier.show_history()
-  --     end
-  --   end, desc = "Notification History" },
-  --   { "<leader>un", function() Snacks.notifier.hide() end, desc = "Dismiss All Notifications" },
-  -- },
-}
 }

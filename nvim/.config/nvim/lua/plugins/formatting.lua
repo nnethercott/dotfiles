@@ -24,13 +24,3 @@ return {
     },
   },
 }
-
---
--- -- keymap
--- vim.keymap.set({ "n", "x" }, "<leader>fo", function()
---   conform.format({
---     lsp_fallback = true,
---     async = false,
---     timeout_ms = 500,
---   })
--- end)
