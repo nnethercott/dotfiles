@@ -29,6 +29,35 @@ return {
     end,
   },
   {
+    "craftzdog/solarized-osaka.nvim",
+    enabled = true,
+    lazy = false,
+    priority = 1000,
+    opts = {},
+    config = function()
+      local transparent = true
+
+      require("solarized-osaka").setup({
+        transparent = transparent,
+        terminal_colors = true,
+        styles = {
+          comments = { italic = true },
+          keywords = { italic = true },
+          sidebars = transparent and "transparent" or "dark",
+          floats = transparent and "transparent" or "dark",
+        },
+
+        on_colors = function(colors)
+          if transparent then
+            colors.bg_statusline = colors.none
+          end
+        end,
+      })
+
+      -- vim.cmd("colorscheme solarized-osaka")
+    end
+  },
+  {
     "scottmckendry/cyberdream.nvim",
     priority = 1000,
     enabled = false,
