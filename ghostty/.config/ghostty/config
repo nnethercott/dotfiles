@@ -3,8 +3,8 @@
 theme = cyberdream
 
 maximize = true
-background-opacity = 0.8
-background-blur = false
+background-opacity = 0.76
+background-blur = true
 
 font-family = JetBrains Mono
 font-size = 12
