@@ -22,6 +22,7 @@ return {
           title = "Browse",
           layout = {
             -- preset = "vscode", -- cool
+            cycle = false,
             layout = {
               width = 32,
               min_width = 32,

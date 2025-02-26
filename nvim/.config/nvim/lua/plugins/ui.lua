@@ -5,10 +5,11 @@ return {
     enabled = true,
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
+      local LazyVim = require("lazyvim.util")
+
       require("lualine").setup({
         options = {
           theme = "auto", -- uses colorscheme
-          icons_enabled = true,
           section_separators = { left = "", right = "" },
           component_separators = { left = "", right = "" }, -- │
           refresh = {
@@ -19,12 +20,25 @@ return {
         },
         sections = {
           lualine_a = { "mode" },
-          lualine_b = { "branch", "diff", "diagnostics" },
-          lualine_c = { {
-            "filename",
-            path = 1,
-            shorting_target = 40,
-          } },
+          lualine_b = {
+            "branch",
+            "diff",
+            "diagnostics",
+          },
+          lualine_c = {
+            {
+              -- pretty path
+              LazyVim.lualine.pretty_path({
+                length = 0,
+                relative = "cwd",
+                modified_hl = "MatchParen",
+                directory_hl = "",
+                filename_hl = "Bold",
+                modified_sign = "",
+                readonly_icon = " 󰌾 ",
+              }),
+            },
+          },
           lualine_x = { "encoding", "fileformat", "filetype" },
           lualine_y = { "progress" },
           lualine_z = { "location" },
