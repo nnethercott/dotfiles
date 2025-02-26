@@ -5,7 +5,9 @@ return {
     opts = function(_, opts)
       vim.list_extend(opts.ensure_installed, {
         "stylua",
-        "rust-analyzer",
+        "rust-analyzer", -- rust
+        "ruff", -- python
+        "pyright",
       })
     end,
   },
@@ -17,12 +19,32 @@ return {
       inlay_hints = { enabled = false },
 
       servers = {
+        -- rust-analyzer
         rust_analyzer = {
           filetypes = { "rust" },
           settings = {
             ["rust-analyzer"] = {
               enable = true,
               checkOnSave = false, -- disable for big projects
+            },
+          },
+        },
+
+        -- pyright
+        -- from https://microsoft.github.io/pyright/#/settings
+        pyright = {
+          filetypes = { "python" },
+          settings = {
+            pyright = {
+              ["inlayHints"] = {
+                variableTypes = false,
+                parameterTypes = false,
+              },
+            },
+            python = {
+              ["analysis"] = {
+                typeCheckingMode = "off", -- slow in big projects
+              },
             },
           },
         },
@@ -36,14 +58,13 @@ return {
     opts = function()
       local keys = require("lazyvim.plugins.lsp.keymaps").get()
       vim.list_extend(keys, {
-        -- uncomment to stop using default picker ... 
+        -- uncomment to stop using default picker ...
         { "<leader>d", vim.lsp.buf.hover, desc = "Hover", has = "definition" },
         -- { "gD", vim.lsp.buf.declaration, desc = "Goto Declaration", has = "definition" },
         -- { "gy", vim.lsp.buf.type_definition, desc = "Goto T[y]pe Definition" },
-        -- { "gr", vim.lsp.buf.references, desc = "References", nowait = true },
+        { "gr", vim.lsp.buf.references, desc = "References", nowait = true },
         { "]g", vim.diagnostic.goto_prev, desc = "Goto T[y]pe Definition" },
         { "[g", vim.diagnostic.goto_next, desc = "Goto T[y]pe Definition" },
-        { "<leader>rn", vim.lsp.buf.rename, desc = "Rename symbol" }, -- TODO: maybe change to dedicated plugin
       })
     end,
   },
