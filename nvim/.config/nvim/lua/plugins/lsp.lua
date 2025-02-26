@@ -37,7 +37,7 @@ return {
       local keys = require("lazyvim.plugins.lsp.keymaps").get()
       vim.list_extend(keys, {
         -- uncomment to stop using default picker ... 
-        -- { "gd", vim.lsp.buf.definition, desc = "Goto Definition", has = "definition" },
+        { "<leader>d", vim.lsp.buf.hover, desc = "Hover", has = "definition" },
         -- { "gD", vim.lsp.buf.declaration, desc = "Goto Declaration", has = "definition" },
         -- { "gy", vim.lsp.buf.type_definition, desc = "Goto T[y]pe Definition" },
         -- { "gr", vim.lsp.buf.references, desc = "References", nowait = true },
