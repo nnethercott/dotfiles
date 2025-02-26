@@ -4,26 +4,40 @@ return {
   lazy = false,
   ---@type snacks.Config
   opts = {
-    input = {
-      enabled = true,
-      icon = "",
-    },
-    styles = {
-      input = {
-        relative = "cursor",
-        row = -3,
-        width = 25,
-      },
-    },
-    explorer = {
-      enabled = true,
-    },
+    input = { enabled = true, icon = "" },
+    explorer = { enabled = true },
     indent = { enabled = false },
     notifier = { enabled = false },
     scope = { enabled = false },
     scroll = { enabled = false },
     words = { enabled = false },
     dashboard = { enabled = true }, -- alpha
+
+    picker = {
+      sources = {
+        finder = {cmd = "fd"},
+
+        -- explorer
+        explorer = {
+          title = "Browse",
+          layout = {
+            -- preset = "vscode", -- cool
+            layout = {
+              width = 32,
+              min_width = 32,
+            },
+          },
+        },
+      },
+    },
+    styles = {
+      -- ui.input for floating effect
+      input = {
+        relative = "cursor",
+        row = -3,
+        width = 25,
+      },
+    },
   },
   keys = {
     -- remaps

@@ -45,9 +45,12 @@ vim.o.clipboard = "unnamedplus"
 o.splitright = true
 o.splitbelow = true
 
+-- wrap 
+vim.o.wrap = true
 
 -- LazyVim
 vim.g.lazyvim_picker = "fzf"
 vim.opt.listchars = {
   trail = " ",
+  tab = "  ",
 }

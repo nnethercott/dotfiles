@@ -7,7 +7,15 @@ return {
     notify = { enabled = false },
     lsp = {
       progress = { enabled = false },
-      hover = { enabled = true, silent = true, opts = {} },
+      hover = {
+        enabled = true,
+        silent = true,
+        opts = {
+          size = {
+            max_width = 60, -- max documentation width
+          }
+        }
+      },
       signature = { enabled = true, opts = {} },
       documentation = { enabled = true, opts = {} },
     },
