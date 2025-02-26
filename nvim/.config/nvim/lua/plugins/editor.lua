@@ -1,7 +1,4 @@
 return {
-  -- trouble
-  { "folke/trouble.nvim", enabled = false }, -- TODO: read docs
-
   -- illuminate
   { "RRethy/vim-illuminate", enabled = false },
 
