@@ -6,7 +6,7 @@ return {
       vim.list_extend(opts.ensure_installed, {
         "stylua",
         "rust-analyzer", -- rust
-        "ruff", -- python
+        -- "ruff", -- python
         "pyright",
       })
     end,
@@ -61,11 +61,28 @@ return {
         -- uncomment to stop using default picker ...
         { "<leader>d", vim.lsp.buf.hover, desc = "Hover", has = "definition" },
         -- { "gD", vim.lsp.buf.declaration, desc = "Goto Declaration", has = "definition" },
-        -- { "gy", vim.lsp.buf.type_definition, desc = "Goto T[y]pe Definition" },
+        { "gd", vim.lsp.buf.definition, desc = "Goto T[y]pe Definition" },
         { "gr", vim.lsp.buf.references, desc = "References", nowait = true },
         { "]g", vim.diagnostic.goto_prev, desc = "Goto T[y]pe Definition" },
         { "[g", vim.diagnostic.goto_next, desc = "Goto T[y]pe Definition" },
       })
     end,
+  },
+
+  -- dart
+  {
+    "nvim-flutter/flutter-tools.nvim",
+    lazy = false,
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "stevearc/dressing.nvim",
+    },
+    config = function ()
+      require("flutter-tools").setup {
+        ui = {
+          border = "rounded",
+        }
+      } 
+    end
   },
 }

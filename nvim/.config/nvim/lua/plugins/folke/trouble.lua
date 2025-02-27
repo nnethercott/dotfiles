@@ -1,5 +1,6 @@
 return {
   "folke/trouble.nvim",
+  -- TODO: modify outline-like behaviour
   keys = {
     {
       "<leader>tr",

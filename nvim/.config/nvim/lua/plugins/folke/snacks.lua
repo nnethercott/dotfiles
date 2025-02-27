@@ -4,46 +4,42 @@ return {
   lazy = false,
   ---@type snacks.Config
   opts = {
-    input = { enabled = true, icon = "" },
-    explorer = { enabled = true },
+    input = { enabled = false, icon = "" },
     indent = { enabled = false },
     notifier = { enabled = false },
     scope = { enabled = false },
     scroll = { enabled = false },
     words = { enabled = false },
     dashboard = { enabled = true }, -- alpha
-
+    explorer = { enabled = true },
     picker = {
       sources = {
-        finder = {cmd = "fd"},
-
-        -- explorer
+        finder = { cmd = "fd" },
         explorer = {
-          title = "Browse",
+          title = "",
           layout = {
             -- preset = "vscode", -- cool
             cycle = false,
             layout = {
-              width = 32,
-              min_width = 32,
+              width = 28,
+              min_width = 28,
             },
           },
         },
       },
     },
     styles = {
-      -- ui.input for floating effect
       input = {
         relative = "cursor",
         row = -3,
         width = 25,
+        keys = {
+          ["<C-c>"] = { "close", mode = { "i", "n" } },
+        },
       },
     },
   },
   keys = {
-    -- remaps
-    { "<leader>f", LazyVim.pick("files"), desc = "Find Files" },
-    { "<leader>rg", LazyVim.pick("live_grep"), desc = "Grep" },
     {
       "<leader>k",
       function()

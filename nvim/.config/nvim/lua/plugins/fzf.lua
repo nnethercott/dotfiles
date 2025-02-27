@@ -16,7 +16,8 @@ return {
     },
   },
   keys = {
-    -- minimal code actions
+    { "<leader>f", "<cmd>FzfLua files<cr>", desc = "Find Files" },
+    { "<leader>rg", "<cmd>FzfLua live_grep<cr>", desc = "Grep" },
     {
       "<leader>a",
       mode = { "n", "x" },
@@ -26,8 +27,8 @@ return {
             relative = "cursor",
             backdrop = 100,
             border = "rounded",
-            width = 0.45,
-            height = 0.15,
+            width = 0.25,
+            height = 0.1,
             row = 1,
             preview = { hidden = true },
           },
@@ -35,6 +36,7 @@ return {
         require("fzf-lua").lsp_code_actions(opts)
       end,
       desc = "Code action",
-    }, -- TODO: maybe change to dedicated plugin
+    },
   },
 }
+
