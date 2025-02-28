@@ -5,11 +5,11 @@ return {
   ---@type snacks.Config
   opts = {
     input = { enabled = false, icon = "" },
-    indent = { enabled = false },
+    indent = {enabled = false,},
     notifier = { enabled = false },
     scope = { enabled = false },
     scroll = { enabled = false },
-    words = { enabled = false },
+    words = { enabled = true, debounce = 75 },
     dashboard = { enabled = true }, -- alpha
     explorer = { enabled = true },
     picker = {
