@@ -16,7 +16,7 @@ return {
         local trouble = require("trouble")
         local local_opts = {
           mode = "lsp_document_symbols",
-          focus = false,
+          focus = true,
           follow = true,
           auto_preview = false,
           win = {
@@ -32,6 +32,8 @@ return {
               -- default set of symbol kinds
               kind = {
                 "Class",
+                "Constructor",
+                "Namespace",
                 "Enum",
                 "Field",
                 "Function",
