@@ -22,6 +22,10 @@ return {
         update_n_lines = 'en',
       }
     })
-    require("mini.hipatterns").setup()
+    require("mini.hipatterns").setup({
+      highlighters = {
+        hex_color = require("mini.hipatterns").gen_highlighter.hex_color(),
+      }
+    })
   end,
 }

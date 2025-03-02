@@ -24,4 +24,4 @@ window-decoration = none
 
 
 # mac
-# macos-titlebar-proxy-icon=hidden
+macos-icon = "official"

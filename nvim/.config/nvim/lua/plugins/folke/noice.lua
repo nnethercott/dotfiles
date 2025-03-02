@@ -3,7 +3,7 @@ return {
   opts = {
     cmdline = { enabled = false, view = "cmdline" },
     messages = { enabled = false },
-    popupmenu = { enabled = true, backend = "cmp" },
+    popupmenu = { enabled = false, backend = "cmp" },
     notify = { enabled = false },
     lsp = {
       progress = { enabled = false },

@@ -5,7 +5,7 @@ return {
     priority = 1000,
     enabled = true,
     config = function()
-      local transparent = true
+      local transparent = false
 
       require("tokyonight").setup({
         style = "night",
@@ -60,7 +60,7 @@ return {
         vim.cmd("hi " .. group .. " gui=italic cterm=italic")
       end
     end
-  }
+  },
 
   -- {
   --   "catppuccin/nvim",
@@ -88,7 +88,6 @@ return {
   -- {
   --   "Mofiqul/vscode.nvim",
   --   name = "vscode",
-  --   lazy = false,
   --   priority = 1000,
   --   config = function ()
   --     require("vscode").setup({
