@@ -8,6 +8,8 @@ return {
         "rust-analyzer", -- rust
         "ruff", -- python
         "pyright",
+        "typescript-language-server",
+        "angular-language-server",
       })
     end,
   },
