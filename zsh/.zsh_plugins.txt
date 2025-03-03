@@ -3,6 +3,10 @@
 # set up Zsh completions with plugins
 mattmc3/ez-compinit
 zsh-users/zsh-completions kind:fpath path:src
+# zsh-users/zsh-autosuggestions
+
+# utils
+belak/zsh-utils path:history # persist history (config in .zshrc)
 
 # colors for bash syntax
 zdharma-continuum/fast-syntax-highlighting kind:defer
@@ -11,5 +15,6 @@ zdharma-continuum/fast-syntax-highlighting kind:defer
 jonmosco/kube-ps1
 
 # prompt themes
-# getantidote/use-omz # oh-my-zsh (so i can use my custom theme)
+getantidote/use-omz # oh-my-zsh (so i can use my custom theme)
 romkatv/powerlevel10k
+

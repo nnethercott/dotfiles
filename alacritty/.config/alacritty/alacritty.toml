@@ -20,21 +20,12 @@ option_as_alt = "OnlyLeft"
 
 [font]
 size = 12
-# normal.family= "JetBrains Mono"
-# normal.style= "Regular"
+
+normal.family= "JetBrains Mono"
+normal.style= "Regular"
 # bold.family= "JetBrains Mono"
 # bold.style= "Bold"
 # italic.family= "JetBrains Mono"
 # italic.style= "Italic"
 # bold_italic.family= "JetBrains Mono"
-# bold_italic.style= "Bold Italic"
-
-normal.family = "FiraCode Nerd Font Mono"
-# normal.family= "MesloLGS Nerd Font Mono"
-# normal.style= "Medium"
-# bold.family= "MesloLGS Nerd Font Mono"
-# bold.style= "Bold"
-# italic.family= "MesloLGS Nerd Font Mono"
-# italic.style= "Italic"
-# bold_italic.family= "MesloLGS Nerd Font Mono"
 # bold_italic.style= "Bold Italic"

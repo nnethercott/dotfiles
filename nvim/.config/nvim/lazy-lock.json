@@ -1,4 +1,5 @@
 {
+
   "LazyVim": { "branch": "main", "commit": "cb223553ff73eb2f37ffb5dc0bb75b76a4677faf" },
   "barbar.nvim": { "branch": "master", "commit": "53b5a2f34b68875898f0531032fbf090e3952ad7" },
   "blink.cmp": { "branch": "main", "commit": "18b352d12b35bca148427b607098df14b75a218f" },

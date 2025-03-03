@@ -12,6 +12,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-repeat'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive' " needed to display git branch in airline
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }

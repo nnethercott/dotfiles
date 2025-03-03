@@ -3,11 +3,13 @@
 theme = cyberdream
 
 maximize = true
+
 background-opacity = 0.8
 background-blur = false
 
 font-family = JetBrains Mono
 font-size = 13
+
 font-feature = -calt, -liga, -dlig  # no ligatures
 
 keybind = alt+left=unbind
@@ -18,6 +20,7 @@ mouse-hide-while-typing=true
 window-padding-x=0
 window-padding-y=0
 window-padding-balance=true
+
 window-padding-color = extend
 window-save-state = always
 window-decoration = none
@@ -25,3 +28,4 @@ window-decoration = none
 
 # mac
 macos-icon = "official"
+
