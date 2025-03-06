@@ -80,4 +80,21 @@ return {
       })
     end,
   },
+
+  -- rust
+  {
+    "mrcjkb/rustaceanvim",
+    opts = {
+      server = {
+        default_settings = {
+          ["rust-analyzer"] = {
+            checkOnSave = false, -- disable for large projects
+            diagnostics = {
+              enable = true,
+            },
+          },
+        },
+      },
+    },
+  },
 }

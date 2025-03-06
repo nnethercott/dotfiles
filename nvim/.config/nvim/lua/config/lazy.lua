@@ -22,6 +22,7 @@ require("lazy").setup({
     -- other plugins
     { import = "plugins.folke" },
     { import = "lazyvim.plugins.extras.lang.rust"},
+    { import = "lazyvim.plugins.extras.lang.markdown"},
     { import = "plugins" },
   },
   defaults = {

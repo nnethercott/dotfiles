@@ -8,6 +8,7 @@ return {
         rust = { "rustfmt" },
         python = { "ruff_format" },
         dart = { "dart_format" },
+        -- TODO: check these below
         typescript = { "eslint_d" },
         html = { "prettierd" },
       },
