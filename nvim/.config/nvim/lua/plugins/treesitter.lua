@@ -4,6 +4,9 @@ return {
     ensure_installed = {
       "rust",
       "python",
+      "dart",
+      "angular",
+      "typescript",
     },
   },
 }

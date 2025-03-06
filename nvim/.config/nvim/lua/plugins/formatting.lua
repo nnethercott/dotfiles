@@ -3,11 +3,14 @@ return {
     "stevearc/conform.nvim",
     event = { "BufWritePre" },
     opts = {
-      lua = { "stylua" },
-      rust = { "rustfmt" },
-      python = { "ruff_format" },
-      dart = { "dart_format" },
-      typescript = { "biome" },
+      formatters_by_ft = {
+        lua = { "stylua" },
+        rust = { "rustfmt" },
+        python = { "ruff_format" },
+        dart = { "dart_format" },
+        typescript = { "eslint_d" },
+        html = { "prettierd" },
+      },
     },
     keys = {
       {

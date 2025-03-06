@@ -15,9 +15,9 @@ antidote load
 
 # history (persists across windows)
 HISTSIZE=5000
-HISTFILE=~/.zsh_history
+HISTFILE=~/.local/share/zsh/history
 SAVE_HIST=$HISTFILE
-HISTDUP=erase
+setopt hist_ignore_all_dups
 setopt appendhistory
 setopt sharehistory
 setopt hist_ignore_space
@@ -34,14 +34,13 @@ export PATH="$PATH:/opt/android-studio/bin" #android studio
 export PATH="$PATH:$HOME/.pub-cache/bin" #pub
 export PATH="$PATH:/opt/nvim-linux64/bin"  #nvim
 
-# # k8s stuff
-alias kubectl="kubecolor"
 alias k='kubectl'
 alias kx='kubectx'
 alias kn='kubens'
 
-# cargo
+# misc aliases
 alias rgf='rg --files | rg'
+alias ls="ls --color=auto"
 
 # pyenv (not sure if i actually need this)
 # export PYENV_ROOT="$HOME/.pyenv"
@@ -57,7 +56,6 @@ if [ -d "$FNM_PATH" ]; then
   export PATH="/home/nnethercott/.local/share/fnm:$PATH"
   eval "`fnm env`"
 fi
-eval "$(fnm env --use-on-cd --shell zsh)"
 alias nvm="fnm"
 
 # # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.

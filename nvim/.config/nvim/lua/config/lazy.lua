@@ -20,8 +20,8 @@ require("lazy").setup({
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
 
     -- other plugins
-    -- { import = "lazyvim.plugins.extras.editor.navic"},
     { import = "plugins.folke" },
+    { import = "lazyvim.plugins.extras.lang.rust"},
     { import = "plugins" },
   },
   defaults = {

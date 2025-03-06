@@ -6,6 +6,7 @@ return {
       vim.list_extend(opts.ensure_installed, {
         "stylua",
         "rust-analyzer", -- rust
+        "codelldb",
         "ruff", -- python
         "pyright",
         "typescript-language-server",
@@ -21,17 +22,6 @@ return {
       inlay_hints = { enabled = false },
 
       servers = {
-        -- rust-analyzer
-        rust_analyzer = {
-          filetypes = { "rust" },
-          settings = {
-            ["rust-analyzer"] = {
-              enable = true,
-              checkOnSave = false, -- disable for big projects
-            },
-          },
-        },
-
         -- pyright
         -- pyright config with ruff: https://github.com/astral-sh/ruff-lsp/issues/384
         -- settings from https://microsoft.github.io/pyright/#/settings
@@ -47,7 +37,7 @@ return {
             },
             python = {
               analysis = {
-                ignore = { '*' }, -- Using Ruff
+                ignore = { "*" }, -- Using Ruff
                 typeCheckingMode = "off", -- slow in big projects
               },
             },
@@ -82,12 +72,12 @@ return {
       "nvim-lua/plenary.nvim",
       "stevearc/dressing.nvim",
     },
-    config = function ()
-      require("flutter-tools").setup {
+    config = function()
+      require("flutter-tools").setup({
         ui = {
           border = "rounded",
-        }
-      } 
-    end
+        },
+      })
+    end,
   },
 }
