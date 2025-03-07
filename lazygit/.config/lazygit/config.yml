@@ -1,0 +1,5 @@
+keybinding:
+  universal:
+    quit: q
+    return: <c-c>
+    confirmInEditor: <enter>
