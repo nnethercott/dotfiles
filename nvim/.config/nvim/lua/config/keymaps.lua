@@ -27,8 +27,3 @@ map("i", "<C-c>", "<ESC>", { noremap = true })
 map("v", ">", ">gv", { noremap = true })
 map("v", "<", "<gv", { noremap = true })
 
--- close quickfix on select
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "qf" },
-  command = [[nnoremap <buffer> <CR> <CR>:cclose<CR>]],
-})

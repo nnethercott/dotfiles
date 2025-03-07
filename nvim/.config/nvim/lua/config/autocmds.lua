@@ -18,3 +18,9 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     (vim.hl or vim.highlight).on_yank({ higroup = "Visual", timeout = 100 })
   end,
 })
+
+-- close quickfix on select
+-- vim.api.nvim_create_autocmd("FileType", {
+--   pattern = { "qf" },
+--   command = [[nnoremap <buffer> <CR> <CR>:cclose<CR>]],
+-- })
