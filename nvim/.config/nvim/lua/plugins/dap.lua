@@ -8,6 +8,9 @@ return {
         command = "codelldb",
       }
     end,
+    keys = {
+      {"<leader>dt", function () require('dap').toggle_breakpoint() end, desc = "Dap toggle breakpoint"},
+    }
   },
   {
     "rcarriga/nvim-dap-ui",

@@ -5,7 +5,7 @@ return {
     priority = 1000,
     enabled = true,
     config = function()
-      local transparent = false
+      local transparent = true
 
       require("tokyonight").setup({
         style = "night",
