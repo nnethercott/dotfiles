@@ -3,14 +3,38 @@ return {
     "mfussenegger/nvim-dap",
     config = function()
       local dap = require("dap")
+
+      -- codelldb 
       dap.adapters.codelldb = {
         type = "executable",
         command = "codelldb",
       }
+
+      -- dart
+      dap.adapters.dart = {
+        type = "executable",
+        command = "dart",
+        args = { "debug_adapter" },
+      }
+      dap.configurations.dart = {
+        {
+          type = "dart",
+          request = "launch",
+          name = "Launch Flutter",
+          program = "${workspaceFolder}/lib/main.dart",
+          cwd = "${workspaceFolder}",
+        },
+      }
     end,
     keys = {
-      {"<leader>dt", function () require('dap').toggle_breakpoint() end, desc = "Dap toggle breakpoint"},
-    }
+      {
+        "<leader>dt",
+        function()
+          require("dap").toggle_breakpoint()
+        end,
+        desc = "Dap toggle breakpoint",
+      },
+    },
   },
   {
     "rcarriga/nvim-dap-ui",

@@ -4,13 +4,14 @@ return {
     "williamboman/mason.nvim",
     opts = function(_, opts)
       vim.list_extend(opts.ensure_installed, {
-        "stylua",
+        "stylua", -- lua
         "rust-analyzer", -- rust
         "codelldb",
         "ruff", -- python
         "pyright",
-        "typescript-language-server",
-        "angular-language-server",
+        "typescript-language-server", -- ts
+        "angular-language-server", -- angular
+        "dart-debug-adapter", -- dart
       })
     end,
   },
@@ -76,6 +77,21 @@ return {
       require("flutter-tools").setup({
         ui = {
           border = "rounded",
+        },
+        debugger = {
+          enabled = false,
+          run_via_dap = true,
+          -- register_configurations = function(_)
+          --   require("dap").configurations.dart = {
+          --     {
+          --       type = "dart",
+          --       request = "launch",
+          --       name = "Launch Flutter",
+          --       program = "${workspaceFolder}/lib/main.dart",
+          --       cwd = "${workspaceFolder}",
+          --     },
+          --   }
+          -- end,
         },
       })
     end,
