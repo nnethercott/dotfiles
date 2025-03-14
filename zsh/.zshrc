@@ -42,6 +42,9 @@ alias kn='kubens'
 alias rgf='rg --files | rg'
 alias ls="ls --color=auto"
 
+# cursor 
+alias cursor='~/Applications/cursor.AppImage --no-sandbox'
+
 # pyenv (not sure if i actually need this)
 # export PYENV_ROOT="$HOME/.pyenv"
 # [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
