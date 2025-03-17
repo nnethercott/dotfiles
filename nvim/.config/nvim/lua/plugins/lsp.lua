@@ -5,7 +5,7 @@ return {
     opts = function(_, opts)
       vim.list_extend(opts.ensure_installed, {
         "stylua", -- lua
-        "rust-analyzer", -- rust
+        -- "rust-analyzer", -- rust
         "codelldb",
         "ruff", -- python
         "pyright",
@@ -78,9 +78,18 @@ return {
         ui = {
           border = "rounded",
         },
+        dev_tools = {
+          autostart = true,
+          auto_open_browser = true,
+        },
+        dev_log = {
+            enabled = false,
+            open_cmd = "15split",
+            focus_on_open = false,
+        },
         debugger = {
-          enabled = false,
-          run_via_dap = true,
+          enabled = true,
+          -- run_via_dap = true,
           -- register_configurations = function(_)
           --   require("dap").configurations.dart = {
           --     {

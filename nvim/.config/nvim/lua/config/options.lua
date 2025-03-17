@@ -46,7 +46,10 @@ o.splitright = true
 o.splitbelow = true
 
 -- wrap 
-vim.o.wrap = true
+vim.o.wrap = false
+
+-- cmd height
+vim.o.cmdheight = 0
 
 -- LazyVim
 vim.g.lazyvim_picker = "fzf"
