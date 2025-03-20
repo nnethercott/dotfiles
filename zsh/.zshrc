@@ -42,13 +42,13 @@ alias kn='kubens'
 alias rgf='rg --files | rg'
 alias ls="ls --color=auto"
 
-# cursor 
+# cursor
 alias cursor='~/Applications/cursor.AppImage --no-sandbox'
 
 # pyenv (not sure if i actually need this)
-# export PYENV_ROOT="$HOME/.pyenv"
-# [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-# eval "$(pyenv init - --no-rehash zsh)"
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - --no-rehash zsh)"
 
 # fzf
 export FZF_DEFAULT_OPTS='--bind=tab:down,shift-tab:up'
