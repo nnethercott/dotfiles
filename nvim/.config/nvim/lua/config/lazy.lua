@@ -19,6 +19,9 @@ require("lazy").setup({
     -- add LazyVim and import its plugins
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
 
+    -- dap 
+    { import = "lazyvim.plugins.extras.dap.core"},
+
     -- langs
     { import = "lazyvim.plugins.extras.lang.rust"},
     { import = "lazyvim.plugins.extras.lang.markdown"},
