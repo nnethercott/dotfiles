@@ -23,11 +23,12 @@ return {
       mode = { "n", "x" },
       function()
         local opts = {
+          opts;
           winopts = {
             relative = "cursor",
             backdrop = 100,
             border = "rounded",
-            width = 0.4,
+            width = 0.5,
             height = 0.2,
             row = 1,
             preview = { hidden = true },
