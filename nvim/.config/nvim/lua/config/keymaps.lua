@@ -9,13 +9,7 @@ map("n", "<C-c>", "<ESC>", { noremap = true })
 map("n", "q", ":cclose<CR>", { noremap = true, silent = true })
 map("n", "<S-l>", ":bnext<CR>", { noremap = true })
 map("n", "<S-h>", ":bprevious<CR>", { noremap = true })
-
--- map("n", "<leader>bd", ":bd<CR>", { noremap = true })
--- close code symbols before closing buffer
-map("n", "<leader>bd", [[
-  :lua if require("trouble").is_open() then require("trouble").close() end vim.cmd("bd")<CR>
-]], { noremap = true, silent = true })
-
+map("n", "<leader>bd", ":bd<CR>", { noremap = true })
 map("n", "=", ":vertical resize +5<CR>", { noremap = true, silent = true })
 map("n", "-", ":vertical resize -5<CR>", { noremap = true, silent = true })
 
