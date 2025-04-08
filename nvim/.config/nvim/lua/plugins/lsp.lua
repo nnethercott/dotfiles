@@ -9,7 +9,6 @@ return {
         "codelldb",
         "ruff", -- python
         "pyright",
-        "typescript-language-server", -- ts
         "angular-language-server", -- angular
         "dart-debug-adapter", -- dart
       })
@@ -59,8 +58,8 @@ return {
         -- { "gD", vim.lsp.buf.declaration, desc = "Goto Declaration", has = "definition" },
         { "gd", vim.lsp.buf.definition, desc = "Goto T[y]pe Definition" },
         { "gr", vim.lsp.buf.references, desc = "References", nowait = true },
-        { "]g", vim.diagnostic.goto_prev, desc = "Goto T[y]pe Definition" },
-        { "[g", vim.diagnostic.goto_next, desc = "Goto T[y]pe Definition" },
+        { "]g", vim.diagnostic.goto_next, desc = "Goto T[y]pe Definition" },
+        { "[g", vim.diagnostic.goto_prev, desc = "Goto T[y]pe Definition" },
       })
     end,
   },
@@ -117,6 +116,9 @@ return {
             diagnostics = {
               enable = true,
             },
+            experimental = {
+              procAttrMacros = true, -- enable things like `#[tonic::async_trait]`
+            }
           },
         },
       },

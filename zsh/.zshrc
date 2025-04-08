@@ -42,8 +42,9 @@ alias kn='kubens'
 alias rgf='rg --files | rg'
 alias ls="ls --color=auto"
 
-# cursor
+# apps
 alias cursor='~/Applications/cursor.AppImage --no-sandbox'
+alias obsidian='~/Applications/obsidian.AppImage'
 
 # pyenv (not sure if i actually need this)
 export PYENV_ROOT="$HOME/.pyenv"
