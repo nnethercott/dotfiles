@@ -23,12 +23,12 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.dap.core"},
 
     -- langs
-    { import = "lazyvim.plugins.extras.lang.rust"},
+    -- { import = "lazyvim.plugins.extras.lang.rust"}, -- async-trait weird
     { import = "lazyvim.plugins.extras.lang.angular"},
-    -- { import = "lazyvim.plugins.extras.lang.markdown"},
 
     -- plugins
     { import = "plugins.folke" },
+    { import = "plugins.lang" },
     { import = "plugins" },
   },
   defaults = {

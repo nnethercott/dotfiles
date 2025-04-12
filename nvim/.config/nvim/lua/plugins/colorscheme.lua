@@ -8,7 +8,7 @@ return {
       local transparent = false
 
       require("tokyonight").setup({
-        style = "night",
+        style = "day",
         transparent = transparent,
         styles = {
           sidebars = transparent and "transparent" or "dark",
@@ -22,10 +22,13 @@ return {
           if transparent then
             colors.bg_statusline = colors.none
           end
+          -- colors.bg = "#e9ecf5";
+          colors.bg = "#fcfbf9"
+          colors.bg_float = "#d9dde8";
         end,
       })
 
-      vim.cmd("colorscheme tokyonight")
+      -- vim.cmd("colorscheme tokyonight")
     end,
   },
   {
@@ -34,8 +37,9 @@ return {
     enabled = false,
     config = function()
       require("cyberdream").setup({
-        variant = "auto",
-        transparent = true,
+        variant = "light",
+        saturation = 1,
+        transparent = false,
         italic_comments = true,
         hide_fillchars = true,
         terminal_colors = false,
@@ -47,6 +51,10 @@ return {
         --     ["@variable"] = { bg = colors.magenta, },
         --   }
         -- end,
+        -- colors = {
+        --   -- For a list of colors see `lua/cyberdream/colours.lua`
+        --   bg_highlight = "#eaeaea", 
+        -- },
       })
 
       vim.cmd("colorscheme cyberdream")
@@ -96,4 +104,13 @@ return {
   --     vim.cmd.colorscheme "vscode"
   --   end
   -- }
+  -- {
+  --   "Mofiqul/dracula.nvim",
+  --   config = function ()
+  --     require('dracula').setup({
+  --       transparent_bg = false,
+  --     })
+  --     vim.cmd("colorscheme dracula")
+  --   end
+  -- },
 }
