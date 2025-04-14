@@ -3,7 +3,7 @@ return {
   {
     "folke/tokyonight.nvim",
     priority = 1000,
-    enabled = true,
+    enabled = false,
     config = function()
       local transparent = false
 
@@ -16,15 +16,13 @@ return {
         },
         day_brightness = 0.3,
 
-
         -- lualine transparency: https://github.com/folke/tokyonight.nvim/issues/516
         on_colors = function(colors)
           if transparent then
             colors.bg_statusline = colors.none
           end
-          -- colors.bg = "#e9ecf5";
-          colors.bg = "#fcfbf9"
-          colors.bg_float = "#d9dde8";
+          -- colors.bg = "#fcfbf9"
+          -- colors.bg_float = "#d9dde8";
         end,
       })
 
@@ -34,7 +32,7 @@ return {
   {
     "scottmckendry/cyberdream.nvim",
     priority = 1000,
-    enabled = false,
+    enabled = true,
     config = function()
       require("cyberdream").setup({
         variant = "light",
@@ -53,7 +51,7 @@ return {
         -- end,
         -- colors = {
         --   -- For a list of colors see `lua/cyberdream/colours.lua`
-        --   bg_highlight = "#eaeaea", 
+        --   bg_highlight = "#eaeaea",
         -- },
       })
 
@@ -67,50 +65,18 @@ return {
       for _, group in ipairs(italic_groups) do
         vim.cmd("hi " .. group .. " gui=italic cterm=italic")
       end
-    end
+    end,
+    keys = {
+      { "<leader>tt", ":CyberdreamToggleMode<CR>", { noremap = true, silent = true } },
+    },
   },
 
-  -- {
-  --   "catppuccin/nvim",
-  --   name = "catppuccin",
-  --   priority = 1000,
-  --   config = function()
-  --     require("catppuccin").setup({
-  --       flavour = "frappe",  --frappe not bad
-  --     })
-  --     vim.cmd.colorscheme "catppuccin"
-  --   end
-  -- }
-
-  -- {
-  --   "bluz71/vim-nightfly-colors",
-  --   name = "nightfly",
-  --   lazy = false,
-  --   priority = 1000,
-  --   config = function ()
-  --     vim.cmd.colorscheme "nightfly"
-  --     vim.g.nightflyCursorColor = true
-  --   end
-  -- }
-
-  -- {
-  --   "Mofiqul/vscode.nvim",
-  --   name = "vscode",
-  --   priority = 1000,
-  --   config = function ()
-  --     require("vscode").setup({
-  --        style = "light"
-  --     })
-  --     vim.cmd.colorscheme "vscode"
-  --   end
-  -- }
-  -- {
-  --   "Mofiqul/dracula.nvim",
-  --   config = function ()
-  --     require('dracula').setup({
-  --       transparent_bg = false,
-  --     })
-  --     vim.cmd("colorscheme dracula")
-  --   end
-  -- },
+  -- need to manually update this !
+  -- https://github.com/folke/lazy.nvim/discussions/1344
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "cyberdream",
+    },
+  },
 }
