@@ -3,12 +3,12 @@ return {
   {
     "folke/tokyonight.nvim",
     priority = 1000,
-    enabled = false,
+    enabled = true,
     config = function()
-      local transparent = false
+      local transparent = true
 
       require("tokyonight").setup({
-        style = "day",
+        style = "night",
         transparent = transparent,
         styles = {
           sidebars = transparent and "transparent" or "dark",
@@ -76,6 +76,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
+      -- colorscheme = "tokyonight",
       colorscheme = "cyberdream",
     },
   },

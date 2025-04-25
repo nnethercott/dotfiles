@@ -12,7 +12,9 @@ return {
               checkOnSave = false,
               diagnostics = {
                 enable = true,
-                disabled = { "unresolved-proc-macro" }
+                disabled = {
+                  "macro-error",
+                },
               },
               cargo = {
                 buildScripts = {
