@@ -1,0 +1,50 @@
+# based on https://github.com/codingjerk/dotfiles/blob/main/config/git/config
+[user]
+  name = Nate Nethercott
+  email = natenethercott@gmail.com
+
+[core]
+  editor = "nvim"
+
+# main commands
+[push]
+  autoSetupRemote = true
+  followTags = true
+[pull]
+  rebase = true
+[rebase]
+  autoStash = true
+[diff]
+  context = 3
+  renames = copies
+  interHunkContext = 10
+[commit]
+  template = ~/.config/git/template
+[log]
+  abbrevCommit = true  # short commits
+  graphColors = blue,yellow,cyan,magenta,green,red
+
+# visuals 
+# https://github.com/so-fancy/diff-so-fancy
+[pager]
+  diff =  "diff-so-fancy | less --tabs=4 -RF"
+  show = "diff-so-fancy | less --tabs=4 -RF"
+[diff-so-fancy]
+  markEmptyLines = false
+  stripLeadingSymbols = false
+  rulerWidth = 80
+[color]
+  ui  = true
+[color "diff"]
+  meta = "11"
+  frag = "magenta bold"
+  func = "146 bold"
+  commit =  "yellow bold"
+  old = "red bold"
+  new = "green bold"
+  whitespace  = "red reverse"
+[color "diff-highlight"]
+  oldNormal = "red bold"
+  oldHighlight = "red bold 52"
+  newNormal = "green bold"
+  newHighlight = "green bold 22"

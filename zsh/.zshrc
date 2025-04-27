@@ -25,24 +25,31 @@ setopt hist_ignore_space
 # https://www.reddit.com/r/linux4noobs/comments/tkvs8o/kitty_terminal_with_ssh_issues/
 export TERM=xterm-256color
 
-# # binaries
+# binaries
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$HOME/.cargo/bin:$PATH"  #cargo
 export PATH=$PATH:/usr/local/go/bin #go
+export PATH=$PATH:$HOME/go/bin
 export PATH="/home/nnethercott/development/flutter/bin:$PATH"  #flutter
 export PATH="$PATH:/opt/android-studio/bin" #android studio
 export PATH="$PATH:$HOME/.pub-cache/bin" #pub
 export PATH="$PATH:/opt/nvim-linux64/bin"  #nvim
 
+# Aliases
+# k8s 
 alias k='kubectl'
 alias kx='kubectx'
 alias kn='kubens'
-
-# misc aliases
+# git
+alias gs='git status --short'
+alias ga='git add'
+alias gd='git diff'
+alias gc='git commit'
+alias gp='git pull'
+alias gl='git log --graph --all --pretty=format:"%C(magenta)%h %C(yellow) %an  %C(cyan) %ar%C(blue)  %D%n%s%n"'
+# misc 
 alias rgf='rg --files | rg'
 alias ls="ls --color=auto"
-
-# apps
 alias cursor='~/Applications/cursor.AppImage --no-sandbox'
 alias obsidian='~/Applications/obsidian.AppImage'
 

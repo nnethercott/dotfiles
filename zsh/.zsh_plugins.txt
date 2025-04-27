@@ -17,4 +17,5 @@ jonmosco/kube-ps1
 # prompt themes
 romkatv/powerlevel10k
 
-
+# nicer git diffs
+so-fancy/diff-so-fancy
