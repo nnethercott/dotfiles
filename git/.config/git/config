@@ -4,7 +4,10 @@
   email = natenethercott@gmail.com
 
 [core]
-  editor = "nvim"
+  editor = "vim"
+
+[init]
+  defaultBranch = "main"
 
 # main commands
 [push]

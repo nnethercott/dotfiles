@@ -33,10 +33,10 @@ export PATH=$PATH:$HOME/go/bin
 export PATH="/home/nnethercott/development/flutter/bin:$PATH"  #flutter
 export PATH="$PATH:/opt/android-studio/bin" #android studio
 export PATH="$PATH:$HOME/.pub-cache/bin" #pub
-export PATH="$PATH:/opt/nvim-linux64/bin"  #nvim
+export PATH="$PATH:/opt/nvim-linux-x86_64/bin"  #nvim
 
 # Aliases
-# k8s 
+# k8s
 alias k='kubectl'
 alias kx='kubectx'
 alias kn='kubens'
@@ -45,23 +45,23 @@ alias gs='git status --short'
 alias ga='git add'
 alias gd='git diff'
 alias gc='git commit'
+alias gco='git checkout'
 alias gp='git pull'
-alias gl='git log --graph --all --pretty=format:"%C(magenta)%h %C(yellow) %an  %C(cyan) %ar%C(blue)  %D%n%s%n"'
-# misc 
+alias gl='git log --graph --pretty=format:"%C(magenta)%h %C(yellow) %an  %C(cyan) %ar%C(blue)  %D%n%s%n"'
+# misc
 alias rgf='rg --files | rg'
 alias ls="ls --color=auto"
 alias cursor='~/Applications/cursor.AppImage --no-sandbox'
 alias obsidian='~/Applications/obsidian.AppImage'
+alias cd="z"
+alias aw="argo watch \$(argo list --running | awk 'NR>1 {print \$1}' | head -n1)"
 
 # pyenv (not sure if i actually need this)
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init - --no-rehash zsh)"
 
-# fzf
-export FZF_DEFAULT_OPTS='--bind=tab:down,shift-tab:up'
-
-# # fnm
+# fnm
 FNM_PATH="/home/nnethercott/.local/share/fnm"
 if [ -d "$FNM_PATH" ]; then
   export PATH="/home/nnethercott/.local/share/fnm:$PATH"
@@ -69,5 +69,11 @@ if [ -d "$FNM_PATH" ]; then
 fi
 alias nvm="fnm"
 
+# jeffreytse/zsh-vi-mode; to uninstall clean from antidote
+export ZVM_VI_INSERT_ESCAPE_BINDKEY="jk"
+export ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
+export ZVM_CURSOR_STYLE_ENABLED=true
+
+eval "$(zoxide init zsh)"
 # # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh  ]] || source ~/.p10k.zsh

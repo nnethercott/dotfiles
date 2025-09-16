@@ -1,5 +1,6 @@
 return {
   "lewis6991/gitsigns.nvim",
+  enabled = true,
   opts = {
     signs = {
       add = { text = "▒" },
@@ -17,6 +18,7 @@ return {
       changedelete = { text = "▒" },
       untracked = { text = "┆" },
     },
+    signcolumn = false,
   },
   keys = {
     {"<leader>gb", ":Gitsigns toggle_current_line_blame(full=true)<CR>", desc = "Git blame inline"},

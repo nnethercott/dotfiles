@@ -1,0 +1,15 @@
+-- vim.lsp.config("ty", {
+--   cmd = { "uvx", "ty", "server" },
+--   filetypes = { "python" },
+--   root_dir = vim.fs.root(0, { ".git", "pyproject.toml" }),
+--   settings = {
+--     ty = {
+--       inlayHints = {
+--         -- doesn't even work anyways cause lazyvim is strange
+--         variableTypes = false,
+--       },
+--     },
+--   },
+-- })
+--
+-- vim.lsp.enable("ty")

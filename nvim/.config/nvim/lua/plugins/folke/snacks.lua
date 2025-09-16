@@ -4,7 +4,7 @@ return {
   lazy = false,
   ---@type snacks.Config
   opts = {
-    input = { enabled = false, icon = "" },
+    input = { enabled = true, icon = "" },
     indent = {enabled = false,},
     notifier = { enabled = false },
     scope = { enabled = false },

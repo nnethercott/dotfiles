@@ -1,21 +1,40 @@
 return {
-  -- diasable mini pairs
-  -- {
-  --   "echasnovski/mini.pairs",
-  --   enabled = false,
-  -- },
+  -- diasable mini pairs, otherwise lazy overwrites
+  {
+    "echasnovski/mini.pairs",
+    enabled = false,
+  },
+  {
+    "echasnovski/mini.trailspace",
+    event = { "BufReadPost", "BufNewFile" },
+    config = function()
+      local miniTrailspace = require("mini.trailspace")
+
+      miniTrailspace.setup({
+        only_in_normal_buffers = true,
+      })
+      vim.keymap.set("n", "<leader>cw", function()
+        miniTrailspace.trim()
+      end, { desc = "Erase Whitespace" })
+      -- Ensure highlight never reappears by removing it on CursorMoved
+      vim.api.nvim_create_autocmd("CursorMoved", {
+        pattern = "*",
+        callback = function()
+          require("mini.trailspace").unhighlight()
+        end,
+      })
+    end,
+  },
   {
     "echasnovski/mini.nvim",
     version = false,
     config = function()
       require("mini.ai").setup()
-      require("mini.pairs").setup()
-      --  messes with
-      -- local trailspace = require("mini.trailspace")
-      -- trailspace.setup({
-      --   vim.keymap.set("n", "<leader>cw", function() trailspace.trim() end)
-      -- })
-
+      require("mini.pairs").setup({
+        mappings = {
+          ["'"] = false,
+        },
+      })
       require("mini.splitjoin").setup()
       require("mini.surround").setup({
         mappings = {

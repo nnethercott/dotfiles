@@ -3,13 +3,14 @@ return {
   {
     "neovim/nvim-lspconfig",
     opts = {
+      -- this globally disables stuff
       inlay_hints = { enabled = false },
       servers = {
         rust_analyzer = {
           filetypes = { "rust" },
           settings = {
-            ["rust-analyzer"] = { -- Note the hyphen here
-              checkOnSave = false,
+            ["rust-analyzer"] = {
+              checkOnSave = true,
               diagnostics = {
                 enable = true,
                 disabled = {
@@ -17,6 +18,7 @@ return {
                 },
               },
               cargo = {
+                features = "all",
                 buildScripts = {
                   enable = true,
                 },

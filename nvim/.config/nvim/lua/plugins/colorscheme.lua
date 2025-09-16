@@ -1,4 +1,3 @@
--- tokyonight, cyberdream, vscode.nvim, catpuccin, nightfly-colors,
 return {
   {
     "folke/tokyonight.nvim",
@@ -35,7 +34,7 @@ return {
     enabled = true,
     config = function()
       require("cyberdream").setup({
-        variant = "light",
+        variant = "default",
         saturation = 1,
         transparent = false,
         italic_comments = true,
@@ -43,16 +42,6 @@ return {
         terminal_colors = false,
         cache = false,
         borderless_pickers = false,
-        -- overrides = function(colors) -- NOTE: This function nullifies the `highlights` option
-        --   -- Example:
-        --   return {
-        --     ["@variable"] = { bg = colors.magenta, },
-        --   }
-        -- end,
-        -- colors = {
-        --   -- For a list of colors see `lua/cyberdream/colours.lua`
-        --   bg_highlight = "#eaeaea",
-        -- },
       })
 
       vim.cmd("colorscheme cyberdream")

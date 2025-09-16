@@ -19,3 +19,6 @@ romkatv/powerlevel10k
 
 # nicer git diffs
 so-fancy/diff-so-fancy
+
+# vi-mode
+jeffreytse/zsh-vi-mode
