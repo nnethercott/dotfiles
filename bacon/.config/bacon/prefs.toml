@@ -1,0 +1,43 @@
+default_job = "check"
+env.CARGO_TERM_COLOR = "always"
+
+[keybindings]
+c = "job:check"
+shift-c = "job:check-all"
+l = "job:clippy"
+f = "job:fmt"
+t = "job:test"
+
+[jobs.check]
+command = ["cargo", "check", "--all-targets"]
+# command = ["cargo", "check"]
+needs_stdout = true
+background = true
+default_watch = true
+on_change_strategy = "kill_then_restart"
+
+[jobs.check-all]
+command = ["cargo", "check", "--all-targets"]
+needs_stdout = true
+background = true
+default_watch = true
+on_change_strategy = "kill_then_restart"
+
+[jobs.fmt]
+command = ["cargo", "fmt", "--all"]
+needs_stdout = true
+background = false
+default_watch = false
+
+[jobs.clippy]
+command = ["cargo", "clippy", "--workspace"]
+needs_stdout = true
+background = false
+default_watch = false
+
+[jobs.test]
+command = ["cargo", "test", "--", "--nocapture"]
+needs_stdout = true
+background = false
+default_watch = false
+
