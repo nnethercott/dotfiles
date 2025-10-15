@@ -24,7 +24,6 @@ require("lazy").setup({
 
     -- langs
     -- { import = "lazyvim.plugins.extras.lang.rust"}, -- async-trait weird
-    { import = "lazyvim.plugins.extras.lang.angular"},
     { import = "lazyvim.plugins.extras.lang.clangd"},
 
     -- plugins

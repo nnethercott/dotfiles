@@ -22,6 +22,11 @@ return {
 
     return opts
   end,
+  config = function(_, opts)
+    local fzf = require("fzf-lua")
+    fzf.setup(opts)
+    fzf.register_ui_select() -- 👈 this is the important part
+  end,
   keys = {
     { "<leader>f", "<cmd>FzfLua files<cr>", desc = "Find Files" },
     { "<leader>rg", "<cmd>FzfLua live_grep<cr>", desc = "Grep" },

@@ -5,18 +5,22 @@ return {
   ---@type snacks.Config
   opts = {
     input = { enabled = true, icon = "" },
-    indent = {enabled = false,},
+    indent = { enabled = false },
     notifier = { enabled = false },
     scope = { enabled = false },
     scroll = { enabled = false },
     words = { enabled = true, debounce = 75 },
     dashboard = { enabled = true }, -- alpha
-    explorer = { enabled = true },
+    explorer = {
+      enabled = true,
+      show_hidden = true,
+    },
     picker = {
       sources = {
         finder = { cmd = "fd" },
         explorer = {
           title = "",
+          hidden = true,
           layout = {
             -- preset = "vscode", -- cool
             cycle = false,

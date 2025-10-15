@@ -1,11 +1,11 @@
 return {
   -- diasable mini pairs, otherwise lazy overwrites
   {
-    "echasnovski/mini.pairs",
+    "nvim-mini/mini.pairs",
     enabled = false,
   },
   {
-    "echasnovski/mini.trailspace",
+    "nvim-mini/mini.trailspace",
     event = { "BufReadPost", "BufNewFile" },
     config = function()
       local miniTrailspace = require("mini.trailspace")
@@ -26,7 +26,7 @@ return {
     end,
   },
   {
-    "echasnovski/mini.nvim",
+    "nvim-mini/mini.nvim",
     version = false,
     config = function()
       require("mini.ai").setup()

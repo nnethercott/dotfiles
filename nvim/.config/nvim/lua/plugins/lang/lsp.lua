@@ -1,15 +1,14 @@
 return {
   -- mason
   {
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
     opts = function(_, opts)
       vim.list_extend(opts.ensure_installed, {
-        "stylua", -- lua
+        "stylua",
         "codelldb",
-        "ruff", -- python
+        "ruff",
         "pyright",
-        "angular-language-server", -- angular
-        "gopls", -- go
+        "terraform-ls"
       })
     end,
   },
@@ -17,6 +16,11 @@ return {
   {
     "neovim/nvim-lspconfig",
     opts = function()
+      -- recognize tfstate as json
+      vim.filetype.add({
+        extension = { tfstate = "json" },
+      })
+
       local keys = require("lazyvim.plugins.lsp.keymaps").get()
       vim.list_extend(keys, {
         -- uncomment to stop using default picker ...

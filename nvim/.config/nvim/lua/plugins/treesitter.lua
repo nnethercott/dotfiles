@@ -6,10 +6,11 @@ return {
       "ron", -- used with serde ?
       "python",
       "dart",
-      "angular",
       "typescript",
       "hurl",
       "yaml",
+      "terraform",
+      "hcl",
     },
   },
 }
