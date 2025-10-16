@@ -3,6 +3,10 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# mistral
+export SSH_AUTH_SOCK=/Users/nathaniel.nethercott/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
+alias tailscale=/Applications/Tailscale.app/Contents/MacOS/Tailscale
+
 # extra completions
 fpath+=$HOME/.zfunc
 autoload -U +X compinit && compinit -C
@@ -28,6 +32,7 @@ export TERM=xterm-256color
 # binaries
 export PATH="$PATH:/opt/homebrew/bin"
 export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:/opt/homebrew/bin"
 export PATH="$HOME/.cargo/bin:$PATH"  #cargo
 
 # Aliases
@@ -71,3 +76,9 @@ source <(carapace _carapace)
 
 # # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh  ]] || source ~/.p10k.zsh
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/nathaniel.nethercott/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/nathaniel.nethercott/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/nathaniel.nethercott/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/nathaniel.nethercott/Downloads/google-cloud-sdk/completion.zsh.inc'; fi

@@ -21,7 +21,6 @@ return {
     signcolumn = false,
   },
   keys = {
-    {"<leader>gb", ":Gitsigns toggle_current_line_blame(full=true)<CR>", desc = "Git blame inline"},
-    {"gpr", ":Gitsigns preview_hunk_inline<CR>", desc = "Git preview hunk inline"},
+    -- {"<leader>gd", ":Gitsigns diffthis ", desc = "Git diff a rev"},
   }
 }

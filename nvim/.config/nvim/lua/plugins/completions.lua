@@ -7,8 +7,14 @@ return {
         -- preset = "enter",
         ["<S-Tab>"] = { "select_prev", "fallback" },
         ["<Tab>"] = { "select_next", "fallback" },
-        ['<C-n>'] = { 'snippet_forward', 'fallback' },
-        ['<C-o>'] = { 'snippet_backward', 'fallback' },
+        ["<C-n>"] = { "snippet_forward", "fallback" },
+        ["<C-o>"] = { "snippet_backward", "fallback" },
+      },
+      -- avante commands
+      compat = {
+        "avante_commands",
+        "avante_mentions",
+        "avante_files",
       },
     },
   },

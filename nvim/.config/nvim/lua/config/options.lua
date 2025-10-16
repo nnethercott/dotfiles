@@ -45,7 +45,7 @@ vim.o.clipboard = "unnamedplus"
 o.splitright = true
 o.splitbelow = true
 
--- wrap 
+-- wrap
 vim.o.wrap = false
 
 -- cmd height
@@ -57,3 +57,7 @@ vim.opt.listchars = {
   trail = " ",
   tab = "  ",
 }
+
+-- views can only be fully collapsed with the global statusline
+-- recommended by avante nvim
+vim.opt.laststatus = 3

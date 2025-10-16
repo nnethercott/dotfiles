@@ -23,6 +23,7 @@ return {
         render = "compact",
         stages = "static",
         timeout = 3000,
+        merge_duplicates = true,
       })
     end
   }

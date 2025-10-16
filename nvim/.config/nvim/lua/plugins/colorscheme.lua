@@ -34,7 +34,7 @@ return {
     enabled = true,
     config = function()
       require("cyberdream").setup({
-        variant = "default",
+        variant = "auto",
         saturation = 1,
         transparent = false,
         italic_comments = true,

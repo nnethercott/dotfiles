@@ -20,11 +20,8 @@ adjust-cell-height=5%
 
 window-padding-x = 0
 window-padding-y = 0
-window-padding-balance=false
-# window-padding-color = extend
 window-decoration = auto
-window-save-state = always
-window-width = 100
 
 # mac
 macos-icon = "official"
+mouse-shift-capture = false
