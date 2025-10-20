@@ -4,7 +4,7 @@ return {
     priority = 1000,
     enabled = true,
     config = function()
-      local transparent = true
+      local transparent = false
 
       require("tokyonight").setup({
         style = "night",
@@ -35,13 +35,20 @@ return {
     config = function()
       require("cyberdream").setup({
         variant = "auto",
-        saturation = 1,
+        saturation = 1.0,
         transparent = false,
         italic_comments = true,
         hide_fillchars = true,
         terminal_colors = false,
         cache = false,
         borderless_pickers = false,
+        colors = {
+          -- For a list of colors see `lua/cyberdream/colours.lua`
+          -- If you want to override colors for light or dark variants only, use the following format:
+          dark = {
+            fg = "#eaeaea",
+          },
+        },
       })
 
       vim.cmd("colorscheme cyberdream")
@@ -63,10 +70,26 @@ return {
   -- need to manually update this !
   -- https://github.com/folke/lazy.nvim/discussions/1344
   {
+    "rebelot/kanagawa.nvim",
+    opts = {
+      -- removes coloring on the sign/fold column
+      colors = {
+        theme = {
+          all = {
+            ui = {
+              bg_gutter = "none",
+            },
+          },
+        },
+      },
+    },
+  },
+  {
     "LazyVim/LazyVim",
     opts = {
       -- colorscheme = "tokyonight",
-      colorscheme = "cyberdream",
+      -- colorscheme = "cyberdream",
+      colorscheme = "kanagawa-wave",
     },
   },
 }

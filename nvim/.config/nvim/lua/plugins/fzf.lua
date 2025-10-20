@@ -1,16 +1,14 @@
 return {
   "ibhagwan/fzf-lua",
   config = function(_, opts)
-    -- Register UI select once
     local fzf = require("fzf-lua")
-    fzf.register_ui_select()
 
-    -- Merge your custom fzf_opts
+    -- Merge custom fzf options
     opts.fzf_opts = vim.tbl_extend("force", opts.fzf_opts or {}, {
       ["--cycle"] = true,
     })
 
-    -- Merge your custom LSP code actions config
+    -- Merge custom LSP code action window options
     opts.lsp = opts.lsp or {}
     opts.lsp.code_actions = vim.tbl_extend("force", opts.lsp.code_actions or {}, {
       winopts = {
@@ -24,23 +22,22 @@ return {
       },
     })
 
-    -- Apply the configuration
+    -- Apply config and register UI select
     fzf.setup(opts)
+    fzf.register_ui_select()
   end,
-  config = function(_, opts)
-    local fzf = require("fzf-lua")
-    fzf.setup(opts)
-    fzf.register_ui_select() -- 👈 this is the important part
-  end,
+
   keys = {
     { "<leader>f", "<cmd>FzfLua files<cr>", desc = "Find Files" },
     { "<leader>rg", "<cmd>FzfLua live_grep<cr>", desc = "Grep" },
-    { "<leader>gf", '<cmd>lua require("fzf-lua").grep({ search = "" })<cr>', desc = "Grep" },
+    {
+      "<leader>gf",
+      '<cmd>lua require("fzf-lua").grep({ search = "" })<cr>',
+      desc = "Grep"
+    },
     {
       "<leader>a",
-      function()
-        require("fzf-lua").lsp_code_actions()
-      end,
+      function() require("fzf-lua").lsp_code_actions() end,
       mode = { "n", "x" },
       desc = "Code action",
     },
