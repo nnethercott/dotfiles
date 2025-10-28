@@ -3,10 +3,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# mistral
-export SSH_AUTH_SOCK=/Users/nathaniel.nethercott/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
-alias tailscale=/Applications/Tailscale.app/Contents/MacOS/Tailscale
-
 # extra completions
 fpath+=$HOME/.zfunc
 autoload -U +X compinit && compinit -C
@@ -67,6 +63,7 @@ eval "$(zoxide init zsh)"
 
 # vi mode
 set -o vi
+KEYTIMEOUT=8
 bindkey -M viins 'jk' vi-cmd-mode
 bindkey -M viins '^R' history-incremental-search-backward
 bindkey -M vicmd '^R' history-incremental-search-backward

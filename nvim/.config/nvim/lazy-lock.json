@@ -13,10 +13,10 @@
   "friendly-snippets": { "branch": "main", "commit": "572f5660cf05f8cd8834e096d7b4c921ba18e175" },
   "fzf-lua": { "branch": "main", "commit": "7c21f30f6182ca2463681c0f287d032b48882d4f" },
   "gitsigns.nvim": { "branch": "main", "commit": "1ee5c1fd068c81f9dd06483e639c2aa4587dc197" },
-  "fzf-lua": { "branch": "main", "commit": "4be5156ea8fae0a4914e8c3a4f005dc133019599" },
-  "gitsigns.nvim": { "branch": "main", "commit": "472f752943d44d732cece09d442d45681ce38f48" },
   "harpoon": { "branch": "master", "commit": "1bc17e3e42ea3c46b33c0bbad6a880792692a1b3" },
+  "helm-ls.nvim": { "branch": "main", "commit": "142777b0ad47f0b007051b187602fad13f00557f" },
   "indent-blankline.nvim": { "branch": "master", "commit": "005b56001b2cb30bfa61b7986bc50657816ba4ba" },
+  "kanagawa.nvim": { "branch": "master", "commit": "aef7f5cec0a40dbe7f3304214850c472e2264b10" },
   "lazy.nvim": { "branch": "main", "commit": "6c3bda4aca61a13a9c63f1c1d1b16b9d3be90d7a" },
   "lazydev.nvim": { "branch": "main", "commit": "258d2a5ef4a3e3d6d9ba9da72c9725c53e9afcbd" },
   "leap.nvim": { "branch": "main", "commit": "07304103f6bd923004fdef9262d9a4d7925fb70a" },
@@ -24,7 +24,6 @@
   "mason-lspconfig.nvim": { "branch": "main", "commit": "155eac5d8609a2f110041f8ac3491664cc126354" },
   "mason-nvim-dap.nvim": { "branch": "main", "commit": "86389a3dd687cfaa647b6f44731e492970034baa" },
   "mason.nvim": { "branch": "main", "commit": "ad7146aa61dcaeb54fa900144d768f040090bff0" },
-  "mason.nvim": { "branch": "main", "commit": "a83eabdc8c49c0c93bf5bb162fa3b57404a9d095" },
   "mini.ai": { "branch": "main", "commit": "e0d00c227112e942ed2789dd4c21d651002831c0" },
   "mini.icons": { "branch": "main", "commit": "e8fae66cb400744daeedf6e387347df50271c252" },
   "mini.nvim": { "branch": "main", "commit": "126ce3328c78399dcff58272f6f540a373b62a75" },
@@ -52,6 +51,5 @@
   "trouble.nvim": { "branch": "main", "commit": "f176232e7759c4f8abd923c21e3e5a5c76cd6837" },
   "ts-comments.nvim": { "branch": "main", "commit": "1bd9d0ba1d8b336c3db50692ffd0955fe1bb9f0c" },
   "vim-maximizer": { "branch": "master", "commit": "2e54952fe91e140a2e69f35f22131219fcd9c5f1" },
-  "vim-tmux-navigator": { "branch": "master", "commit": "c45243dc1f32ac6bcf6068e5300f3b2b237e576a" },
-  "zen-mode.nvim": { "branch": "main", "commit": "438a59c33763d79e34ceb394e012c3bfd6aa1084" }
+  "vim-tmux-navigator": { "branch": "master", "commit": "c45243dc1f32ac6bcf6068e5300f3b2b237e576a" }
 }

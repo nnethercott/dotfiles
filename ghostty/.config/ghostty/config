@@ -3,8 +3,8 @@ theme = Monokai Remastered
 # theme = cyberdream-light
 
 maximize = true
-background-opacity=1.0
-background-blur=false
+background-opacity=0.70
+background-blur=true
 
 font-family = JetBrains Mono
 font-size = 13

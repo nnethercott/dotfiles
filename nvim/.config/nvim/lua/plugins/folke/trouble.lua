@@ -16,20 +16,20 @@ return {
         local trouble = require("trouble")
         local local_opts = {
           mode = "lsp_document_symbols",
+          format = "{kind_icon} {symbol.name}",
           focus = true,
           follow = true,
           auto_preview = false,
+          preview = { type = "none" },
+          auto_fold = true,
           win = {
             position = "right",
             size = 40,
           },
           filter = {
-            -- remove Package since luals uses it for control flow structures
             ["not"] = { ft = "lua", kind = "Package" },
             any = {
-              -- all symbol kinds for help / markdown files
               ft = { "help", "markdown" },
-              -- default set of symbol kinds
               kind = {
                 "Class",
                 "Constructor",
@@ -48,7 +48,6 @@ return {
             },
           },
         }
-
         trouble.toggle(local_opts)
       end,
       desc = "Trouble symbols toggle",

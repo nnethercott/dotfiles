@@ -8,7 +8,8 @@ return {
         "codelldb",
         "ruff",
         "pyright",
-        "terraform-ls"
+        "terraform-ls",
+        "helm-ls",
       })
     end,
   },
@@ -20,7 +21,6 @@ return {
       vim.filetype.add({
         extension = { tfstate = "json" },
       })
-
       local keys = require("lazyvim.plugins.lsp.keymaps").get()
       vim.list_extend(keys, {
         -- uncomment to stop using default picker ...

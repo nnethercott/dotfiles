@@ -11,7 +11,7 @@ return {
         __inherited_from = "openai",
         endpoint = "https://api.mistral.ai/v1/",
         api_key_name = "AVANTE_MISTRAL_API_KEY",
-        model = "mistral-medium-2508",
+        model = "devstral-medium-2507",
         disable_tools = false, -- disable tools!
         timeout = 30000, -- Timeout in milliseconds
         extra_request_body = {
