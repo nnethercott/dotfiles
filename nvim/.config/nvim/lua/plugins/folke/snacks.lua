@@ -21,6 +21,7 @@ return {
         explorer = {
           title = "",
           hidden = true,
+          ignored = true,
           layout = {
             -- preset = "vscode", -- cool
             cycle = false,

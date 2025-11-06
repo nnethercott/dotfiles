@@ -10,6 +10,7 @@ return {
         "pyright",
         "terraform-ls",
         "helm-ls",
+        "jinja-lsp",
       })
     end,
   },
