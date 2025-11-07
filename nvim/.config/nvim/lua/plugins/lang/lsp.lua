@@ -7,7 +7,7 @@ return {
         "stylua",
         "codelldb",
         "ruff",
-        "pyright",
+        "ty",
         "terraform-ls",
         "helm-ls",
         "jinja-lsp",
