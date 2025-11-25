@@ -6,8 +6,9 @@ maximize = true
 background-opacity=0.70
 background-blur=true
 
-font-family = JetBrains Mono
-font-size = 13
+# font-family = JetBrains Mono
+font-family = Myna
+font-size = 14
 font-feature = -calt, -liga, -dlig  # no ligatures
 
 keybind = alt+left=unbind

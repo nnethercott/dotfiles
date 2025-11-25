@@ -28,7 +28,6 @@ return {
   end,
 
   keys = {
-    { "<leader>f", "<cmd>FzfLua files<cr>", desc = "Find Files" },
     { "<leader>rg", "<cmd>FzfLua live_grep<cr>", desc = "Grep" },
     {
       "<leader>gf",

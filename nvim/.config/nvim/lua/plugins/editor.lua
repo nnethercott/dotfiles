@@ -1,15 +1,14 @@
 return {
   -- illuminate
   { "RRethy/vim-illuminate", enabled = false },
-
   -- leap
   {
     "ggandor/leap.nvim",
+    enabled = true,
     config = function()
       require("leap").create_default_mappings()
     end,
   },
-
   -- maximize split
   {
     "szw/vim-maximizer",
@@ -28,4 +27,29 @@ return {
   --     npairs.remove_rule("'")
   --   end,
   -- },
+
+  -- Lua
+  {
+    {
+      "abecodes/tabout.nvim",
+      lazy = false,
+      config = function()
+        require("tabout").setup({
+          tabkey = "<Tab>", -- key to trigger tabout, set to an empty string to disable
+          backwards_tabkey = "<S-Tab>", -- key to trigger backwards tabout, set to an empty string to disable
+          enable_backwards = true, -- well ...
+          tabouts = {
+            { open = "'", close = "'" },
+            { open = '"', close = '"' },
+            { open = "`", close = "`" },
+            { open = "(", close = ")" },
+            { open = "[", close = "]" },
+            { open = "{", close = "}" },
+          },
+          ignore_beginning = true, --[[ if the cursor is at the beginning of a filled element it will rather tab out than shift the content ]]
+          exclude = {}, -- tabout will ignore these filetypes
+        })
+      end,
+    },
+  },
 }

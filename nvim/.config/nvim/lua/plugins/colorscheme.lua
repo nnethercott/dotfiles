@@ -63,7 +63,7 @@ return {
       end
     end,
     keys = {
-      { "<leader>tt", ":CyberdreamToggleMode<CR>", { noremap = true, silent = true } },
+      { "tt", ":CyberdreamToggleMode<CR>", { noremap = true, silent = true } },
     },
   },
 

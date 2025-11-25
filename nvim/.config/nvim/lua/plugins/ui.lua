@@ -70,6 +70,9 @@ return {
       vim.keymap.set("n", "<S-l>", ":bnext<CR>", { noremap = true }) -- remap :bnext
       vim.keymap.set("n", "<S-h>", ":bprevious<CR>", { noremap = true }) -- remap :bprev
       vim.keymap.set("n", "<leader>o", ":BufferOrderByBufferNumber<CR>", { noremap = true })
+
+      -- vim.api.nvim_set_hl(0, "BufferTabpageFill", { bg = "none", fg = "none" })
+      -- vim.api.nvim_set_hl(0, "TabLineFill",       { bg = "none", fg = "none" })
     end,
   },
 

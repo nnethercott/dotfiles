@@ -6,3 +6,10 @@ vim.filetype.add({
     j2 = "jinja",
   },
 })
+
+
+vim.filetype.add({
+  extension = {
+    mdx = "markdown",
+  },
+})
