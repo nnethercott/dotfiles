@@ -7,10 +7,17 @@ vim.filetype.add({
   },
 })
 
--- helmfile
+-- terraform and helmfile
 vim.filetype.add({
   extension = {
     gotmpl = "helm",
+    tfstate = "json",
   },
 })
 
+-- mdx
+vim.filetype.add({
+  extension = {
+    mdx = "markdown",
+  },
+})

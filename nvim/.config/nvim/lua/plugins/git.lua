@@ -25,29 +25,29 @@ return {
       -- {"<leader>gd", ":Gitsigns diffthis ", desc = "Git diff a rev"},
     },
   },
-  {
-    "esmuellert/vscode-diff.nvim",
-    dependencies = { "MunifTanjim/nui.nvim" },
-    config = function()
-      require("vscode-diff").setup({
-        -- Keymaps in diff view
-        keymaps = {
-          view = {
-            next_hunk = "<C-f>", -- Jump to next change
-            prev_hunk = "<C-b>", -- Jump to previous change
-            next_file = "<Tab>", -- Next file in explorer mode
-            prev_file = "<S-Tab>", -- Previous file in explorer mode
-          },
-          explorer = {
-            select = "<CR>", -- Open diff for selected file
-            hover = "K", -- Show file diff preview
-            refresh = "R", -- Refresh git status
-          },
-        },
-      })
-    end,
-    keys = {
-      { "<leader>cd", ":CodeDiff HEAD~1<CR>", desc = "Git diff HEAD~1" },
-    },
-  },
+  -- {
+  --   "esmuellert/vscode-diff.nvim",
+  --   dependencies = { "MunifTanjim/nui.nvim" },
+  --   config = function()
+  --     require("vscode-diff").setup({
+  --       -- Keymaps in diff view
+  --       keymaps = {
+  --         view = {
+  --           next_hunk = "<C-f>", -- Jump to next change
+  --           prev_hunk = "<C-b>", -- Jump to previous change
+  --           next_file = "<Tab>", -- Next file in explorer mode
+  --           prev_file = "<S-Tab>", -- Previous file in explorer mode
+  --         },
+  --         explorer = {
+  --           select = "<CR>", -- Open diff for selected file
+  --           hover = "K", -- Show file diff preview
+  --           refresh = "R", -- Refresh git status
+  --         },
+  --       },
+  --     })
+  --   end,
+  --   keys = {
+  --     { "<leader>cd", ":CodeDiff HEAD~1<CR>", desc = "Git diff HEAD~1" },
+  --   },
+  -- },
 }
