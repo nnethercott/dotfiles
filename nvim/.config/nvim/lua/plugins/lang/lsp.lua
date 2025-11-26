@@ -11,6 +11,7 @@ return {
         "terraform-ls",
         "helm-ls",
         "jinja-lsp",
+        "yaml-language-server",
       })
     end,
   },

@@ -1,7 +1,7 @@
 # based on https://github.com/codingjerk/dotfiles/blob/main/config/git/config
 [user]
   name = Nate Nethercott
-  email = natenethercott@gmail.com
+  email = nathaniel.nethercott@mistral.ai
 
 [core]
   editor = "nvim"

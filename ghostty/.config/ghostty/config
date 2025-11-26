@@ -8,7 +8,7 @@ background-blur=true
 
 # font-family = JetBrains Mono
 font-family = Myna
-font-size = 14
+font-size = 15
 font-feature = -calt, -liga, -dlig  # no ligatures
 
 keybind = alt+left=unbind

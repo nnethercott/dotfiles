@@ -29,7 +29,9 @@ export TERM=xterm-256color
 export PATH="$PATH:/opt/homebrew/bin"
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:/opt/homebrew/bin"
-export PATH="$HOME/.cargo/bin:$PATH"  #cargo
+export PATH="$HOME/.cargo/bin:$PATH"
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/nathaniel.nethercott/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/nathaniel.nethercott/Downloads/google-cloud-sdk/path.zsh.inc'; fi
 
 # Aliases
 # k8s
@@ -68,8 +70,14 @@ bindkey -M viins 'jk' vi-cmd-mode
 bindkey -M viins '^R' history-incremental-search-backward
 bindkey -M vicmd '^R' history-incremental-search-backward
 
-# carapace 
+# carapace
 source <(carapace _carapace)
+
+# total
+export GPG_TTY=$(tty)
+
+# k9s 
+export K9S_CONFIG_DIR="${HOME}/.config/k9s"
 
 # # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh  ]] || source ~/.p10k.zsh
