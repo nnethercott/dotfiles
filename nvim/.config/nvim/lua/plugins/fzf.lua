@@ -28,15 +28,18 @@ return {
   end,
 
   keys = {
+    { "<leader>ff", ":FzfLua<CR>", desc = "find files" },
     { "<leader>rg", "<cmd>FzfLua live_grep<cr>", desc = "Grep" },
     {
       "<leader>gf",
       '<cmd>lua require("fzf-lua").grep({ search = "" })<cr>',
-      desc = "Grep"
+      desc = "Grep",
     },
     {
       "<leader>a",
-      function() require("fzf-lua").lsp_code_actions() end,
+      function()
+        require("fzf-lua").lsp_code_actions()
+      end,
       mode = { "n", "x" },
       desc = "Code action",
     },
