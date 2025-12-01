@@ -2,5 +2,4 @@
 require("config.lazy")
 
 -- lsps
-vim.lsp.enable({"ty"})
-
+-- vim.lsp.enable({"ty"})
