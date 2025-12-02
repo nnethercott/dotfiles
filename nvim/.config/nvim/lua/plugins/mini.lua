@@ -1,3 +1,4 @@
+-- helper for mini files
 return {
   -- diasable mini pairs, otherwise lazy overwrites
   {
@@ -52,6 +53,32 @@ return {
           hex_color = require("mini.hipatterns").gen_highlighter.hex_color(),
         },
       })
+      require("mini.files").setup({
+        mappings = {
+          close = "<C-c>",
+          synchronize = "<CR>",
+        },
+      })
     end,
+    keys = {
+      -- toggle explorer
+      {
+        "<leader>e",
+        function()
+          if not MiniFiles.close() then
+            MiniFiles.open()
+          end
+        end,
+        desc = "explorer",
+      },
+      {
+        "<leader>fe",
+        function()
+          local current_file_dir = vim.fn.expand("%:p")
+          MiniFiles.open(current_file_dir)
+        end,
+        desc = "explorer at current file",
+      },
+    },
   },
 }

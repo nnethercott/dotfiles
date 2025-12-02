@@ -12,7 +12,7 @@ return {
     words = { enabled = true, debounce = 75 },
     dashboard = { enabled = true }, -- alpha
     explorer = {
-      enabled = true,
+      enabled = false,
       show_hidden = true,
     },
     picker = {
@@ -59,5 +59,10 @@ return {
       end,
       desc = "Lazygit",
     },
+    -- disable some stuff
+    { "<leader>fe", false },
+    { "<leader>fE", false },
+    { "<leader>E", false },
+    { "<leader>e", false },
   },
 }
