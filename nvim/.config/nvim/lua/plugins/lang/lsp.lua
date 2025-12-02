@@ -22,7 +22,14 @@ return {
       servers = {
         ["*"] = {
           keys = {
-            { "<leader>d", vim.lsp.buf.hover, desc = "Hover", has = "definition" },
+            {
+              "<leader>d",
+              function()
+                return vim.lsp.buf.hover()
+              end,
+              desc = "Hover",
+              has = "definition",
+            },
             -- { "gD", vim.lsp.buf.declaration, desc = "Goto Declaration", has = "definition" },
             { "gd", vim.lsp.buf.definition, desc = "Goto T[y]pe Definition" },
             {
