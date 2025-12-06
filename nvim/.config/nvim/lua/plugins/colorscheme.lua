@@ -6,13 +6,11 @@ return {
     config = function()
       require("themery").setup({
         themes = {
-          "tokyonight",
           "cyberdream",
-          "zenbones",
-          "rosebones",
           "neobones",
-          "tokyobones",
-          "zenwritten",
+          "rosebones",
+          "tokyonight",
+          "zenbones",
         },
       })
     end,
