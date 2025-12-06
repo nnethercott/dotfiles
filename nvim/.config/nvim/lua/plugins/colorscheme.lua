@@ -1,4 +1,43 @@
 return {
+  -- top-level defn of available colorschemes
+  {
+    "zaldih/themery.nvim",
+    lazy = false,
+    config = function()
+      require("themery").setup({
+        themes = {
+          "tokyonight",
+          "cyberdream",
+          "zenbones",
+          "rosebones",
+          "neobones",
+          "tokyobones",
+          "zenwritten",
+        },
+      })
+    end,
+    keys = {
+      { "<leader>ts", ":Themery<CR>", desc = "toggle themes" },
+      {
+        "<leader>t",
+        function()
+          vim.o.background = (vim.o.background == "dark") and "light" or "dark"
+        end,
+        desc = "toggle themes",
+      },
+    },
+  },
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "zenbones",
+    },
+  },
+
+  ------------------------------------
+  -- themes configuration
+  ------------------------------------
+  -- tokyonight
   {
     "folke/tokyonight.nvim",
     priority = 1000,
@@ -20,14 +59,12 @@ return {
           if transparent then
             colors.bg_statusline = colors.none
           end
-          -- colors.bg = "#fcfbf9"
-          -- colors.bg_float = "#d9dde8";
         end,
       })
-
-      -- vim.cmd("colorscheme tokyonight")
     end,
   },
+
+  -- cyberdream
   {
     "scottmckendry/cyberdream.nvim",
     priority = 1000,
@@ -35,61 +72,41 @@ return {
     config = function()
       require("cyberdream").setup({
         variant = "auto",
-        saturation = 1.0,
+        saturation = 0.9,
         transparent = false,
         italic_comments = true,
         hide_fillchars = true,
         terminal_colors = false,
         cache = false,
         borderless_pickers = false,
+        overrides = function(palette)
+          local new = { fg = palette.yellow, italic = true }
+          return {
+            ["@keyword.conditional"] = new,
+            ["@keyword.modifier"] = new,
+            ["@keyword.rust"] = new,
+            ["@module.rust"] = new,
+          }
+        end,
         colors = {
-          -- For a list of colors see `lua/cyberdream/colours.lua`
-          -- If you want to override colors for light or dark variants only, use the following format:
           dark = {
-            fg = "#eaeaea",
+            fg = "#e0def4",
+            -- bg = "#191724",
+            yellow = "#f6c177",
           },
         },
       })
 
       vim.cmd("colorscheme cyberdream")
-
-      -- https://github.com/scottmckendry/cyberdream.nvim/issues/137
-      local italic_groups = {
-        "Keyword",
-        "Function",
-      }
-      for _, group in ipairs(italic_groups) do
-        vim.cmd("hi " .. group .. " gui=italic cterm=italic")
-      end
     end,
-    keys = {
-      { "<leader>t", ":CyberdreamToggleMode<CR>", { noremap = true, silent = true } },
-    },
   },
 
-  -- need to manually update this !
-  -- https://github.com/folke/lazy.nvim/discussions/1344
+  -- zenbones
+  -- https://vimcolorschemes.com/zenbones-theme/zenbones.nvim
   {
-    "rebelot/kanagawa.nvim",
-    opts = {
-      -- removes coloring on the sign/fold column
-      colors = {
-        theme = {
-          all = {
-            ui = {
-              bg_gutter = "none",
-            },
-          },
-        },
-      },
-    },
-  },
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "tokyonight",
-      -- colorscheme = "cyberdream",
-      -- colorscheme = "kanagawa-wave",
-    },
+    "zenbones-theme/zenbones.nvim",
+    dependencies = "rktjmp/lush.nvim",
+    lazy = false,
+    priority = 1000,
   },
 }
