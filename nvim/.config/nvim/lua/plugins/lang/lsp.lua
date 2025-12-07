@@ -10,6 +10,7 @@ return {
         "ty",
         "terraform-ls",
         "helm-ls",
+        "kube-linter",
         "jinja-lsp",
         "yaml-language-server",
       })

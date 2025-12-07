@@ -1,7 +1,7 @@
 return {
   -- top-level defn of available colorschemes
   {
-    "zaldih/themery.nvim",
+    "nnethercott/themery.nvim",
     lazy = false,
     config = function()
       require("themery").setup({
@@ -10,7 +10,9 @@ return {
           "neobones",
           "rosebones",
           "tokyonight",
+          "vimbones",
           "zenbones",
+          -- "zenwritten",
         },
       })
     end,
