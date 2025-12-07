@@ -28,12 +28,14 @@ return {
   {
     "esmuellert/vscode-diff.nvim",
     dependencies = { "MunifTanjim/nui.nvim" },
+    cmd = "CodeDiff",
     config = function()
       require("vscode-diff").setup({
         -- Keymaps in diff view
         keymaps = {
           view = {
             next_hunk = "<C-f>", -- Jump to next change
+            toggle_explorer = "<leader>cx",  -- Toggle explorer visibility (explorer mode only)
             prev_hunk = "<C-b>", -- Jump to previous change
             next_file = "<Tab>", -- Next file in explorer mode
             prev_file = "<S-Tab>", -- Previous file in explorer mode
