@@ -34,8 +34,9 @@ return {
         -- Keymaps in diff view
         keymaps = {
           view = {
+            quit = "q", -- Close diff tab
+            toggle_explorer = "<leader>cx", -- Toggle explorer visibility (explorer mode only)
             next_hunk = "<C-f>", -- Jump to next change
-            toggle_explorer = "<leader>cx",  -- Toggle explorer visibility (explorer mode only)
             prev_hunk = "<C-b>", -- Jump to previous change
             next_file = "<Tab>", -- Next file in explorer mode
             prev_file = "<S-Tab>", -- Previous file in explorer mode
@@ -49,7 +50,7 @@ return {
       })
     end,
     keys = {
-      { "<leader>cd", ":CodeDiff HEAD~1<CR>", desc = "Git diff HEAD~1" },
+      { "<leader>cd", ":CodeDiff main<CR>", desc = "Git diff HEAD~1" },
     },
   },
 }

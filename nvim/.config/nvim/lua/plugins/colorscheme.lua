@@ -12,9 +12,10 @@ return {
           "tokyonight",
           "vimbones",
           "zenbones",
-          -- "zenwritten",
+          "zenwritten",
         },
       })
+      vim.cmd("set background=dark")
     end,
     keys = {
       { "<leader>ts", ":Themery<CR>", desc = "toggle themes" },

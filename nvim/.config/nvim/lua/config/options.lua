@@ -61,3 +61,5 @@ vim.opt.listchars = {
 -- views can only be fully collapsed with the global statusline
 -- recommended by avante nvim
 vim.opt.laststatus = 3
+
+vim.keymap.set("n", "<leader>vs", ":vsplit<CR>")

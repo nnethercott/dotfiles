@@ -18,6 +18,9 @@ map("n", "-", ":vertical resize -5<CR>", { noremap = true, silent = true })
 -- map('n', '<C-k>', ':wincmd k<CR>', { noremap = true, silent = true })
 -- map('n', '<C-l>', ':wincmd l<CR>', { noremap = true, silent = true })
 
+-- copy current file path to clipboard
+map("n", "<leader>@", ':let @+ = expand("%:p")<CR>', {})
+
 -- insert mode mappings
 map("i", "jk", "<ESC>", { noremap = true })
 map("i", "<C-s>", "<ESC>:w<CR>", { noremap = true })
@@ -26,4 +29,3 @@ map("i", "<C-c>", "<ESC>", { noremap = true })
 -- visual mode mappings
 map("v", ">", ">gv", { noremap = true })
 map("v", "<", "<gv", { noremap = true })
-
