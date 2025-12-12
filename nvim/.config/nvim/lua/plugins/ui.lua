@@ -80,6 +80,7 @@ return {
   -- indent-blankline
   {
     "lukas-reineke/indent-blankline.nvim",
+    enabled = true,
     event = { "BufEnter" },
     main = "ibl",
     opts = {

@@ -6,13 +6,20 @@ return {
     config = function()
       require("themery").setup({
         themes = {
+          "tokyonight",
           "cyberdream",
           "neobones",
           "rosebones",
-          "tokyonight",
-          "vimbones",
           "zenbones",
           "zenwritten",
+          -- "forestbones",
+          -- "nordbones",
+          -- "seoulbones",
+          -- "duckbones",
+          -- "zenburned",
+          -- "kanagawabones",
+          -- "vimbones",
+          -- "randombones"
         },
       })
       vim.cmd("set background=dark")
@@ -109,5 +116,8 @@ return {
     dependencies = "rktjmp/lush.nvim",
     lazy = false,
     priority = 1000,
+    -- opts = function ()
+    --   vim.g.zenbones_transparent_background = true
+    -- end
   },
 }
