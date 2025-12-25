@@ -36,8 +36,8 @@ return {
           view = {
             quit = "q", -- Close diff tab
             toggle_explorer = "<leader>cx", -- Toggle explorer visibility (explorer mode only)
-            next_hunk = "<C-f>", -- Jump to next change
-            prev_hunk = "<C-b>", -- Jump to previous change
+            next_hunk = "<C-n>", -- Jump to next change
+            prev_hunk = "<C-p>", -- Jump to previous change
             next_file = "<Tab>", -- Next file in explorer mode
             prev_file = "<S-Tab>", -- Previous file in explorer mode
           },

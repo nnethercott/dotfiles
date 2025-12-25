@@ -5,6 +5,7 @@ return {
   ---@type snacks.Config
   opts = {
     input = { enabled = true, icon = "" },
+    image = { enabled = true },
     indent = { enabled = false },
     notifier = { enabled = false },
     scope = { enabled = false },

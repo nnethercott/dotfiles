@@ -20,7 +20,7 @@ require("lazy").setup({
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
 
     -- dap
-    { import = "lazyvim.plugins.extras.dap.core"},
+    -- { import = "lazyvim.plugins.extras.dap.core"},
 
     -- langs
     -- { import = "lazyvim.plugins.extras.lang.rust"}, -- async-trait weird

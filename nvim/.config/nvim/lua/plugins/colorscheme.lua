@@ -7,11 +7,13 @@ return {
       require("themery").setup({
         themes = {
           "tokyonight",
+          "dawnfox",
+          "duskfox",
           "cyberdream",
           "neobones",
-          "rosebones",
           "zenbones",
           "zenwritten",
+          -- "rosebones",
           -- "forestbones",
           -- "nordbones",
           -- "seoulbones",
@@ -120,4 +122,7 @@ return {
     --   vim.g.zenbones_transparent_background = true
     -- end
   },
+
+  --nordfox
+  { "EdenEast/nightfox.nvim" },
 }

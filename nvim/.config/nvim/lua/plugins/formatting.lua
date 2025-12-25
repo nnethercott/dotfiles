@@ -7,7 +7,6 @@ return {
         lua = { "stylua" },
         rust = { "rustfmt" },
         python = { "ruff_format" },
-        dart = { "dart_format" },
         typescript = { "prettier" },
         html = { "prettier" },
       },

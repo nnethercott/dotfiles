@@ -5,6 +5,7 @@ return {
     opts = function(_, opts)
       vim.list_extend(opts.ensure_installed, {
         "stylua",
+        "prettier",
         "codelldb",
         "ruff",
         "ty",
@@ -13,6 +14,7 @@ return {
         "kube-linter",
         "jinja-lsp",
         "yaml-language-server",
+        "rust-analyzer",
       })
     end,
   },
