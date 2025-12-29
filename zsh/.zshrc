@@ -25,14 +25,22 @@ setopt hist_ignore_space
 # https://www.reddit.com/r/linux4noobs/comments/tkvs8o/kitty_terminal_with_ssh_issues/
 export TERM=xterm-256color
 
+# terminal vi mode
+set -o vi
+KEYTIMEOUT=8
+bindkey -M viins 'jk' vi-cmd-mode
+bindkey -M viins '^R' history-incremental-search-backward
+bindkey -M vicmd '^R' history-incremental-search-backward
+
 # binaries
 export PATH="$PATH:/opt/homebrew/bin"
 export PATH="$PATH:$HOME/.local/bin"
-export PATH="$PATH:/opt/homebrew/bin"
-export PATH="/opt/homebrew/opt/mysql@8.4/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/nathaniel.nethercott/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/nathaniel.nethercott/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+export PATH=/Users/naten/.opencode/bin:$PATH
+export PATH="/opt/homebrew/opt/mysql@8.4/bin:$PATH"
+
 
 
 # editors
@@ -67,16 +75,8 @@ if [ -d "$FNM_PATH" ]; then
   eval "`fnm env`"
 fi
 alias nvm="fnm"
-
+# zoxide
 eval "$(zoxide init zsh)"
-
-# vi mode
-set -o vi
-KEYTIMEOUT=8
-bindkey -M viins 'jk' vi-cmd-mode
-bindkey -M viins '^R' history-incremental-search-backward
-bindkey -M vicmd '^R' history-incremental-search-backward
-
 # carapace
 source <(carapace _carapace)
 
@@ -85,9 +85,8 @@ export GPG_TTY=$(tty)
 
 # k9s 
 export K9S_CONFIG_DIR="${HOME}/.config/k9s"
+# fzf
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 
 # # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh  ]] || source ~/.p10k.zsh
-
-# opencode
-export PATH=/Users/naten/.opencode/bin:$PATH
