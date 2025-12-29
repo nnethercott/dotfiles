@@ -7,8 +7,8 @@ return {
       require("themery").setup({
         themes = {
           "tokyonight",
-          "dawnfox",
           "duskfox",
+          "gruvbox",
           "cyberdream",
           "neobones",
           "zenbones",
@@ -118,11 +118,20 @@ return {
     dependencies = "rktjmp/lush.nvim",
     lazy = false,
     priority = 1000,
-    -- opts = function ()
-    --   vim.g.zenbones_transparent_background = true
-    -- end
+    config = function()
+      -- turn off string italics
+      vim.g.zenbones = { italic_strings = false }
+      vim.g.zenwritten = { italic_strings = false }
+      vim.g.neobones = { italic_strings = false }
+    end,
   },
-
-  --nordfox
   { "EdenEast/nightfox.nvim" },
+  {
+    "ellisonleao/gruvbox.nvim",
+    opts = {
+      italic = {
+        strings = false,
+      },
+    },
+  },
 }

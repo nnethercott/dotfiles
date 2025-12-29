@@ -22,7 +22,7 @@ return {
       signcolumn = false,
     },
     keys = {
-      -- {"<leader>gd", ":Gitsigns diffthis ", desc = "Git diff a rev"},
+      {"<leader>gb", ":Gitsigns blame<CR>", desc = "Git blame"},
     },
   },
   {

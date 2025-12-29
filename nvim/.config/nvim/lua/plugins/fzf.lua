@@ -2,27 +2,41 @@ return {
   "ibhagwan/fzf-lua",
   config = function(_, opts)
     local fzf = require("fzf-lua")
-
-    -- Merge custom fzf options
-    opts.fzf_opts = vim.tbl_extend("force", opts.fzf_opts or {}, {
-      ["--cycle"] = true,
-    })
-
-    -- Merge custom LSP code action window options
-    opts.lsp = opts.lsp or {}
-    opts.lsp.code_actions = vim.tbl_extend("force", opts.lsp.code_actions or {}, {
+    opts = vim.tbl_deep_extend("force", require("fzf-lua.profiles.fzf-vim"), {
+      -- main
       winopts = {
-        relative = "cursor",
-        backdrop = 100,
-        border = "rounded",
-        width = 0.40,
-        height = 0.15,
-        row = 1,
-        preview = { hidden = true },
+        width = 0.8,
+        height = 0.7,
+        backdrop=100,
+        preview = {
+          hidden = false,
+          layout = "flex",
+          flip_columns = 90,
+          vertical = "down:65%",
+        },
+      },
+      fzf_opts = {
+        ["--cycle"] = true,
       },
     })
 
-    -- Apply config and register UI select
+    -- code actions
+    opts.lsp = vim.tbl_deep_extend("force", opts.lsp or {}, {
+      code_actions = {
+        winopts = {
+          relative = "cursor",
+          border = "rounded",
+          backdrop = 100,
+          width = 0.4,
+          height = 0.15,
+          row = 1,
+          preview = { hidden = true },
+        },
+        fzf_opts = {
+          ["--layout"] = "reverse",
+        }
+      },
+    })
     fzf.setup(opts)
     fzf.register_ui_select()
   end,
@@ -37,9 +51,7 @@ return {
     },
     {
       "<leader>a",
-      function()
-        require("fzf-lua").lsp_code_actions()
-      end,
+      ":FzfLua lsp_code_actions silent=true<CR>",
       mode = { "n", "x" },
       desc = "Code action",
     },

@@ -10,12 +10,6 @@ return {
         ["<C-n>"] = { "snippet_forward", "fallback" },
         ["<C-o>"] = { "snippet_backward", "fallback" },
       },
-      -- avante commands
-      compat = {
-        "avante_commands",
-        "avante_mentions",
-        "avante_files",
-      },
     },
   },
 }

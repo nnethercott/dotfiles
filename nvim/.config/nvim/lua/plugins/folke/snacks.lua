@@ -12,28 +12,8 @@ return {
     scroll = { enabled = false },
     words = { enabled = true, debounce = 75 },
     dashboard = { enabled = true }, -- alpha
-    explorer = {
-      enabled = false,
-      show_hidden = true,
-    },
-    picker = {
-      sources = {
-        finder = { cmd = "fd" },
-        explorer = {
-          title = "",
-          hidden = true,
-          ignored = true,
-          layout = {
-            -- preset = "vscode", -- cool
-            cycle = false,
-            layout = {
-              width = 28,
-              min_width = 28,
-            },
-          },
-        },
-      },
-    },
+    picker = { enabled = false },
+    explorer = { enabled = false },
     styles = {
       input = {
         relative = "cursor",
