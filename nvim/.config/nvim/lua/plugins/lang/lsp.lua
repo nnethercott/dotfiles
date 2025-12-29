@@ -15,6 +15,8 @@ return {
         "jinja-lsp",
         "yaml-language-server",
         "rust-analyzer",
+        "typescript-language-server",
+        -- "html-lsp",
       })
     end,
   },

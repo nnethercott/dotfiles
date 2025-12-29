@@ -2,7 +2,7 @@ return {
   {
     "obsidian-nvim/obsidian.nvim",
     enabled = true,
-    -- lazy = false,
+    lazy = false,
     version = "*", -- recommended, use latest release instead of latest commit
     ft = "markdown",
     ---@module 'obsidian'
@@ -15,6 +15,7 @@ return {
           path = "~/vaults/main",
         },
       },
+      ui = { enable = false },
     },
   },
   {
@@ -27,7 +28,10 @@ return {
         enabled = false
       },
       bullet = {
-        enabled = false
+        enabled = true,
+        icons = { '-', '-', '-', '-' },
+        -- icons = { '●', '○', '◆', '◇' },
+        right_pad = 0,
       },
       -- signs = {
       --   enabled = false

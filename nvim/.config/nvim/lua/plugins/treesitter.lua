@@ -5,7 +5,6 @@ return {
       "rust",
       "ron", -- used with serde ?
       "python",
-      "dart",
       "typescript",
       "hurl",
       "yaml",
