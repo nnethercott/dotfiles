@@ -29,9 +29,15 @@ export TERM=xterm-256color
 export PATH="$PATH:/opt/homebrew/bin"
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:/opt/homebrew/bin"
+export PATH="/opt/homebrew/opt/mysql@8.4/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/nathaniel.nethercott/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/nathaniel.nethercott/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+
+# editors
+export EDITOR="nvim"
+export KUBE_EDITOR="nvim"
 
 # Aliases
 # k8s
@@ -50,6 +56,7 @@ alias gl='git log --graph --pretty=format:"%C(magenta)%h %C(yellow) %an  %C(cyan
 alias rgf='rg --files | rg'
 alias ls="ls --color=auto"
 alias cd="z"
+alias cb="pbcopy"
 # terraform
 alias t="terraform"
 
