@@ -1,7 +1,10 @@
-set shell=/bin/zsh
-
 " Key mappings
 let mapleader = " "
+
+" Block cursor in normal mode
+let &t_EI = "\e[2 q"
+" Beam cursor in insert mode
+let &t_SI = "\e[6 q"
 
 " vim plug
 call plug#begin()
@@ -12,7 +15,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-sensible'
-Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive' " needed to display git branch in airline
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -23,16 +25,11 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'justinmk/vim-sneak'
 " themes
-Plug 'ghifarit53/tokyonight-vim'
+Plug 'morhetz/gruvbox'
 Plug 'RRethy/vim-illuminate'
-" Plug 'Yggdroot/indentLine'
-" cool but slow ://
-" Plug 'preservim/tagbar'
-" Plug 'wellle/context.vim'
 
 "language-stuff
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'wuelnerdotexe/vim-astro'
 call plug#end()
 
 " Terminal
@@ -40,10 +37,8 @@ syntax on
 set termguicolors
 set foldcolumn=0
 set signcolumn=yes
-
-let g:tokyonight_style = 'night' " available: night, storm
-let g:tokyonight_enable_italic = 1
-colorscheme tokyonight
+set background=dark
+colorscheme gruvbox
 
 " Some nice colors for side cols
 let _green="#50C878"
@@ -52,8 +47,8 @@ let _blue = "#87CEEB"
 let _yellow = "#fcdb5b"
 
 " Set signcolumn and foldcolumn to match Normal highlight group
-highlight SignColumn guifg=#a9b1d6 guibg=#1a1b26
-highlight FoldColumn guifg=#a9b1d6 guibg=#1a1b26
+" highlight SignColumn guifg=#a9b1d6 guibg=#1a1b26
+" highlight FoldColumn guifg=#a9b1d6 guibg=#1a1b26
 
 execute 'highlight GitGutterAdd guibg=NONE guifg=' . _green
 execute 'highlight GitGutterChange guibg=NONE guifg=' . _blue
@@ -65,7 +60,7 @@ execute 'highlight CocInfoSign guibg=NONE guifg=' . _blue
 " indentation
 let g:indentLine_char = '│'
 
-" whitespace visualization
+" whitespace
 highlight link ExtraWhitespace IncSearch
 
 " symbol highlighting
@@ -77,7 +72,6 @@ let g:context_enabled = 1
 let g:context_add_mappings = 0 "don't add keymaps
 
 " airline theme
-let g:vim_airline_theme='tokyonight'
 let g:airline#extensions#ale#enabled = 0 " no warnings in the statusline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#branch#enabled = 1
@@ -87,22 +81,19 @@ let g:airline_powerline_fonts = 1
 " Configure airline sections to mimic lightline.vim layout
 let g:airline_section_y = airline#section#create(['%{&readonly ? "RO" : ""}', '%{&modified ? "+" : ""}'])
 let g:airline_section_z = airline#section#create(['%3p%%', ':%l/%L'])
-
-" gitgutter
-autocmd BufWritePost * GitGutter
-let g:gitgutter_sign_allow_clobber=1
-let g:gitgutter_sign_added ='┃'
-let g:gitgutter_sign_modified ='┃'
-let g:gitgutter_sign_removed ='_'
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_alt_sep = ''
 
 " fzf
 nmap <leader>rg :Rg<CR>
 nmap <leader>f :Files<CR>
 nmap <leader>fr :Files ~<CR>
-"
+
 " NERDTree
 nnoremap <leader>e :NERDTreeToggle<CR>
-nnoremap <leader>ef :NERDTreeFind<CR>
+nnoremap <leader>fe :NERDTreeFind<CR>
 let g:NERDTreeWinPos = "left"
 
 " changes the pop up color
@@ -110,30 +101,23 @@ highlight Pmenu ctermbg=236 ctermfg=255 guibg=#2e2e2e guifg=#ffffff
 
 " timeout
 set timeout timeoutlen=150
-
-" Relative line numbers
 set relativenumber
 set number
-
-" Folding
 set nofoldenable
-
-" Search settings
 set ignorecase
 set smartcase
-
-" Cursor line
 set nocursorline
-
-" Backspace settings
 set backspace=indent,eol,start
+set splitright
+set splitbelow
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set expandtab
+set autoindent
 
 " Clipboard
 set clipboard^=unnamedplus,unnamed
-
-" Split windows
-set splitright
-set splitbelow
 
 " Highlight yank
 let g:highlightedyank_highlight_duration = 150
@@ -151,7 +135,6 @@ imap jk <ESC>
 imap <C-s> <ESC>:w<CR>
 imap <C-c> <ESC>
 
-
 " Use ctrl-[hjkl] to select the active split!
 map <C-h> :wincmd h<CR>
 map <C-j> :wincmd j<CR>
@@ -164,11 +147,6 @@ nmap <silent> - :vertical resize -5<CR>
 
 " Use ctrl-q to close the current split
 nmap <silent> <c-q> :close<CR>
-
-" Insert mode mappings
-imap jk <ESC>
-imap <C-s> <ESC>:w<CR>
-imap <C-c> <ESC>
 
 " visual model mappings
 vnoremap > >gv
@@ -185,10 +163,6 @@ set nowritebackup
 " Having longer updatetime (default is 4000 ms = 4s) leads to noticeable
 " delays and poor user experience
 set updatetime=300
-
-" Always show the signcolumn, otherwise it would shift the text each time
-" diagnostics appear/become resolved
-set signcolumn=yes
 
 " Use tab for trigger completion with characters ahead and navigate
 " NOTE: There's always complete item selected by default, you may want to enable
@@ -248,8 +222,8 @@ endfunction
 nmap <leader>rn <Plug>(coc-rename)
 
 " Formatting selected code
-xmap <leader>fo  <Plug>(coc-format-selected)
 nmap <leader>fo  <Plug>(coc-format-selected)
+xmap <leader>fo  <Plug>(coc-format-selected)
 
 augroup mygroup
   autocmd!
@@ -262,9 +236,8 @@ augroup end
 " Applying code actions to the selected code block
 " Example: `<leader>aap` for current paragraph
 xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-cursor)
 
-" Remap keys for applying code actions at the cursor position
-nmap <leader>ca  <Plug>(coc-codeaction-cursor)
 " Remap keys for apply code actions affect whole buffer
 " nmap <leader>as  <Plug>(coc-codeaction-source)
 " Apply the most preferred quickfix action to fix diagnostic on the current line
@@ -275,8 +248,6 @@ nmap <silent> <leader>re <Plug>(coc-codeaction-refactor)
 xmap <silent> <leader>r  <Plug>(coc-codeaction-refactor-selected)
 nmap <silent> <leader>r  <Plug>(coc-codeaction-refactor-selected)
 
-" Run the Code Lens action on the current line
-nmap <leader>cl  <Plug>(coc-codelens-action)
 
 " Map function and class text objects
 " NOTE: Requires 'textDocument.documentSymbol' support from the language server
@@ -343,9 +314,7 @@ let g:coc_snippet_prev = '<S-Tab>'
 " Set tab size for Dart files
 autocmd FileType dart setlocal shiftwidth=2 softtabstop=2 expandtab
 
-" Tabs & indentation
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
-set expandtab
-set autoindent
+" Disable Coc command list
+nunmap <leader>c
+" whitespace
+nmap <leader>cw :StripWhitespace<CR>
