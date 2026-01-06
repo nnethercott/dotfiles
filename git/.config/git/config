@@ -9,7 +9,7 @@
 # main commands
 [push]
   autoSetupRemote = true
-  followTags = true
+  ; followTags = true
 [pull]
   rebase = true
 [rebase]
