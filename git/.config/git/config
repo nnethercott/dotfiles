@@ -2,13 +2,10 @@
 [user]
   name = Nate Nethercott
   email = nathaniel.nethercott@mistral.ai
-
 [core]
   editor = "nvim"
-
 [init]
   defaultBranch = "main"
-
 # main commands
 [push]
   autoSetupRemote = true
@@ -18,6 +15,7 @@
 [rebase]
   autoStash = true
 [diff]
+  external = "difft"
   context = 3
   renames = copies
   interHunkContext = 10
@@ -26,16 +24,15 @@
 [log]
   abbrevCommit = true  # short commits
   graphColors = blue,yellow,cyan,magenta,green,red
-
 # visuals 
 # https://github.com/so-fancy/diff-so-fancy
-[pager]
-  diff =  "diff-so-fancy | less --tabs=4 -RF"
-  show = "diff-so-fancy | less --tabs=4 -RF"
-[diff-so-fancy]
-  markEmptyLines = false
-  stripLeadingSymbols = false
-  rulerWidth = 80
+; [pager]
+;   diff =  "diff-so-fancy | less --tabs=4 -RF"
+;   show = "diff-so-fancy | less --tabs=4 -RF"
+; [diff-so-fancy]
+;   markEmptyLines = false
+;   stripLeadingSymbols = false
+;   rulerWidth = 80
 [color]
   ui  = true
 [color "diff"]

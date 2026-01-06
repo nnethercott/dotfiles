@@ -7,7 +7,7 @@ background-opacity=0.70
 background-blur=true
 
 # font-family = JetBrains Mono
-font-family = Myna
+font-family = Myna Nerd Font
 font-size = 15
 font-feature = -calt, -liga, -dlig  # no ligatures
 
