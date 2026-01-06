@@ -1,4 +1,11 @@
 return {
+  -- default colorscheme
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "gruvbox",
+    },
+  },
   -- top-level defn of available colorschemes
   {
     "nnethercott/themery.nvim",
@@ -7,21 +14,12 @@ return {
       require("themery").setup({
         themes = {
           "tokyonight",
-          "duskfox",
-          "gruvbox",
           "cyberdream",
           "neobones",
           "zenbones",
           "zenwritten",
-          -- "rosebones",
-          -- "forestbones",
-          -- "nordbones",
-          -- "seoulbones",
-          -- "duckbones",
-          -- "zenburned",
-          -- "kanagawabones",
-          -- "vimbones",
-          -- "randombones"
+          "gruvbox",
+          "fluoromachine",
         },
       })
       vim.cmd("set background=dark")
@@ -37,13 +35,6 @@ return {
       },
     },
   },
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "zenbones",
-    },
-  },
-
   ------------------------------------
   -- themes configuration
   ------------------------------------
@@ -55,6 +46,7 @@ return {
     config = function()
       local transparent = true
 
+      ---@diagnostic disable-next-line: missing-fields
       require("tokyonight").setup({
         style = "night",
         transparent = transparent,
@@ -125,7 +117,6 @@ return {
       vim.g.neobones = { italic_strings = false }
     end,
   },
-  { "EdenEast/nightfox.nvim" },
   {
     "ellisonleao/gruvbox.nvim",
     opts = {
@@ -133,5 +124,16 @@ return {
         strings = false,
       },
     },
+  },
+  {
+    "maxmx03/fluoromachine.nvim",
+    config = function()
+      local fm = require("fluoromachine")
+      fm.setup({
+        glow = true,
+        theme = "fluoromachine",
+        -- theme = "retrowave",
+      })
+    end,
   },
 }

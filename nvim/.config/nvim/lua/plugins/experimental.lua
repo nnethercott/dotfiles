@@ -25,11 +25,11 @@ return {
     ---@type render.md.UserConfig
     opts = {
       heading = {
-        enabled = false
+        enabled = false,
       },
       bullet = {
         enabled = true,
-        icons = { '-', '-', '-', '-' },
+        icons = { "-", "-", "-", "-" },
         -- icons = { '●', '○', '◆', '◇' },
         right_pad = 0,
       },
@@ -40,5 +40,33 @@ return {
       --   enabled = false
       -- }
     },
+  },
+  -- FIXME: currently broken but looks useful
+  {
+    "mistweaverco/bafa.nvim",
+    version = "v1.10.1",
+    enabled = false,
+    keys = {
+      {
+        "<leader>tg",
+        function()
+          require("bafa").toggle({
+            with_jump_labels = true,
+          })
+        end,
+      },
+    },
+  },
+  -- FIXME: wait until difftastic upstream merged before comparing with vscode-diff
+  {
+    "clabby/difftastic.nvim",
+    dependencies = { "MunifTanjim/nui.nvim" },
+    enabled=false,
+    config = function()
+      require("difftastic-nvim").setup({
+        download = true, -- Auto-download pre-built binary
+        vcs = "git",
+      })
+    end,
   },
 }

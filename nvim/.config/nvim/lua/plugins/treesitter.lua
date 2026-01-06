@@ -11,6 +11,7 @@ return {
       "terraform",
       "hcl",
       "helm",
+      "c", -- included by default
     },
   },
 }
