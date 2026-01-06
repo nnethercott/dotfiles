@@ -45,5 +45,6 @@ return {
     { "<leader>fE", false },
     { "<leader>E", false },
     { "<leader>e", false },
+    { "<leader>cf", false },
   },
 }

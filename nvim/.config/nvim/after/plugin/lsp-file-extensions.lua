@@ -11,6 +11,7 @@ vim.filetype.add({
 vim.filetype.add({
   extension = {
     gotmpl = "helm",
+    tmpl = "helm",
     tfstate = "json",
   },
 })

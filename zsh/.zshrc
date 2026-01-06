@@ -6,6 +6,7 @@ fi
 # extra completions
 fpath+=$HOME/.zfunc
 autoload -U +X compinit && compinit -C
+autoload -Uz lg
 
 # antitode
 source $HOME/.antidote/antidote.zsh

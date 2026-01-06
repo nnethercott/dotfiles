@@ -1,4 +1,5 @@
 return {
+  -- TODO: remove later when vscode diff is stable
   {
     "lewis6991/gitsigns.nvim",
     enabled = true,
@@ -22,7 +23,7 @@ return {
       signcolumn = false,
     },
     keys = {
-      {"<leader>gb", ":Gitsigns blame<CR>", desc = "Git blame"},
+      { "<leader>gb", ":Gitsigns blame<CR>", desc = "Git blame" },
     },
   },
   {
@@ -50,7 +51,8 @@ return {
       })
     end,
     keys = {
-      { "<leader>cd", ":CodeDiff main<CR>", desc = "Git diff HEAD~1" },
+      { "<leader>cd", ":CodeDiff main<CR>", desc = "Git diff repo @-" },
+      { "<leader>cf", ":CodeDiff file main<CR>", desc = "Git diff file repo @-" },
     },
   },
 }

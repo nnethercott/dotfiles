@@ -15,7 +15,8 @@
 [rebase]
   autoStash = true
 [diff]
-  external = "difft"
+  # using difftastic
+  external = difft
   context = 3
   renames = copies
   interHunkContext = 10
