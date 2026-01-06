@@ -50,5 +50,4 @@
   newNormal = "green bold"
   newHighlight = "green bold 22"
 [alias]
-    dl = -c diff.external=difft log -p --ext-diff
     ds = -c diff.external=difft show --ext-diff
