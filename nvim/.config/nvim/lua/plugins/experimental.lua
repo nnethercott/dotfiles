@@ -33,12 +33,10 @@ return {
         -- icons = { '●', '○', '◆', '◇' },
         right_pad = 0,
       },
-      -- signs = {
-      --   enabled = false
-      -- },
-      -- indent = {
-      --   enabled = false
-      -- }
+      code = {
+        border = 'none',
+        language = true,
+      }
     },
   },
   -- FIXME: currently broken but looks useful
