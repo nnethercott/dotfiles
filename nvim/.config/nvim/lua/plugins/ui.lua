@@ -50,7 +50,7 @@ return {
   -- barbar
   {
     "romgrk/barbar.nvim",
-    enabled = true,
+    enabled = false,
     dependencies = {
       "lewis6991/gitsigns.nvim", -- OPTIONAL: for git status
       "nvim-tree/nvim-web-devicons", -- OPTIONAL: for file icons
@@ -97,5 +97,15 @@ return {
       local hooks = require("ibl.hooks")
       hooks.register(hooks.type.WHITESPACE, hooks.builtin.hide_first_space_indent_level)
     end,
+  },
+
+  --bento
+  {
+    "serhez/bento.nvim",
+    opts = {
+      ui = {
+        mode = "floating",
+      },
+    },
   },
 }

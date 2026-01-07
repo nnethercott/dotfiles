@@ -28,6 +28,7 @@ return {
   },
   {
     "esmuellert/vscode-diff.nvim",
+    enabled=true,
     dependencies = { "MunifTanjim/nui.nvim" },
     cmd = "CodeDiff",
     config = function()

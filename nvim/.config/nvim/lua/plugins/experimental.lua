@@ -1,7 +1,7 @@
 return {
   {
     "obsidian-nvim/obsidian.nvim",
-    enabled = true,
+    enabled = false,
     lazy = false,
     version = "*", -- recommended, use latest release instead of latest commit
     ft = "markdown",
@@ -37,22 +37,6 @@ return {
         border = 'none',
         language = true,
       }
-    },
-  },
-  -- FIXME: currently broken but looks useful
-  {
-    "mistweaverco/bafa.nvim",
-    version = "v1.10.1",
-    enabled = false,
-    keys = {
-      {
-        "<leader>tg",
-        function()
-          require("bafa").toggle({
-            with_jump_labels = true,
-          })
-        end,
-      },
     },
   },
   -- FIXME: wait until difftastic upstream merged before comparing with vscode-diff
