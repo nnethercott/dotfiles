@@ -99,10 +99,14 @@ return {
     end,
   },
 
-  --bento
+  -- buffer management
   {
     "serhez/bento.nvim",
     opts = {
+      max_open_buffers = 5,
+      buffer_deletion_metric = "frequency_access",
+      buffer_notify_on_delete = false,
+      ordering = "edit",
       ui = {
         mode = "floating",
       },
