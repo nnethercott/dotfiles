@@ -27,8 +27,8 @@ return {
     },
   },
   {
-    "esmuellert/vscode-diff.nvim",
-    enabled=true,
+    "esmuellert/codediff.nvim",
+    enabled = true,
     dependencies = { "MunifTanjim/nui.nvim" },
     cmd = "CodeDiff",
     config = function()
@@ -43,10 +43,11 @@ return {
             next_file = "<Tab>", -- Next file in explorer mode
             prev_file = "<S-Tab>", -- Previous file in explorer mode
           },
-          explorer = {
-            select = "<CR>", -- Open diff for selected file
-            hover = "K", -- Show file diff preview
-            refresh = "R", -- Refresh git status
+          conflict = {
+            accept_incoming = "<leader>ai", -- Accept incoming (theirs/left) change
+            accept_current = "<leader>ac", -- Accept current (ours/right) change
+            accept_both = "<leader>ab", -- Accept both changes (incoming first)
+            discard = "<leader>ad", -- Discard both, keep base
           },
         },
       })
