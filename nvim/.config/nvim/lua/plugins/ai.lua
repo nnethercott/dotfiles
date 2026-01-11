@@ -2,22 +2,15 @@ return {
   -- copies ctx from your code in opencode-compatible format
   {
     "ahkohd/context.nvim",
-    config = function()
-      local context = require("context")
-      context.setup({
-        picker = context.pickers.snacks,
-        prompts = {
-          explain = "Explain {this}",
-          fix = "Fix the issue at {this}",
-          review = "Review {file} for issues",
-        },
-      })
-    end,
     keys = {
       {
         "<leader>x",
         function()
-          require("context").pick()
+          local ctx = require("context.getters").this()
+          if ctx then
+            vim.fn.setreg("+", ctx)
+          end
+          vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, true, true), "n", true)
         end,
         desc = "Context",
         mode = { "n", "v" },
@@ -27,7 +20,7 @@ return {
   {
     "olimorris/codecompanion.nvim",
     version = "v17.33.0",
-    enabled = false,
+    enabled = true,
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",

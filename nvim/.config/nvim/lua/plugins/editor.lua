@@ -18,19 +18,6 @@ return {
       vim.keymap.set({ "n", "x", "o" }, "<leader>w", ":MaximizerToggle<CR>")
     end,
   },
-
-  -- autopairs
-  -- {
-  --   "windwp/nvim-autopairs",
-  --   -- event = "InsertEnter",
-  --   config = function()
-  --     local npairs = require("nvim-autopairs")
-  --     npairs.setup({})
-  --     npairs.remove_rule("'")
-  --   end,
-  -- },
-
-  -- Lua
   {
     {
       "abecodes/tabout.nvim",
@@ -39,19 +26,42 @@ return {
         require("tabout").setup({
           tabkey = "<Tab>", -- key to trigger tabout, set to an empty string to disable
           backwards_tabkey = "<S-Tab>", -- key to trigger backwards tabout, set to an empty string to disable
-          enable_backwards = true, -- well ...
-          tabouts = {
-            { open = "'", close = "'" },
-            { open = '"', close = '"' },
-            { open = "`", close = "`" },
-            { open = "(", close = ")" },
-            { open = "[", close = "]" },
-            { open = "{", close = "}" },
-          },
-          ignore_beginning = true, --[[ if the cursor is at the beginning of a filled element it will rather tab out than shift the content ]]
-          exclude = {}, -- tabout will ignore these filetypes
         })
       end,
+    },
+  },
+
+  -- base64 encode/decode
+  {
+    "ovk/endec.nvim",
+    lazy=true,
+    opts = {
+      keymaps = {
+        defaults = false,
+      },
+      popup = {
+        enter = true,
+        transparency = 100,
+        close_on = { "<Esc>", "q", "<C-c>" },
+      },
+    },
+    keys = {
+      {
+        "bid",
+        function()
+          require("endec").vdecode("base64", true)
+        end,
+        mode = "v",
+        desc = "base64 encode",
+      },
+      {
+        "bie",
+        function()
+          require("endec").vencode("base64")
+        end,
+        mode = "v",
+        desc = "base64 encode",
+      },
     },
   },
 }

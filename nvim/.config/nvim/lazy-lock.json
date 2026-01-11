@@ -12,6 +12,7 @@
   "crates.nvim": { "branch": "main", "commit": "afcd1cc3eeceb5783676fc8464389b9216a29d05" },
   "cyberdream.nvim": { "branch": "main", "commit": "a956559cda735fbc9f0b39541529386322afaedd" },
   "difftastic.nvim": { "branch": "main", "commit": "d5710143881b2c66bf9c7e77aa450093c6de55c6" },
+  "endec.nvim": { "branch": "main", "commit": "3765f250064040725fa637e9a308253e1421b1fd" },
   "fidget.nvim": { "branch": "main", "commit": "64463022a1f2ff1318ab22a2ea4125ed9313a483" },
   "flash.nvim": { "branch": "main", "commit": "fcea7ff883235d9024dc41e638f164a450c14ca2" },
   "fluoromachine.nvim": { "branch": "main", "commit": "a279f667168e742df059caf1f1f4daf1de24f4f8" },
