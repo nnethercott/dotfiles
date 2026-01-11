@@ -41,7 +41,7 @@ return {
       },
       popup = {
         enter = true,
-        transparency = 100,
+        transparency = 10,
         close_on = { "<Esc>", "q", "<C-c>" },
       },
     },
