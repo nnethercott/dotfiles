@@ -18,7 +18,8 @@ return {
           "neobones",
           "zenbones",
           "zenwritten",
-          "gruvbox",
+          "koda",
+          -- "gruvbox",
           "gruvbox-material",
           "fluoromachine",
         },
@@ -113,9 +114,10 @@ return {
     priority = 1000,
     config = function()
       -- turn off string italics
-      vim.g.zenbones = { italic_strings = false }
-      vim.g.zenwritten = { italic_strings = false }
-      vim.g.neobones = { italic_strings = false }
+      local opts = { italic_strings = false }
+      vim.g.zenbones = opts
+      vim.g.zenwritten = opts
+      vim.g.neobones = opts
     end,
   },
   {
@@ -128,12 +130,13 @@ return {
   },
   {
     "sainnhe/gruvbox-material",
-    config = function ()
+    config = function()
       vim.g.gruvbox_material_background = "medium"
       vim.g.gruvbox_material_foreground = "original"
       vim.g.gruvbox_material_enable_italic = 0
+      vim.g.gruvbox_material_disable_italic_comment = 0
       vim.g.gruvbox_material_enable_bold = 1
-    end
+    end,
   },
   {
     "maxmx03/fluoromachine.nvim",
@@ -146,4 +149,5 @@ return {
       })
     end,
   },
+  { "oskarnurm/koda.nvim" },
 }
