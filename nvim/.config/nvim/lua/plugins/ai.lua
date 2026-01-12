@@ -26,6 +26,14 @@ return {
       "nvim-treesitter/nvim-treesitter",
     },
     config = function()
+      -- re-export mistral api key from vibe config ?
+      for line in io.lines(vim.fn.expand("~/.vibe/.env")) do
+          local key, value = line:match("^([^=]+)=(.*)$")
+          if key then
+            vim.env[key] = value
+          end
+      end
+
       require("codecompanion").setup({
         strategies = {
           agent = { adapter = "vibe", model = "devstral-latest" },
