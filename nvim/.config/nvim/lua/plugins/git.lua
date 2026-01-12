@@ -1,3 +1,9 @@
+-- util fn for finding common commit between curr branch and origin/main 
+local get_base_rev = function ()
+    local curr = vim.fn.system("git rev-parse --abbrev-ref HEAD"):gsub("%s+", "")
+    return vim.fn.system("git merge-base " .. curr .. " origin/main"):gsub("%s+", "")
+end
+
 return {
   -- TODO: remove later when vscode diff is stable
   {
@@ -32,7 +38,7 @@ return {
     dependencies = { "MunifTanjim/nui.nvim" },
     cmd = "CodeDiff",
     config = function()
-      require("vscode-diff").setup({
+      require("codediff").setup({
         -- Keymaps in diff view
         keymaps = {
           view = {
@@ -53,8 +59,20 @@ return {
       })
     end,
     keys = {
-      { "<leader>cd", ":CodeDiff main<CR>", desc = "Git diff repo @-" },
-      { "<leader>cf", ":CodeDiff file main<CR>", desc = "Git diff file repo @-" },
+      {
+        "<leader>cd",
+        function()
+          vim.cmd(":CodeDiff " .. get_base_rev())
+        end,
+        desc = "Git diff repo @-",
+      },
+      {
+        "<leader>cf",
+        function()
+          vim.cmd(":CodeDiff file " .. get_base_rev())
+        end,
+        desc = "Git diff file @-",
+      },
     },
   },
 }
