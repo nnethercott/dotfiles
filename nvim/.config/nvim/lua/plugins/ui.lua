@@ -103,7 +103,8 @@ return {
   {
     "serhez/bento.nvim",
     opts = {
-      max_open_buffers = 6,
+      max_open_buffers = 3,
+      lock_char = "*",
       buffer_deletion_metric = "frequency_access",
       buffer_notify_on_delete = false,
       ordering = "edit",

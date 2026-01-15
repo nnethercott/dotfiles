@@ -1,0 +1,44 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "model": "vertex/claude-opus-4-5@20251101",
+  "provider": {
+    "mistral": {
+      "options": {
+        "baseURL": "https://api.mistral.ai/v1"
+      },
+    },
+  },
+  "disabled_providers": [
+    "mistral",
+    "opencode",
+    "openai",
+    "gemini"
+  ],
+  "instructions": [
+    "~/.config/opencode/rules/*.md",
+    "CONTRIBUTING.md",
+    "docs/guidelines.md",
+    ".cursor/rules/*.md"
+  ],
+  "mcp": {
+    "context7": {
+      "enabled": true,
+      "type": "remote",
+      "url": "https://mcp.context7.com/mcp",
+      "oauth": false,
+      "headers": {
+        "Authorization": "Bearer {env:CONTEXT7_API_KEY}"
+      }
+    }
+  },
+  "agent": {
+    "plan": {
+      "tools": {
+        "context7": true
+      }
+    },
+    "build": {
+      "disable": false
+    }
+  },
+}
