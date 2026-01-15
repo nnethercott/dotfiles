@@ -104,7 +104,7 @@ return {
     -- "nnethercott/bento.nvim",
     dir = "~/bento.nvim/",
     opts = {
-      max_open_buffers = 4,
+      max_open_buffers = 5,
       lock_char = "*",
       label_previous_buffer=true,
       buffer_deletion_metric = "frequency_access",
