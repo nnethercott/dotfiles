@@ -1,4 +1,4 @@
-local export_env_file = function(file)
+local function load_env(file)
   for line in io.lines(vim.fn.expand(file)) do
     local key, value = line:match("^([^=]+)=(.*)$")
     if key then
@@ -26,51 +26,6 @@ return {
       },
     },
   },
-  -- codecompanion + claude via vertex ai
-  {
-    "olimorris/codecompanion.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-treesitter/nvim-treesitter",
-    },
-    config = function()
-      local model = "claude-opus-4-5@20251101"
-
-      export_env_file("~/.config/opencode/.env")
-
-      require("codecompanion").setup({
-        strategies = {
-          agent = { adapter = "vertex_claude" },
-          chat = { adapter = "vertex_claude" },
-          inline = { adapter = "vertex_claude" },
-        },
-        adapters = {
-          vertex_claude = function()
-            local url = ("https://aiplatform.googleapis.com/v1/projects/%s/locations/global/publishers/anthropic/models/%s:streamRawPredict"):format(
-              vim.env.GOOGLE_CLOUD_PROJECT,
-              model
-            )
-            local adapter = require("codecompanion.adapters").extend("anthropic", {
-              url = url,
-              env = { access_token = "cmd:gcloud auth print-access-token" },
-              handlers = {
-                form_parameters = function(_, params)
-                  params.anthropic_version = "vertex-2023-10-16"
-                  params.model = nil
-                  return params
-                end,
-              },
-            })
-            adapter.headers = {
-              ["Content-Type"] = "application/json",
-              ["Authorization"] = "Bearer ${access_token}",
-            }
-            return adapter
-          end,
-        },
-      })
-    end,
-  },
   -- codecompanion + vibe acp
   -- {
   --   "olimorris/codecompanion.nvim",
@@ -81,6 +36,7 @@ return {
   --     "nvim-treesitter/nvim-treesitter",
   --   },
   --
+  --     load_env("~/.config/opencode/.env")
   --     require("codecompanion").setup({
   --       strategies = {
   --         agent = { adapter = "vibe", model = "devstral-latest" },
