@@ -101,15 +101,19 @@ return {
 
   -- buffer management
   {
-    "serhez/bento.nvim",
+    "nnethercott/bento.nvim",
+    -- dir = "~/bento.nvim/",
     opts = {
-      max_open_buffers = 3,
+      max_open_buffers = 4,
       lock_char = "*",
       buffer_deletion_metric = "frequency_access",
       buffer_notify_on_delete = false,
       ordering = "edit",
       ui = {
         mode = "tabline",
+        tabline = {
+          persistent = true
+        },
       },
     },
   },

@@ -10,3 +10,6 @@ customCommands:
     context: "files"
     loadingText: "opening git mergetool"
     subprocess: true
+git:
+  paging:
+    externalDiffCommand: difft --color=always

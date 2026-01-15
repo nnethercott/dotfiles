@@ -42,8 +42,6 @@ if [ -f '/Users/nathaniel.nethercott/Downloads/google-cloud-sdk/path.zsh.inc' ];
 export PATH=/Users/naten/.opencode/bin:$PATH
 export PATH="/opt/homebrew/opt/mysql@8.4/bin:$PATH"
 
-
-
 # editors
 export EDITOR="nvim"
 export KUBE_EDITOR="nvim"
@@ -68,6 +66,14 @@ alias cd="z"
 alias cb="pbcopy"
 # terraform
 alias t="terraform"
+# opencode
+opencode() {
+  if [[ -f "$HOME/.config/opencode/.env" ]]; then
+    (set -a && source "$HOME/.config/opencode/.env" && set +a && command opencode "$@")
+  else
+    command opencode "$@"
+  fi
+}
 
 # fnm
 FNM_PATH="$HOME/.local/share/fnm"
@@ -80,14 +86,14 @@ alias nvm="fnm"
 eval "$(zoxide init zsh)"
 # carapace
 source <(carapace _carapace)
-
-# total
-export GPG_TTY=$(tty)
-
 # k9s 
 export K9S_CONFIG_DIR="${HOME}/.config/k9s"
 # fzf
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 
-# # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+
+# WORK
+export GPG_TTY=$(tty)
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh  ]] || source ~/.p10k.zsh
