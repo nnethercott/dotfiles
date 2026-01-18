@@ -26,13 +26,6 @@ setopt hist_ignore_space
 # https://www.reddit.com/r/linux4noobs/comments/tkvs8o/kitty_terminal_with_ssh_issues/
 export TERM=xterm-256color
 
-# terminal vi mode
-set -o vi
-KEYTIMEOUT=8
-bindkey -M viins 'jk' vi-cmd-mode
-bindkey -M viins '^R' history-incremental-search-backward
-bindkey -M vicmd '^R' history-incremental-search-backward
-
 # binaries
 export PATH="$PATH:/opt/homebrew/bin"
 export PATH="$PATH:$HOME/.local/bin"
@@ -82,13 +75,21 @@ if [ -d "$FNM_PATH" ]; then
   eval "`fnm env`"
 fi
 alias nvm="fnm"
-# zoxide
+
 eval "$(zoxide init zsh)"
+
+# vi mode
+set -o vi
+KEYTIMEOUT=8
+bindkey -M viins 'jk' vi-cmd-mode
+bindkey -M viins '^R' history-incremental-search-backward
+bindkey -M vicmd '^R' history-incremental-search-backward
+
 # carapace
 source <(carapace _carapace)
 # k9s 
 export K9S_CONFIG_DIR="${HOME}/.config/k9s"
-# fzf
+
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 
 

@@ -1,3 +1,4 @@
+---@diagnostic disable: missing-fields
 return {
   -- illuminate
   { "RRethy/vim-illuminate", enabled = false },
@@ -11,30 +12,25 @@ return {
       vim.keymap.set("n", "gs", "<Plug>(leap-from-window)")
     end,
   },
-  -- maximize split
+  -- quickfix
   {
-    "szw/vim-maximizer",
+    "kevinhwang91/nvim-bqf",
+    dependencies = { "junegunn/fzf", build = "./install --bin" },
     config = function()
-      vim.keymap.set({ "n", "x", "o" }, "<leader>w", ":MaximizerToggle<CR>")
+      require("bqf").setup({
+        preview = {
+          auto_preview = false,
+          -- win_vheight = 100,
+          -- win_height = 100,
+          -- winblend=0,
+        }
+      })
     end,
   },
-  {
-    {
-      "abecodes/tabout.nvim",
-      lazy = false,
-      config = function()
-        require("tabout").setup({
-          tabkey = "<Tab>", -- key to trigger tabout, set to an empty string to disable
-          backwards_tabkey = "<S-Tab>", -- key to trigger backwards tabout, set to an empty string to disable
-        })
-      end,
-    },
-  },
-
   -- base64 encode/decode
   {
     "ovk/endec.nvim",
-    lazy=true,
+    lazy = true,
     opts = {
       keymaps = {
         defaults = false,

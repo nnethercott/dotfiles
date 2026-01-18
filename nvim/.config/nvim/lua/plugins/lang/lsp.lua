@@ -16,7 +16,7 @@ return {
         "yaml-language-server",
         "rust-analyzer",
         "typescript-language-server",
-        -- "html-lsp",
+        "gopls",
       })
     end,
   },

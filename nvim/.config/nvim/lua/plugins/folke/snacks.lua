@@ -11,9 +11,9 @@ return {
     scope = { enabled = false },
     scroll = { enabled = false },
     words = { enabled = true, debounce = 75 },
-    dashboard = { enabled = true }, -- alpha
     picker = { enabled = false },
     explorer = { enabled = false },
+    dashboard = { enabled = false },
     styles = {
       input = {
         relative = "cursor",

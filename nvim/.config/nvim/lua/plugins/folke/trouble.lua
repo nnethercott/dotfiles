@@ -1,15 +1,6 @@
 return {
   "folke/trouble.nvim",
-  -- TODO: modify outline-like behaviour
   keys = {
-    {
-      "<leader>tr",
-      function()
-        local opts = { mode = "lsp_references" }
-        require("trouble").toggle(opts)
-      end,
-      desc = "Toggle lsp references",
-    },
     {
       "<leader>cs",
       function(_, opts)

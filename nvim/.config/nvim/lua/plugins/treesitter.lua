@@ -12,6 +12,7 @@ return {
       "hcl",
       "helm",
       "c", -- included by default
+      "go",
     },
   },
 }

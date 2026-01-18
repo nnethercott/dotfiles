@@ -1,4 +1,13 @@
 return {
+  -- alpha
+  {
+    "goolord/alpha-nvim",
+    enabled = true,
+    dependencies = { "nvim-mini/mini.icons" },
+    config = function()
+      require("alpha").setup(require("alpha.themes.dashboard").config)
+    end,
+  },
   -- lualine
   {
     "nvim-lualine/lualine.nvim",
@@ -46,35 +55,6 @@ return {
       })
     end,
   },
-
-  -- barbar
-  {
-    "romgrk/barbar.nvim",
-    enabled = false,
-    dependencies = {
-      "lewis6991/gitsigns.nvim", -- OPTIONAL: for git status
-      "nvim-tree/nvim-web-devicons", -- OPTIONAL: for file icons
-    },
-    init = function()
-      vim.g.barbar_auto_setup = false
-    end,
-    version = "^1.0.0", -- optional: only update when a new 1.x version is released
-    config = function()
-      require("barbar").setup({
-        animation = true,
-        icons = {
-          pinned = { button = "󰐃", filename = true },
-        },
-        insert_at_end = true,
-      })
-      vim.keymap.set("n", "<leader>o", ":BufferOrderByBufferNumber<CR>", { noremap = true })
-      vim.keymap.set("n", "<leader>ba", ":BufferCloseAllButCurrent<CR>", { noremap = true })
-
-      -- vim.api.nvim_set_hl(0, "BufferTabpageFill", { bg = "none", fg = "none" })
-      -- vim.api.nvim_set_hl(0, "TabLineFill",       { bg = "none", fg = "none" })
-    end,
-  },
-
   -- indent-blankline
   {
     "lukas-reineke/indent-blankline.nvim",
@@ -98,22 +78,21 @@ return {
       hooks.register(hooks.type.WHITESPACE, hooks.builtin.hide_first_space_indent_level)
     end,
   },
-
   -- buffer management
   {
-    -- "nnethercott/bento.nvim",
-    dir = "~/bento.nvim/",
+    "nnethercott/bento.nvim",
+    -- dir = "~/bento.nvim/",
     opts = {
       max_open_buffers = 5,
       lock_char = "*",
-      label_previous_buffer=true,
+      label_previous_buffer = true,
       buffer_deletion_metric = "frequency_access",
       buffer_notify_on_delete = false,
       ordering = "edit",
       ui = {
         mode = "tabline",
         tabline = {
-          persistent = true
+          persistent = true,
         },
       },
     },
