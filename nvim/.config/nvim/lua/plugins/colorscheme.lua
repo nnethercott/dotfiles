@@ -18,7 +18,6 @@ return {
           "neobones",
           "zenbones",
           "zenwritten",
-          "koda",
           -- "gruvbox",
           "gruvbox-material",
           "fluoromachine",
@@ -149,5 +148,4 @@ return {
       })
     end,
   },
-  { "oskarnurm/koda.nvim" },
 }

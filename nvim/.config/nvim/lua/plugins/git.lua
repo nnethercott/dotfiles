@@ -1,4 +1,4 @@
--- util fn for finding common commit between curr branch and origin/main 
+-- util fn for finding common commit between curr branch and origin/main
 local get_base_rev = function ()
     local curr = vim.fn.system("git rev-parse --abbrev-ref HEAD"):gsub("%s+", "")
     return vim.fn.system("git merge-base " .. curr .. " origin/main"):gsub("%s+", "")

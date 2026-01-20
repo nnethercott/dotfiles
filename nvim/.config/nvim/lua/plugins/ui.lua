@@ -1,11 +1,28 @@
 return {
-  -- alpha
+  -- alpha; disabled as it flutters on open ?
   {
     "goolord/alpha-nvim",
-    enabled = true,
+    enabled = false,
     dependencies = { "nvim-mini/mini.icons" },
     config = function()
-      require("alpha").setup(require("alpha.themes.dashboard").config)
+      local alpha = require("alpha")
+      local dashboard = require("alpha.themes.dashboard")
+      local section = dashboard.section
+      local fn = vim.fn
+      local config = dashboard.config
+
+      local marginTopPercent = 0.3
+      local headerPadding = fn.max({ 2, fn.floor(fn.winheight(0) * marginTopPercent) })
+
+      config.layout = {
+        { type = "padding", val = headerPadding },
+        section.header,
+        { type = "padding", val = 2 },
+        section.buttons,
+        section.footer,
+      }
+
+      alpha.setup(config)
     end,
   },
   -- lualine
@@ -83,7 +100,7 @@ return {
     "nnethercott/bento.nvim",
     -- dir = "~/bento.nvim/",
     opts = {
-      max_open_buffers = 5,
+      max_open_buffers = 8,
       lock_char = "*",
       label_previous_buffer = true,
       buffer_deletion_metric = "frequency_access",
