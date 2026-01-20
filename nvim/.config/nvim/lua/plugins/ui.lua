@@ -1,34 +1,8 @@
 return {
-  -- alpha; disabled as it flutters on open ?
-  {
-    "goolord/alpha-nvim",
-    enabled = false,
-    dependencies = { "nvim-mini/mini.icons" },
-    config = function()
-      local alpha = require("alpha")
-      local dashboard = require("alpha.themes.dashboard")
-      local section = dashboard.section
-      local fn = vim.fn
-      local config = dashboard.config
-
-      local marginTopPercent = 0.3
-      local headerPadding = fn.max({ 2, fn.floor(fn.winheight(0) * marginTopPercent) })
-
-      config.layout = {
-        { type = "padding", val = headerPadding },
-        section.header,
-        { type = "padding", val = 2 },
-        section.buttons,
-        section.footer,
-      }
-
-      alpha.setup(config)
-    end,
-  },
   -- lualine
   {
     "nvim-lualine/lualine.nvim",
-    enabled = true,
+    enabled = false,
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
       local LazyVim = require("lazyvim.util")
@@ -97,21 +71,28 @@ return {
   },
   -- buffer management
   {
-    "nnethercott/bento.nvim",
-    -- dir = "~/bento.nvim/",
+    "serhez/bento.nvim",
     opts = {
       max_open_buffers = 8,
       lock_char = "*",
-      label_previous_buffer = true,
       buffer_deletion_metric = "frequency_access",
       buffer_notify_on_delete = false,
-      ordering = "edit",
+      ordering = "access",
       ui = {
         mode = "tabline",
-        tabline = {
-          persistent = true,
+        floating = {
+          minimal_menu = "full",
+          position = "top_right",
         },
       },
     },
+    config = function(_, opts)
+      require("bento").setup(opts)
+
+      -- register keymap after setup
+      vim.keymap.set("n", "<leader>ba", function()
+        require("bento").close_all_buffers({ locked = false })
+      end)
+    end,
   },
 }

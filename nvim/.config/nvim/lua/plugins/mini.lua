@@ -59,6 +59,12 @@ return {
           synchronize = "<CR>",
         },
       })
+      -- require("mini.starter").setup()
+      require("mini.statusline").setup()
+      MiniStatusline.section_lsp = function() return "" end
+      MiniStatusline.section_filename = function()
+        return vim.fn.pathshorten(vim.fn.expand("%:~:."))
+      end
     end,
     keys = {
       -- toggle explorer

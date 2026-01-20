@@ -12,11 +12,7 @@ map("n", "<S-h>", ":bprevious<CR>", { noremap = true })
 map("n", "<leader>bd", ":bd<CR>", { noremap = true })
 map("n", "=", ":vertical resize +5<CR>", { noremap = true, silent = true })
 map("n", "-", ":vertical resize -5<CR>", { noremap = true, silent = true })
-
--- map('n', '<C-h>', ':wincmd h<CR>', { noremap = true, silent = true })
--- map('n', '<C-j>', ':wincmd j<CR>', { noremap = true, silent = true })
--- map('n', '<C-k>', ':wincmd k<CR>', { noremap = true, silent = true })
--- map('n', '<C-l>', ':wincmd l<CR>', { noremap = true, silent = true })
+map("n", "<leader>vs", ":vsplit<CR>", {})
 
 -- copy current file path to clipboard
 map("n", "<leader>@", ':let @+ = expand("%:p")<CR>', {})

@@ -6,7 +6,7 @@ vim.g.mapleader = " "
 -- using tree sitter we can modify highlight groups !
 -- vim.cmd [[hi @keyword.rust guifg=red]]
 
-o.timeoutlen = 150
+o.timeoutlen = 100
 o.hlsearch = false
 
 -- Relative line numbers
@@ -57,9 +57,4 @@ vim.opt.listchars = {
   trail = " ",
   tab = "  ",
 }
-
--- views can only be fully collapsed with the global statusline
--- recommended by avante nvim
-vim.opt.laststatus = 3
-
-vim.keymap.set("n", "<leader>vs", ":vsplit<CR>")
+vim.opt.shortmess:remove("I")
