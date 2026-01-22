@@ -10,6 +10,7 @@ return {
       require("orgmode").setup({
         org_agenda_files = "~/orgfiles/**/*",
         org_default_notes_file = "~/orgfiles/refile.org",
+        org_startup_folded = "showeverything",
         mappings = {
           capture = {
             org_capture_refile = "R",
@@ -32,27 +33,6 @@ return {
           },
         },
       })
-    end,
-  },
-  {
-    "chipsenkbeil/org-roam.nvim",
-    tag = "0.2.0",
-    enabled = false,
-    dependencies = {
-      { "nvim-orgmode/orgmode", tag = "0.7.0" },
-    },
-    config = function()
-      require("org-roam").setup({
-        directory = "~/orgfiles",
-        -- optional
-        org_files = {
-          "~/another_org_dir",
-          "~/some/folder/*.org",
-          "~/a/single/org_file.org",
-        },
-      })
-
-      -- TODO: add keybindings for orgmode new capture todo
 
       -- register <CR> to follow links
       vim.api.nvim_create_autocmd("FileType", {
@@ -64,5 +44,34 @@ return {
         end,
       })
     end,
+  },
+  {
+    "chipsenkbeil/org-roam.nvim",
+    enabled = true,
+    tag = "0.6.0",
+    dependencies = {
+      { "nvim-orgmode/orgmode", tag = "0.7.0" },
+    },
+    config = function()
+      require("org-roam").setup({
+        directory = "~/orgfiles",
+      })
+    end,
+    keys = {
+      {
+        "<leader>nc",
+        function()
+          require("org-roam.api").capture_node()
+        end,
+        desc = "Roam: capture node",
+      },
+      {
+        "<leader>nf",
+        function()
+          require("org-roam.api").find_node()
+        end,
+        desc = "Roam: find node",
+      },
+    },
   },
 }

@@ -17,6 +17,7 @@ return {
         "rust-analyzer",
         "typescript-language-server",
         "gopls",
+        "bash-language-server",
       })
     end,
   },

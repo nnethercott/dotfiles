@@ -91,7 +91,7 @@ return {
 
       -- register keymap after setup
       vim.keymap.set("n", "<leader>ba", function()
-        require("bento").close_all_buffers({ locked = false })
+        require("bento").close_all_buffers({ locked = false, current = false })
       end)
     end,
   },

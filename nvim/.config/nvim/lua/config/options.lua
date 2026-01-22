@@ -46,7 +46,7 @@ o.splitright = true
 o.splitbelow = true
 
 -- wrap
-vim.o.wrap = false
+vim.o.wrap = true
 
 -- cmd height
 vim.o.cmdheight = 0
