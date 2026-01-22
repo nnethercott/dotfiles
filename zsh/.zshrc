@@ -89,9 +89,11 @@ bindkey -M vicmd '^R' history-incremental-search-backward
 source <(carapace _carapace)
 # k9s 
 export K9S_CONFIG_DIR="${HOME}/.config/k9s"
-
+# fzf
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
-
+fzf(){
+  command fzf --bind 'enter:become(nvim {})' "$@"
+}
 
 # WORK
 export GPG_TTY=$(tty)
