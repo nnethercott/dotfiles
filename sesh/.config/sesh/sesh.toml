@@ -1,0 +1,8 @@
+[[session]]
+name = "dotfiles"
+path = "~/dotfiles"
+startup_command = "nvim -c ':FzfLua files'"
+
+[[session]]
+name = "config"
+path = "~/.config"

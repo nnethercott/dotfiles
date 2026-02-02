@@ -6,13 +6,16 @@ fi
 # extra completions
 fpath+=$HOME/.zfunc
 autoload -U +X compinit && compinit -C
-autoload -Uz lg
+autoload -Uz lg sc
 
 # antitode
 source $HOME/.antidote/antidote.zsh
 zsh_plugins=$HOME/.zsh_plugins
 [ -f ${zsh_plugins}.txt ] || touch ${zsh_plugins}.txt
 antidote load
+
+# https://www.reddit.com/r/linux4noobs/comments/tkvs8o/kitty_terminal_with_ssh_issues/
+export TERM=xterm-256color
 
 # history (persists across windows)
 HISTSIZE=5000
@@ -23,21 +26,16 @@ setopt appendhistory
 setopt sharehistory
 setopt hist_ignore_space
 
-# https://www.reddit.com/r/linux4noobs/comments/tkvs8o/kitty_terminal_with_ssh_issues/
-export TERM=xterm-256color
-
-# binaries
-export PATH="$PATH:/opt/homebrew/bin"
-export PATH="$PATH:$HOME/.local/bin"
-export PATH="$HOME/.cargo/bin:$PATH"
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/nathaniel.nethercott/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/nathaniel.nethercott/Downloads/google-cloud-sdk/path.zsh.inc'; fi
-export PATH=/Users/naten/.opencode/bin:$PATH
-export PATH="/opt/homebrew/opt/mysql@8.4/bin:$PATH"
-
 # editors
 export EDITOR="nvim"
 export KUBE_EDITOR="nvim"
+
+# vi mode
+set -o vi
+KEYTIMEOUT=8
+bindkey -M viins 'jk' vi-cmd-mode
+bindkey -M viins '^R' history-incremental-search-backward
+bindkey -M vicmd '^R' history-incremental-search-backward
 
 # Aliases
 # k8s
@@ -59,48 +57,15 @@ alias cd="z"
 alias cb="pbcopy"
 # terraform
 alias t="terraform"
-# opencode
-opencode() {
-  if [[ -f "$HOME/.config/opencode/.env" ]]; then
-    (set -a && source "$HOME/.config/opencode/.env" && set +a && command opencode "$@")
-  else
-    command opencode "$@"
-  fi
-}
 
-# fnm
-FNM_PATH="$HOME/.local/share/fnm"
-if [ -d "$FNM_PATH" ]; then
-  export PATH="$FNM_PATH:$PATH"
-  eval "`fnm env`"
-fi
+# binaries
+## fnm
+eval "$(fnm env)"
 alias nvm="fnm"
-
+## zoxide
 eval "$(zoxide init zsh)"
-
-# vi mode
-set -o vi
-KEYTIMEOUT=8
-bindkey -M viins 'jk' vi-cmd-mode
-bindkey -M viins '^R' history-incremental-search-backward
-bindkey -M vicmd '^R' history-incremental-search-backward
-
-# carapace
+## carapace
 source <(carapace _carapace)
-# k9s 
-export K9S_CONFIG_DIR="${HOME}/.config/k9s"
-# fzf: https://github.com/junegunn/fzf.vim/issues/453
-export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
-fzf(){
-  command fzf --bind 'enter:become(nvim {})' "$@"
-}
-# sesh
-sc() {
-  sesh connect -s "$(command fzf --height 15 < <(sesh list))"
-}
-
-# WORK
-export GPG_TTY=$(tty)
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh  ]] || source ~/.p10k.zsh

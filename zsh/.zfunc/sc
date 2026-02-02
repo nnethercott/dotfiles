@@ -1,0 +1,6 @@
+sesh connect "$(
+  sesh list | awk '!seen[$0]++' | fzf \
+    --height 20 \
+    --layout reverse \
+    --prompt "Select entry> "
+)"
