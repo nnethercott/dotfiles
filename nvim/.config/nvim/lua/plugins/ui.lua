@@ -35,7 +35,7 @@ return {
         -- mode = "tabline",
         mode = "floating",
         floating = {
-          minimal_menu = "full",
+          minimal_menu = nil,
           position = "top_right",
         },
       },
