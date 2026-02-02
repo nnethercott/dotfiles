@@ -59,14 +59,30 @@ return {
           synchronize = "<CR>",
         },
       })
-      -- require("mini.starter").setup()
       require("mini.statusline").setup()
-      MiniStatusline.section_lsp = function() return "" end
+      MiniStatusline.section_lsp = function()
+        return ""
+      end
       MiniStatusline.section_filename = function()
         return vim.fn.pathshorten(vim.fn.expand("%:~:."))
       end
+      require("mini.indentscope").setup({
+        symbol = "│",
+        draw = {
+          animation = require("mini.indentscope").gen_animation.none(),
+        },
+      })
+
+      require("mini.bufremove").setup()
     end,
     keys = {
+      {
+        "<leader>bd",
+        function()
+          require("mini.bufremove").delete(0, true)
+        end,
+        desc = "buffer close and preserve split",
+      },
       -- toggle explorer
       {
         "<leader>e",

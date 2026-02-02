@@ -46,9 +46,8 @@ return {
   {
     "chipsenkbeil/org-roam.nvim",
     enabled = true,
-    tag = "0.6.0",
     dependencies = {
-      { "nvim-orgmode/orgmode", tag = "0.7.0" },
+      { "nvim-orgmode/orgmode" },
     },
     config = function()
       require("org-roam").setup({
@@ -72,4 +71,11 @@ return {
       },
     },
   },
+  {
+  "Maxteabag/sqlit.nvim",
+  opts = {},
+  keys = {
+    { "<leader>D", function() require("sqlit").open() end, desc = "Database (sqlit)" },
+  },
+}
 }

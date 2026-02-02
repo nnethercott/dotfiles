@@ -5,7 +5,7 @@ return {
     opts = vim.tbl_deep_extend("force", require("fzf-lua.profiles.fzf-vim"), {
       -- main
       winopts = {
-        width = 0.8,
+        width = 0.7,
         height = 0.7,
         backdrop=100,
         preview = {

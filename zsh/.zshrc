@@ -89,10 +89,14 @@ bindkey -M vicmd '^R' history-incremental-search-backward
 source <(carapace _carapace)
 # k9s 
 export K9S_CONFIG_DIR="${HOME}/.config/k9s"
-# fzf
+# fzf: https://github.com/junegunn/fzf.vim/issues/453
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 fzf(){
   command fzf --bind 'enter:become(nvim {})' "$@"
+}
+# sesh
+sc() {
+  sesh connect -s "$(command fzf --height 15 < <(sesh list))"
 }
 
 # WORK

@@ -1,55 +1,8 @@
 return {
-  -- lualine
-  {
-    "nvim-lualine/lualine.nvim",
-    enabled = false,
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    config = function()
-      local LazyVim = require("lazyvim.util")
-
-      require("lualine").setup({
-        options = {
-          theme = "auto", -- uses colorscheme
-          section_separators = { left = "", right = "" },
-          component_separators = { left = "", right = "" }, -- │
-          refresh = {
-            statusline = 100,
-            tabline = 100,
-            winbar = 100,
-          },
-        },
-        sections = {
-          lualine_a = { "mode" },
-          lualine_b = {
-            "branch",
-            "diff",
-            "diagnostics",
-          },
-          lualine_c = {
-            {
-              -- pretty path
-              LazyVim.lualine.pretty_path({
-                length = 0,
-                relative = "cwd",
-                modified_hl = "MatchParen",
-                directory_hl = "",
-                filename_hl = "Bold",
-                modified_sign = "",
-                readonly_icon = " 󰌾 ",
-              }),
-            },
-          },
-          lualine_x = { "encoding", "fileformat", "filetype" },
-          lualine_y = { "progress" },
-          lualine_z = { "location" },
-        },
-      })
-    end,
-  },
   -- indent-blankline
   {
     "lukas-reineke/indent-blankline.nvim",
-    enabled = true,
+    enabled = false,
     event = { "BufEnter" },
     main = "ibl",
     opts = {
@@ -79,7 +32,8 @@ return {
       buffer_notify_on_delete = false,
       ordering = "access",
       ui = {
-        mode = "tabline",
+        -- mode = "tabline",
+        mode = "floating",
         floating = {
           minimal_menu = "full",
           position = "top_right",

@@ -15,13 +15,17 @@ return {
                 "*.yaml",
                 "*.yml",
                 "!Chart.{yaml,yml}",
+                "templates/*.{tpl,yaml,yml}",
                 "!compose*.{yml,yaml}",
                 "!docker-compose*.{yml,yaml}",
                 "!**/.github/actions/**/*.{yml,yaml}",
                 "!**/.github/workflows/**/*.{yml,yaml}",
               },
               -- helm
-              ["https://json.schemastore.org/chart.json"] = "Chart.{yaml,yml}",
+              ["https://json.schemastore.org/chart.json"] = {
+                "Chart.{yaml,yml}",
+                "templates/*.{tpl,yaml,yml}"
+              },
               -- docker-compose
               ["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] = {
                 "compose*.{yml,yaml}",

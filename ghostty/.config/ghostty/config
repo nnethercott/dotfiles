@@ -8,7 +8,7 @@ background-blur=true
 
 # font-family = JetBrains Mono
 font-family = Myna Nerd Font
-font-size = 16
+font-size = 15
 font-feature = -calt, -liga, -dlig  # no ligatures
 
 keybind = alt+left=unbind
@@ -26,3 +26,6 @@ window-decoration = auto
 # mac
 macos-icon = "official"
 mouse-shift-capture = false
+macos-window-buttons = "hidden"
+macos-titlebar-style = "hidden"
+window-padding-y = 8,0
