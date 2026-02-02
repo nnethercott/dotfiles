@@ -1,11 +1,4 @@
 return {
-  -- default colorscheme
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "gruvbox",
-    },
-  },
   -- top-level defn of available colorschemes
   {
     "nnethercott/themery.nvim",
@@ -14,13 +7,13 @@ return {
       require("themery").setup({
         themes = {
           "tokyonight",
-          "cyberdream",
-          "neobones",
-          "zenbones",
+          -- "cyberdream",
+          -- "neobones",
+          -- "zenbones",
           "zenwritten",
-          -- "gruvbox",
+          "gruvbox",
+          "gruvbox8_hard",
           "gruvbox-material",
-          "fluoromachine",
         },
       })
       vim.cmd("set background=dark")
@@ -120,14 +113,6 @@ return {
     end,
   },
   {
-    "ellisonleao/gruvbox.nvim",
-    opts = {
-      italic = {
-        strings = false,
-      },
-    },
-  },
-  {
     "sainnhe/gruvbox-material",
     config = function()
       vim.g.gruvbox_material_background = "medium"
@@ -138,14 +123,21 @@ return {
     end,
   },
   {
-    "maxmx03/fluoromachine.nvim",
-    config = function()
-      local fm = require("fluoromachine")
-      fm.setup({
-        glow = true,
-        theme = "fluoromachine",
-        -- theme = "retrowave",
-      })
-    end,
+    "https://gitlab.com/motaz-shokry/gruvbox.nvim",
+    name = "gruvbox",
+    enabled = true,
+    opts = {
+      dark_variant = "hard",
+      styles = {
+        italic = false,
+      },
+    },
   },
+  {
+    "lifepillar/vim-gruvbox8",
+    branch = "neovim",
+    config = function ()
+      vim.g.gruvbox_italics = 0
+    end
+  }
 }

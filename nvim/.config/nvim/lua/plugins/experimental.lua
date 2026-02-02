@@ -2,7 +2,6 @@ return {
   {
     "nvim-orgmode/orgmode",
     dependencies = {
-      "nvim-orgmode/org-bullets.nvim",
       "Saghen/blink.cmp",
     },
     event = "VeryLazy",
@@ -18,7 +17,6 @@ return {
           },
         },
       })
-      require("org-bullets").setup()
       require("blink.cmp").setup({
         sources = {
           per_filetype = {
