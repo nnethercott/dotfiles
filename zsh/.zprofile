@@ -2,7 +2,7 @@
 export PATH="$PATH:/opt/homebrew/bin"
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$HOME/.cargo/bin:$PATH"
-export PATH=/Users/naten/.opencode/bin:$PATH
+export PATH="$HOME/.opencode/bin:$PATH"
 export PATH="/opt/homebrew/opt/mysql@8.4/bin:$PATH"
 
 # binaries
@@ -18,8 +18,3 @@ export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 
 # WORK
 export GPG_TTY=$(tty)
-
-## Google Cloud SDK
-if [ -f '/Users/nathaniel.nethercott/Downloads/google-cloud-sdk/path.zsh.inc' ]; then
-  . '/Users/nathaniel.nethercott/Downloads/google-cloud-sdk/path.zsh.inc'
-fi
