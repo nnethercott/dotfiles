@@ -1,7 +1,5 @@
 ---@diagnostic disable: missing-fields
 return {
-  -- illuminate
-  { "RRethy/vim-illuminate", enabled = false },
   -- leap
   {
     "ggandor/leap.nvim",

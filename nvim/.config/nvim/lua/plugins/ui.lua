@@ -35,8 +35,10 @@ return {
         -- mode = "tabline",
         mode = "floating",
         floating = {
-          minimal_menu = nil,
+          minimal_menu = "full",
           position = "top_right",
+          -- offset_y = -4,
+          -- border = "rounded",
         },
       },
     },
@@ -46,6 +48,9 @@ return {
       -- register keymap after setup
       vim.keymap.set("n", "<leader>ba", function()
         require("bento").close_all_buffers({ locked = false, current = false })
+      end)
+      vim.keymap.set("n", "<leader>bc", function()
+        vim.cmd(":BentoToggle")
       end)
     end,
   },

@@ -1,10 +1,13 @@
-vim.lsp.config('ty', {
-  settings = {
-    ty = {
-      diagnosticMode = 'workspace',
-      experimental = {
-        rename = true,
-      },
-    },
-  },
-})
+return {
+
+}
+-- vim.lsp.config('ty', {
+--   settings = {
+--     ty = {
+--       diagnosticMode = 'workspace',
+--       experimental = {
+--         rename = true,
+--       },
+--     },
+--   },
+-- })

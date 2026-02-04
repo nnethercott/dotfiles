@@ -3,6 +3,9 @@ return {
   {
     "saghen/blink.cmp",
     opts = {
+      cmdline = {
+        enabled = true,
+      },
       keymap = {
         -- preset = "enter",
         ["<S-Tab>"] = { "select_prev", "fallback" },

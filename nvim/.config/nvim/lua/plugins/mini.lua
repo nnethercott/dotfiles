@@ -1,10 +1,6 @@
 -- helper for mini files
 return {
-  -- diasable mini pairs, otherwise lazy overwrites
-  {
-    "nvim-mini/mini.pairs",
-    enabled = false,
-  },
+  -- trailspace
   {
     "nvim-mini/mini.trailspace",
     event = { "BufReadPost", "BufNewFile" },
@@ -30,35 +26,38 @@ return {
     "nvim-mini/mini.nvim",
     version = false,
     config = function()
+      -- mini ai
       require("mini.ai").setup()
+      -- mini pairs
       require("mini.pairs").setup({
         mappings = {
           ["'"] = false,
         },
       })
+      -- mini splitjoin
       require("mini.splitjoin").setup()
+      -- mini surround
       require("mini.surround").setup({
         mappings = {
           add = "ye",
           delete = "ds",
           replace = "cs",
-          find = "ef",
-          find_left = "eF",
-          highlight = "eh",
-          update_n_lines = "en",
         },
       })
+      -- mini highpatterns
       require("mini.hipatterns").setup({
         highlighters = {
           hex_color = require("mini.hipatterns").gen_highlighter.hex_color(),
         },
       })
+      -- mini files
       require("mini.files").setup({
         mappings = {
           close = "<C-c>",
           synchronize = "<CR>",
         },
       })
+      -- mini statusline
       require("mini.statusline").setup()
       MiniStatusline.section_lsp = function()
         return ""
@@ -66,14 +65,17 @@ return {
       MiniStatusline.section_filename = function()
         return vim.fn.pathshorten(vim.fn.expand("%:~:."))
       end
+      -- mini indentscope
       require("mini.indentscope").setup({
         symbol = "│",
         draw = {
           animation = require("mini.indentscope").gen_animation.none(),
         },
       })
-
+      -- mini bufremove
       require("mini.bufremove").setup()
+      -- mini cursorword
+      -- require("mini.cursorword").setup() -- change hi group to same as snacks word
     end,
     keys = {
       {

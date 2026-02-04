@@ -58,3 +58,17 @@ vim.opt.listchars = {
   tab = "  ",
 }
 vim.opt.shortmess:remove("I")
+
+-- fuzzy-find-files on :find
+-- https://www.reddit.com/r/neovim/comments/1q3zzw2/fast_fuzzy_file_picker_with_wildmenu_and/
+local filescache = {}
+
+function _G.FindFiles(arg, _)
+  if #filescache == 0 then
+    filescache = vim.fn.systemlist("fd --type f --follow --hidden --exclude .git")
+  end
+  return arg == "" and filescache or vim.fn.matchfuzzy(filescache, arg)
+end
+
+vim.o.findfunc = "v:lua.FindFiles"
+-- vim.o.wildoptions = "fuzzy,pum"
