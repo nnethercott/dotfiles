@@ -73,18 +73,11 @@ return {
         },
       })
       -- mini bufremove
-      require("mini.bufremove").setup()
+      -- require("mini.bufremove").setup()
       -- mini cursorword
       -- require("mini.cursorword").setup() -- change hi group to same as snacks word
     end,
     keys = {
-      {
-        "<leader>bd",
-        function()
-          require("mini.bufremove").delete(0, true)
-        end,
-        desc = "buffer close and preserve split",
-      },
       -- toggle explorer
       {
         "<leader>e",

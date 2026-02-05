@@ -32,17 +32,36 @@ return {
       buffer_notify_on_delete = false,
       ordering = "access",
       ui = {
-        -- mode = "tabline",
         mode = "floating",
         floating = {
-          minimal_menu = "full",
-          position = "top_right",
+          minimal_menu = "filename",
+          -- position = "bottom_right",
           -- offset_y = -4,
           -- border = "rounded",
         },
       },
     },
     config = function(_, opts)
+      local butils = require("bento.utils")
+
+      ---@diagnostic disable-next-line: duplicate-set-field
+      butils.get_display_names = function(paths)
+        local display_names = {}
+        for _, p in ipairs(paths) do
+          local short_path = vim.fn.pathshorten(vim.fn.fnamemodify(p, ":~:."), 1)
+          local parts = {}
+          for part in string.gmatch(short_path, "[^/\\]+") do
+              parts[#parts+1] = part
+          end
+
+          local n = #parts
+          local start = math.max(1, n - 2)
+          local shorter_path = table.concat(parts, "/", start, n)
+
+          display_names[p] = shorter_path
+        end
+        return  display_names
+      end
       require("bento").setup(opts)
 
       -- register keymap after setup
