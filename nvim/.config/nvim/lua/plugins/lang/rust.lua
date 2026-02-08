@@ -24,7 +24,7 @@ return {
                 },
               },
               procMacro = {
-                enable = false,
+                enable = true,
               },
               files = {
                 excludeDirs = {

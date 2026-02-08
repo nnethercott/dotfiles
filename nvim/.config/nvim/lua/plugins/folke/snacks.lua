@@ -22,6 +22,9 @@ return {
           ["<C-c>"] = { "close", mode = { "i", "n" } },
         },
       },
+      zen = {
+        backdrop = { transparent = true, blend = 30 },
+      },
     },
     dashboard = { enabled = false },
   },

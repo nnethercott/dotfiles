@@ -15,11 +15,11 @@ return {
         },
       })
 
-      -- register <CR> to follow links
+      -- register keymap to follow links (vim style)
       vim.api.nvim_create_autocmd("FileType", {
         pattern = "org",
         callback = function()
-          vim.keymap.set("n", "<CR>", function()
+          vim.keymap.set("n", "<C-]>", function()
             require("orgmode").action("org_mappings.open_at_point")
           end, { buffer = true })
         end,

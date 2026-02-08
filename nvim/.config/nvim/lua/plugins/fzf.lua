@@ -23,9 +23,10 @@ return {
     -- code actions
     opts.lsp = vim.tbl_deep_extend("force", opts.lsp or {}, {
       code_actions = {
+        prompt = "",
         winopts = {
           relative = "cursor",
-          border = "rounded",
+          border = "none",
           backdrop = 100,
           width = 0.4,
           height = 0.15,

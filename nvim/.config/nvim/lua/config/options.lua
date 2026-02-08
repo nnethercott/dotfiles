@@ -15,11 +15,7 @@ o.number = true
 
 o.termguicolors = true
 o.syntax = "enable"
-o.syntax = "on"
 o.signcolumn = "yes"
-
--- folding
--- o.foldenable = false
 
 -- Tabs & indentation
 o.tabstop = 2
@@ -44,6 +40,7 @@ vim.o.clipboard = "unnamedplus"
 -- Split windows
 o.splitright = true
 o.splitbelow = true
+o.laststatus = 2
 
 -- wrap
 vim.o.wrap = true

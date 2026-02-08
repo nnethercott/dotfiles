@@ -1,27 +1,4 @@
 return {
-  -- indent-blankline
-  {
-    "lukas-reineke/indent-blankline.nvim",
-    enabled = false,
-    event = { "BufEnter" },
-    main = "ibl",
-    opts = {
-      indent = { char = "│", highlight = "IblIndent" },
-      scope = {
-        char = "│",
-        highlight = "IblScope",
-        enabled = true,
-        show_start = false,
-        show_end = false,
-      },
-      exclude = { filetypes = { "lua", "yaml" } }, -- exclude langs here
-    },
-    config = function(_, opts)
-      require("ibl").setup(opts)
-      local hooks = require("ibl.hooks")
-      hooks.register(hooks.type.WHITESPACE, hooks.builtin.hide_first_space_indent_level)
-    end,
-  },
   -- buffer management
   {
     "serhez/bento.nvim",
@@ -35,7 +12,7 @@ return {
         mode = "floating",
         floating = {
           minimal_menu = "filename",
-          -- position = "bottom_right",
+          position = "top_right",
           -- offset_y = -4,
           -- border = "rounded",
         },
@@ -48,19 +25,19 @@ return {
       butils.get_display_names = function(paths)
         local display_names = {}
         for _, p in ipairs(paths) do
-          local short_path = vim.fn.pathshorten(vim.fn.fnamemodify(p, ":~:."), 1)
+          local short_path = vim.fn.pathshorten(vim.fn.fnamemodify(p, ":~:."), 2)
           local parts = {}
           for part in string.gmatch(short_path, "[^/\\]+") do
-              parts[#parts+1] = part
+            parts[#parts + 1] = part
           end
 
           local n = #parts
-          local start = math.max(1, n - 2)
+          local start = math.max(1, n - 1)
           local shorter_path = table.concat(parts, "/", start, n)
 
           display_names[p] = shorter_path
         end
-        return  display_names
+        return display_names
       end
       require("bento").setup(opts)
 
@@ -72,5 +49,16 @@ return {
         vim.cmd(":BentoToggle")
       end)
     end,
+  },
+  -- split maximizer
+  {
+    "szw/vim-maximizer",
+    keys = {
+      {
+        "<leader>w",
+        ":MaximizerToggle<CR>",
+        desc = "maximize current split",
+      },
+    },
   },
 }

@@ -23,6 +23,10 @@ return {
     end,
   },
   {
+    "nvim-mini/mini.pairs",
+    enabled=false,
+  },
+  {
     "nvim-mini/mini.nvim",
     version = false,
     config = function()
@@ -76,6 +80,18 @@ return {
       -- require("mini.bufremove").setup()
       -- mini cursorword
       -- require("mini.cursorword").setup() -- change hi group to same as snacks word
+
+      -- h: mini.files
+      vim.api.nvim_create_autocmd("User", {
+        pattern = "MiniFilesWindowOpen",
+        callback = function(args)
+          local win_id = args.data.win_id
+          vim.wo[win_id].winblend = 15
+          local config = vim.api.nvim_win_get_config(win_id)
+          config.border  = "none"
+          vim.api.nvim_win_set_config(win_id, config)
+        end,
+      })
     end,
     keys = {
       -- toggle explorer

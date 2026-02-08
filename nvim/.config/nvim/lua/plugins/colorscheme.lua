@@ -12,6 +12,7 @@ return {
           -- "zenbones",
           "zenwritten",
           "gruvbox",
+          "gruvbox8",
           "gruvbox8_hard",
           -- "gruvbox-material",
         },
