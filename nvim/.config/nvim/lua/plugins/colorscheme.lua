@@ -132,13 +132,21 @@ return {
       styles = {
         italic = false,
       },
+      -- plugin doesn't recognize mini statusline :(
+      before_highlight = function(group, highlight, _)
+        if group:match("^MiniStatusline") then
+          for k in pairs(highlight) do
+            highlight[k] = nil
+          end
+        end
+      end,
     },
   },
   {
     "lifepillar/vim-gruvbox8",
     branch = "neovim",
-    config = function ()
+    config = function()
       vim.g.gruvbox_italics = 0
-    end
-  }
+    end,
+  },
 }
