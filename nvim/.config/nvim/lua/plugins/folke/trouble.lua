@@ -16,6 +16,9 @@ return {
           win = {
             position = "right",
             size = 40,
+            wo = {
+              winhighlight = "Normal:NONE,NormalNC:NONE",
+            },
           },
           filter = {
             ["not"] = { ft = "lua", kind = "Package" },

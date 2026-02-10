@@ -24,7 +24,7 @@ return {
   },
   {
     "nvim-mini/mini.pairs",
-    enabled=false,
+    enabled = false,
   },
   {
     "nvim-mini/mini.nvim",
@@ -54,13 +54,6 @@ return {
           hex_color = require("mini.hipatterns").gen_highlighter.hex_color(),
         },
       })
-      -- mini files
-      require("mini.files").setup({
-        mappings = {
-          close = "<C-c>",
-          synchronize = "<CR>",
-        },
-      })
       -- mini statusline
       require("mini.statusline").setup()
       MiniStatusline.section_lsp = function()
@@ -88,9 +81,24 @@ return {
           local win_id = args.data.win_id
           vim.wo[win_id].winblend = 15
           local config = vim.api.nvim_win_get_config(win_id)
-          config.border  = "none"
+          config.border = "none"
           vim.api.nvim_win_set_config(win_id, config)
         end,
+      })
+      local my_prefix = function(fs_entry)
+        if fs_entry.fs_type == "directory" then
+          -- NOTE: it is usually a good idea to use icon followed by space
+          return " ", "MiniFilesDirectory"
+        end
+        return MiniFiles.default_prefix(fs_entry)
+      end
+      -- mini files
+      require("mini.files").setup({
+        mappings = {
+          close = "<C-c>",
+          synchronize = "<CR>",
+        },
+        content = { prefix = my_prefix },
       })
     end,
     keys = {

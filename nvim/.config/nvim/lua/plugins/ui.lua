@@ -25,7 +25,7 @@ return {
       butils.get_display_names = function(paths)
         local display_names = {}
         for _, p in ipairs(paths) do
-          local short_path = vim.fn.pathshorten(vim.fn.fnamemodify(p, ":~:."), 2)
+          local short_path = vim.fn.pathshorten(vim.fn.fnamemodify(p, ":~:."), 1)
           local parts = {}
           for part in string.gmatch(short_path, "[^/\\]+") do
             parts[#parts + 1] = part

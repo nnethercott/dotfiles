@@ -66,6 +66,9 @@ alias nvm="fnm"
 eval "$(zoxide init zsh)"
 ## carapace
 source <(carapace _carapace)
+## atuin
+export ATUIN_NOBIND="true"
+eval "$(atuin init zsh)"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh  ]] || source ~/.p10k.zsh
