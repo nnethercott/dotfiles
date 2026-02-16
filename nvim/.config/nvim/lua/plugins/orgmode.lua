@@ -35,6 +35,9 @@ return {
     config = function()
       require("org-roam").setup({
         directory = "~/orgfiles",
+        org_files = {
+          "~/orgfiles/**/*.org",
+        },
       })
       -- Disable blink.cmp and add j/k navigation in org-roam picker
       vim.api.nvim_create_autocmd("FileType", {

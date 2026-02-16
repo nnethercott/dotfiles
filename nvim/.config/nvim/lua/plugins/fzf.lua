@@ -1,5 +1,6 @@
 return {
   "ibhagwan/fzf-lua",
+  enabled = true,
   config = function(_, opts)
     local fzf = require("fzf-lua")
     opts = vim.tbl_deep_extend("force", require("fzf-lua.profiles.fzf-vim"), {
@@ -7,7 +8,7 @@ return {
       winopts = {
         width = 0.7,
         height = 0.7,
-        backdrop=100,
+        backdrop = 100,
         preview = {
           hidden = false,
           layout = "flex",
@@ -17,6 +18,13 @@ return {
       },
       fzf_opts = {
         ["--cycle"] = true,
+      },
+      previewers = {
+        builtin = {
+          extensions = {
+            ["svg"] = { "chafa", "{file}" },
+          },
+        },
       },
     })
 
@@ -35,7 +43,7 @@ return {
         },
         fzf_opts = {
           ["--layout"] = "reverse",
-        }
+        },
       },
     })
     fzf.setup(opts)
