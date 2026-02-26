@@ -1,7 +1,8 @@
 return {
   -- buffer management
   {
-    "serhez/bento.nvim",
+    -- "serhez/bento.nvim",
+    dir = "~/bento.nvim/",
     opts = {
       max_open_buffers = 8,
       lock_char = "*",
@@ -14,7 +15,7 @@ return {
           minimal_menu = "filename",
           position = "top_right",
           -- offset_y = -4,
-          -- border = "rounded",
+          border = "none",
         },
       },
     },
@@ -22,23 +23,23 @@ return {
       local butils = require("bento.utils")
 
       ---@diagnostic disable-next-line: duplicate-set-field
-      butils.get_display_names = function(paths)
-        local display_names = {}
-        for _, p in ipairs(paths) do
-          local short_path = vim.fn.pathshorten(vim.fn.fnamemodify(p, ":~:."), 1)
-          local parts = {}
-          for part in string.gmatch(short_path, "[^/\\]+") do
-            parts[#parts + 1] = part
-          end
-
-          local n = #parts
-          local start = math.max(1, n - 1)
-          local shorter_path = table.concat(parts, "/", start, n)
-
-          display_names[p] = shorter_path
-        end
-        return display_names
-      end
+      -- butils.get_display_names = function(paths)
+      --   local display_names = {}
+      --   for _, p in ipairs(paths) do
+      --     local short_path = vim.fn.pathshorten(vim.fn.fnamemodify(p, ":~:."), 1)
+      --     local parts = {}
+      --     for part in string.gmatch(short_path, "[^/\\]+") do
+      --       parts[#parts + 1] = part
+      --     end
+      --
+      --     local n = #parts
+      --     local start = math.max(1, n - 1)
+      --     local shorter_path = table.concat(parts, "/", start, n)
+      --
+      --     display_names[p] = shorter_path
+      --   end
+      --   return display_names
+      -- end
       require("bento").setup(opts)
 
       -- register keymap after setup

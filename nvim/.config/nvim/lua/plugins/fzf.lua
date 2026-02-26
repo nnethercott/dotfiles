@@ -5,6 +5,9 @@ return {
     local fzf = require("fzf-lua")
     opts = vim.tbl_deep_extend("force", require("fzf-lua.profiles.fzf-vim"), {
       -- main
+      grep = {
+        rg_opts = "--column --line-number --no-heading --color=always --smart-case --hidden",
+      },
       winopts = {
         width = 0.7,
         height = 0.7,
@@ -31,7 +34,7 @@ return {
     -- code actions
     opts.lsp = vim.tbl_deep_extend("force", opts.lsp or {}, {
       code_actions = {
-        prompt = "",
+        -- prompt = "",
         winopts = {
           relative = "cursor",
           border = "none",

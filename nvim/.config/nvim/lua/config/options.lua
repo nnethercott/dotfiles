@@ -40,7 +40,7 @@ vim.o.clipboard = "unnamedplus"
 -- Split windows
 o.splitright = true
 o.splitbelow = true
-o.laststatus = 2
+-- o.laststatus = 2
 
 -- wrap
 vim.o.wrap = true

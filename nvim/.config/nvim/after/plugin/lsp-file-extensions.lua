@@ -10,10 +10,17 @@ vim.filetype.add({
 -- terraform and helmfile
 vim.filetype.add({
   extension = {
-    gotmpl = "helm",
     tmpl = "helm",
     tpl = "helm",
     tfstate = "json",
+  },
+  pattern = {
+    [".*%.gotmpl"] = function(path)
+      if path:match("helmfile") then
+        return "yaml"
+      end
+      return "helm"
+    end,
   },
 })
 

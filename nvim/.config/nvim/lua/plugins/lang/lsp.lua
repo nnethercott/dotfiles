@@ -18,6 +18,7 @@ return {
         "typescript-language-server",
         "gopls",
         "bash-language-server",
+        "jupytext", -- pyrepl
       })
     end,
   },
