@@ -2,7 +2,7 @@ return {
   -- buffer management
   {
     -- "serhez/bento.nvim",
-    dir = "~/bento.nvim/",
+    dir = "~/bento.nvim",
     opts = {
       max_open_buffers = 8,
       lock_char = "*",

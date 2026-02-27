@@ -1,60 +1,33 @@
 local o = vim.opt
-vim.hl = vim.highlight
+local g = vim.g
 
-vim.g.mapleader = " "
-
--- using tree sitter we can modify highlight groups !
--- vim.cmd [[hi @keyword.rust guifg=red]]
+g.mapleader = " "
 
 o.timeoutlen = 100
 o.hlsearch = false
-
--- Relative line numbers
 o.relativenumber = true
 o.number = true
-
 o.termguicolors = true
 o.syntax = "enable"
 o.signcolumn = "yes"
-
--- Tabs & indentation
 o.tabstop = 2
 o.softtabstop = 2
 o.shiftwidth = 2
 o.expandtab = true
 o.autoindent = true
-
--- Search settings
 o.ignorecase = true
 o.smartcase = true
-
--- Cursor line
 o.cursorline = false
-
--- Backspace settings
 o.backspace = { "indent", "eol", "start" }
-
--- Clipboard
-vim.o.clipboard = "unnamedplus"
-
--- Split windows
+o.clipboard = "unnamedplus"
 o.splitright = true
 o.splitbelow = true
--- o.laststatus = 2
+-- o.laststatus = 0
+o.wrap = true
+o.cmdheight = 0
+o.shortmess:remove("I")
+o.swapfile = false
 
--- wrap
-vim.o.wrap = true
-
--- cmd height
-vim.o.cmdheight = 0
-
--- LazyVim
-vim.g.lazyvim_picker = "fzf"
-vim.opt.listchars = {
-  trail = " ",
-  tab = "  ",
-}
-vim.opt.shortmess:remove("I")
 
 -- fuzzy-find-files on :find
 -- https://www.reddit.com/r/neovim/comments/1q3zzw2/fast_fuzzy_file_picker_with_wildmenu_and/
@@ -67,5 +40,11 @@ function _G.FindFiles(arg, _)
   return arg == "" and filescache or vim.fn.matchfuzzy(filescache, arg)
 end
 
-vim.o.findfunc = "v:lua.FindFiles"
+o.findfunc = "v:lua.FindFiles"
 -- vim.o.wildoptions = "fuzzy,pum"
+-- LazyVim
+g.lazyvim_picker = "fzf"
+o.listchars = {
+  trail = " ",
+  tab = "  ",
+}

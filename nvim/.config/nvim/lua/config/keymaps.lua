@@ -25,3 +25,6 @@ map("i", "<C-c>", "<ESC>", { noremap = true })
 -- visual mode mappings
 map("v", ">", ">gv", { noremap = true })
 map("v", "<", "<gv", { noremap = true })
+map("v", "<S-j>", ":m '>+1<CR>gv=gv", { noremap = true, desc = "move selection down" })
+map("v", "<S-k>", ":m '<-2<CR>gv=gv", { noremap = true, desc = "move selection up" })
+map("v", "p", '"_dP', { noremap = true, desc = "paste without yanking" })

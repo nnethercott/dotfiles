@@ -13,9 +13,6 @@ return {
               checkOnSave = true,
               diagnostics = {
                 enable = true,
-                disabled = {
-                  "macro-error",
-                },
               },
               cargo = {
                 features = "all",

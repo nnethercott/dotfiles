@@ -1,5 +1,6 @@
 vim.lsp.config["kakehashi"] = {
   cmd = { "kakehashi" },
+  filetypes = {"markdown"},
   init_options = {
     autoInstall = true,
     languageServers = {

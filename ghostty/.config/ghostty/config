@@ -15,7 +15,7 @@ macos-option-as-alt = true
 mouse-hide-while-typing=true
 
 cursor-style = bar
-adjust-cell-height=5%
+adjust-cell-height=3%
 
 window-padding-x = 0
 window-padding-y = 0
