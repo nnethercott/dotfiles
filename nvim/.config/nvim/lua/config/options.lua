@@ -3,7 +3,7 @@ local g = vim.g
 
 g.mapleader = " "
 
-o.timeoutlen = 100
+o.timeoutlen = 120
 o.hlsearch = false
 o.relativenumber = true
 o.number = true
@@ -17,7 +17,8 @@ o.expandtab = true
 o.autoindent = true
 o.ignorecase = true
 o.smartcase = true
-o.cursorline = false
+o.cursorline = true
+o.cursorlineopt = 'number'
 o.backspace = { "indent", "eol", "start" }
 o.clipboard = "unnamedplus"
 o.splitright = true

@@ -8,13 +8,12 @@ return {
         themes = {
           "tokyonight",
           -- "cyberdream",
-          -- "neobones",
-          -- "zenbones",
+          "neobones",
+          "zenbones",
           "zenwritten",
+          "base16-black-metal-gorgoroth",
           "gruvbox",
           "gruvbox8",
-          "gruvbox8_hard",
-          -- "gruvbox-material",
         },
       })
       vim.cmd("set background=dark")
@@ -60,44 +59,6 @@ return {
       })
     end,
   },
-
-  -- cyberdream
-  {
-    "scottmckendry/cyberdream.nvim",
-    priority = 1000,
-    enabled = true,
-    config = function()
-      require("cyberdream").setup({
-        variant = "auto",
-        saturation = 0.9,
-        transparent = false,
-        italic_comments = true,
-        hide_fillchars = true,
-        terminal_colors = false,
-        cache = false,
-        borderless_pickers = false,
-        overrides = function(palette)
-          local new = { fg = palette.yellow, italic = true }
-          return {
-            ["@keyword.conditional"] = new,
-            ["@keyword.modifier"] = new,
-            ["@keyword.rust"] = new,
-            ["@module.rust"] = new,
-          }
-        end,
-        colors = {
-          dark = {
-            fg = "#e0def4",
-            -- bg = "#191724",
-            yellow = "#f6c177",
-          },
-        },
-      })
-
-      vim.cmd("colorscheme cyberdream")
-    end,
-  },
-
   -- zenbones
   -- https://vimcolorschemes.com/zenbones-theme/zenbones.nvim
   {
@@ -111,16 +72,6 @@ return {
       vim.g.zenbones = opts
       vim.g.zenwritten = opts
       vim.g.neobones = opts
-    end,
-  },
-  {
-    "sainnhe/gruvbox-material",
-    config = function()
-      vim.g.gruvbox_material_background = "hard"
-      vim.g.gruvbox_material_foreground = "original"
-      vim.g.gruvbox_material_enable_italic = 0
-      vim.g.gruvbox_material_disable_italic_comment = 0
-      vim.g.gruvbox_material_enable_bold = 1
     end,
   },
   {
@@ -147,6 +98,30 @@ return {
     branch = "neovim",
     config = function()
       vim.g.gruvbox_italics = 0
+    end,
+  },
+  {
+    "RRethy/base16-nvim",
+    config = function()
+      local function black_metal_theme_overrides()
+        local hl = vim.api.nvim_set_hl
+        hl(0, "DiagnosticVirtualTextError", { fg = "#912222" })
+        hl(0, "TSComment", { fg = "#6f7b68", gui = nil })
+        hl(0, "Comment", { fg = "#6f7b68", gui = nil })
+        hl(0, "Visual", { bg = "#9b8d7f", fg = "#1e1e1e" })
+        hl(0, "Search", { bg = "#9b8d7f", fg = "#1e1e1e" })
+        hl(0, "PmenuSel", { bg = "#9b8d7f", fg = "#1e1e1e" })
+      end
+
+      vim.api.nvim_create_autocmd("ColorScheme", {
+        callback = function()
+          local colorscheme = vim.g.colors_name
+
+          if colorscheme:find("^base16") ~= nil then
+            black_metal_theme_overrides()
+          end
+        end,
+      })
     end,
   },
 }

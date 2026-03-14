@@ -27,9 +27,9 @@ vim.lsp.config["kakehashi"] = {
   end,
 }
 -- Disable built-in treesitter highlighting to avoid conflicts
-vim.api.nvim_create_autocmd("FileType", {
-  callback = function()
-    vim.treesitter.stop()
-  end,
-})
+-- vim.api.nvim_create_autocmd("FileType", {
+--   callback = function()
+--     vim.treesitter.stop()
+--   end,
+-- })
 vim.lsp.enable("kakehashi")
