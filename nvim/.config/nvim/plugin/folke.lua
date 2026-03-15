@@ -8,6 +8,7 @@ vim.pack.add({
 -- snacks
 require("snacks").setup({
 	input = { enabled = true, icon = "" },
+	lazygit = { enabled = true },
 	styles = {
 		input = {
 			relative = "cursor",
@@ -22,6 +23,8 @@ require("snacks").setup({
 		},
 	},
 })
+
+vim.keymap.set("n", "<leader>lg", require("snacks").lazygit.open, { desc = "Lazygit symbols toggle" })
 
 -- trouble
 local trouble = require("trouble")
