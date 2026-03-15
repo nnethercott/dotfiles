@@ -27,3 +27,7 @@ mouse-shift-capture = false
 macos-window-buttons = "hidden"
 macos-titlebar-style = "hidden"
 window-padding-y = 8,0
+
+# background-image="~/Downloads/wp14830877-neon-genesis-evangelion-wallpapers.png"
+# background-image-fit="cover"
+# background-image-opacity=0.3

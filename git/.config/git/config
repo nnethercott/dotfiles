@@ -42,3 +42,6 @@
   newHighlight = "green bold 22"
 [alias]
     ds = -c diff.external=difft show --ext-diff
+[user]
+	email = natenethercott@gmail.com
+	name = nate

@@ -7,7 +7,7 @@ return {
         enabled = true,
       },
       keymap = {
-        -- preset = "enter",
+        preset = "enter",
         ["<S-Tab>"] = { "select_prev", "fallback" },
         ["<Tab>"] = { "select_next", "fallback" },
         ["<C-n>"] = { "snippet_forward", "fallback" },
