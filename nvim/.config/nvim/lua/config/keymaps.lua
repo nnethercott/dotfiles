@@ -1,5 +1,4 @@
-vim.g.mapleader = " "
-
+-- keymaps
 local map = vim.api.nvim_set_keymap
 
 -- Normal mode mappings
@@ -13,6 +12,7 @@ map("n", "=", ":vertical resize +3<CR>", { noremap = true, silent = true })
 map("n", "-", ":vertical resize -3<CR>", { noremap = true, silent = true })
 map("n", "<leader>vs", ":vsplit<CR>", {})
 map("n", "<leader>hs", ":split<CR>", {})
+map("n", "<leader>l", ":lua vim.pack.update()<CR>", {})
 
 -- copy current file path to clipboard
 map("n", "<leader>@", ':let @+ = expand("%:p:~:.")<CR>', {})
@@ -28,3 +28,4 @@ map("v", "<", "<gv", { noremap = true })
 map("v", "<S-j>", ":m '>+1<CR>gv=gv", { noremap = true, desc = "move selection down" })
 map("v", "<S-k>", ":m '<-2<CR>gv=gv", { noremap = true, desc = "move selection up" })
 map("v", "p", '"_dP', { noremap = true, desc = "paste without yanking" })
+
