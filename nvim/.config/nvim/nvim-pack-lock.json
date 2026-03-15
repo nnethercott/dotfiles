@@ -4,6 +4,10 @@
       "rev": "190397833e53fdfd5cf400c5baaf1a4e533158e5",
       "src": "https://github.com/RRethy/base16-nvim"
     },
+    "bento.nvim": {
+      "rev": "aee8a542bc1839ff1764992ef2aa41c981d0bba4",
+      "src": "https://github.com/serhez/bento.nvim"
+    },
     "blink.cmp": {
       "rev": "d9b075439bc4d3714ba93c94b5036c7c9d3ee9c7",
       "src": "https://github.com/saghen/blink.cmp"
