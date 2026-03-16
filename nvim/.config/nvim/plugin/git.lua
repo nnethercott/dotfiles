@@ -1,17 +1,24 @@
+-- NOTE: lazygit configured in folke.lua
+vim.pack.add({
+	"https://github.com/esmuellert/codediff.nvim",
+	"https://github.com/MunifTanjim/nui.nvim",
+	"https://github.com/lewis6991/gitsigns.nvim",
+})
+
+-- gitsigns
+require("gitsigns").setup({
+	signcolumn = false,
+})
+
+vim.keymap.set("n", "<leader>gb", ":Gitsigns blame<CR>", { desc = "Git blame" })
+
+-- codediff
 -- util fn for finding common commit between curr branch and origin/main
 local get_base_rev = function()
 	local curr = vim.fn.system("git rev-parse --abbrev-ref HEAD"):gsub("%s+", "")
 	return vim.fn.system("git merge-base " .. curr .. " origin/main"):gsub("%s+", "")
 end
 
-vim.pack.add({
-	"https://github.com/esmuellert/codediff.nvim",
-	"https://github.com/MunifTanjim/nui.nvim",
-})
-
--- NOTE: lazygit configured in folke.lua
-
--- codediff
 require("codediff").setup({
 	-- Keymaps in diff view
 	keymaps = {

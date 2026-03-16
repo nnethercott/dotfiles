@@ -36,6 +36,10 @@
       "rev": "65c848961e66de995052ead60970fbde101ff18f",
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
+    "gitsigns.nvim": {
+      "rev": "7c4faa3540d0781a28588cafbd4dd187a28ac6e3",
+      "src": "https://github.com/lewis6991/gitsigns.nvim"
+    },
     "gruvbox.nvim": {
       "rev": "9d0e3af224c5492069a493bb43c6ec2b78497454",
       "src": "https://gitlab.com/motaz-shokry/gruvbox.nvim"

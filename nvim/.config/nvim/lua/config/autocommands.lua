@@ -13,12 +13,22 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 	end,
 })
 
--- quickfix quit
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "qf",
+-- close view-only windows with q / <C-c> (qf, help, man, gitsigns-blame, etc.)
+local function set_close_keys(ev)
+  local opts = { buffer = ev.buf, silent = true }
+  vim.keymap.set("n", "q", "<cmd>q<CR>", opts)
+  vim.keymap.set("n", "<C-c>", "<cmd>q<CR>", opts)
+end
+
+vim.api.nvim_create_autocmd("BufWinEnter", {
   callback = function(ev)
-    local opts = { buffer = ev.buf, silent = true }
-    vim.keymap.set("n", "q", "<cmd>q<CR>", opts)
-    vim.keymap.set("n", "<C-c>", "<cmd>q<CR>", opts)
+    if not vim.bo[ev.buf].modifiable then
+      set_close_keys(ev)
+    end
   end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "gitsigns-blame",
+  callback = set_close_keys,
 })
