@@ -85,8 +85,16 @@
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-treesitter": {
-      "rev": "eb1f8e80cb28eb7892f347609e0bdc5eb574b945",
+      "rev": "2cc172c28e5550e00e6beead4599b1469469c1c7",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
+    },
+    "nvim-treesitter-textobjects": {
+      "rev": "4e91b5d0394329a229725b021a8ea217099826ef",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter-textobjects"
+    },
+    "persistence.nvim": {
+      "rev": "b20b2a7887bd39c1a356980b45e03250f3dce49c",
+      "src": "https://github.com/folke/persistence.nvim"
     },
     "snacks.nvim": {
       "rev": "a049339328e2599ad6e85a69fa034ac501e921b2",
@@ -115,10 +123,6 @@
     "vim-tmux-navigator": {
       "rev": "e41c431a0c7b7388ae7ba341f01a0d217eb3a432",
       "src": "https://github.com/christoomey/vim-tmux-navigator"
-    },
-    "vim-visual-multi": {
-      "rev": "a6975e7c1ee157615bbc80fc25e4392f71c344d4",
-      "src": "https://github.com/mg979/vim-visual-multi"
     },
     "zenbones.nvim": {
       "rev": "22b7fb75593412e0dc81b4bdefae718e9e84aa82",

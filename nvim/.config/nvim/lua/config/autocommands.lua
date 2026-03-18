@@ -1,3 +1,10 @@
+-- Start treesitter for every filetype (enables mini.ai treesitter text objects and folds)
+vim.api.nvim_create_autocmd("FileType", {
+	callback = function()
+		pcall(vim.treesitter.start)
+	end,
+})
+
 -- Highlight on yank
 vim.api.nvim_create_autocmd("TextYankPost", {
 	callback = function()

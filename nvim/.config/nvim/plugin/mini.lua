@@ -2,7 +2,6 @@ vim.pack.add({
 	"https://github.com/nvim-mini/mini.nvim",
 })
 
-require("mini.ai").setup()
 require("mini.icons").setup()
 require("mini.splitjoin").setup()
 require("mini.pairs").setup({
@@ -88,4 +87,18 @@ vim.keymap.set("n", "<leader>fe", function()
 	MiniFiles.open(current_file_dir)
 end, {
 	desc = "explorer at current file",
+})
+
+local spec_treesitter = require("mini.ai").gen_spec.treesitter
+require("mini.ai").setup({
+	n_lines = 500,
+  search_method = 'cover_or_next',
+	custom_textobjects = {
+		f = spec_treesitter({ a = "@function.outer", i = "@function.inner" }),
+		c = spec_treesitter({ a = "@class.outer", i = "@class.inner" }),
+		o = spec_treesitter({
+			a = { "@conditional.outer", "@loop.outer" },
+			i = { "@conditional.inner", "@loop.inner" },
+		}),
+	},
 })

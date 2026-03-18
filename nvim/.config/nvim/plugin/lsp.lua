@@ -1,9 +1,10 @@
 vim.pack.add({
 	"https://github.com/neovim/nvim-lspconfig",
-	"https://github.com/nvim-treesitter/nvim-treesitter",
+	"https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
 	"https://github.com/mason-org/mason.nvim",
 	"https://github.com/mason-org/mason-lspconfig.nvim",
 	"https://github.com/stevearc/conform.nvim",
+  "https://github.com/nvim-treesitter/nvim-treesitter",
 })
 
 -- disable logs
@@ -12,12 +13,6 @@ vim.lsp.log.set_level("off")
 
 require("mason").setup()
 require("mason-lspconfig").setup()
-require("nvim-treesitter").install({
-	"rust",
-	"python",
-	"typescript",
-})
-
 require("conform").setup({
 	formatters_by_ft = {
 		lua = { "stylua" },
@@ -56,3 +51,17 @@ end, { desc = "Toggle lsp diagnostics" })
 -- NOTE: virtual_lines is cool too !
 -- https://www.reddit.com/r/neovim/comments/1if024i/theres_now_a_builtin_virtual_lines_diagnostic/
 vim.diagnostic.config({ virtual_text = true })
+
+vim.keymap.set({ "n", "x", "o" }, "]f", function()
+  require("nvim-treesitter-textobjects.move").goto_next_start("@function.inner", "textobjects")
+end)
+vim.keymap.set({ "n", "x", "o" }, "]c", function()
+  require("nvim-treesitter-textobjects.move").goto_next_start("@class.inner", "textobjects")
+end)
+
+vim.keymap.set({ "n", "x", "o" }, "[f", function()
+  require("nvim-treesitter-textobjects.move").goto_previous_start("@function.outer", "textobjects")
+end)
+vim.keymap.set({ "n", "x", "o" }, "[c", function()
+  require("nvim-treesitter-textobjects.move").goto_previous_start("@class.outer", "textobjects")
+end)
