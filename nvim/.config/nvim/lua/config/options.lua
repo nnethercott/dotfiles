@@ -30,12 +30,12 @@ o.listchars = {
   tab = "  ",
 }
 o.undofile = true
-o.undodir = "~/.local/share/nvim/undo"
 
 o.foldmethod = "expr"
 o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 o.foldlevel = 99
 o.foldlevelstart = 99
+o.fillchars = { fold = " " }
 
 -- fuzzy-find-files on :find
 -- https://www.reddit.com/r/neovim/comments/1q3zzw2/fast_fuzzy_file_picker_with_wildmenu_and/
