@@ -38,5 +38,8 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
-vim.keymap.set("n", "<leader>nc", require("org-roam.api").capture_node, { desc = "Roam: capture node" })
-vim.keymap.set("n", "<leader>nf", require("org-roam.api").find_node, { desc = "Roam: find node" })
+-- weird
+local roam = require("org-roam")
+local roam_api = require("org-roam.api")(roam)
+vim.keymap.set("n", "<leader>nc", roam_api.capture_node, { desc = "Roam: capture node" })
+vim.keymap.set("n", "<leader>nf", roam_api.find_node, { desc = "Roam: find node" })

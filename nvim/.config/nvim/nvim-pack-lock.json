@@ -93,7 +93,7 @@
       "src": "https://github.com/nvim-treesitter/nvim-treesitter-textobjects"
     },
     "org-roam.nvim": {
-      "rev": "34d1d113cd139ea903125305310be3d7c1067484",
+      "rev": "6c21c867b178a80fb4ad243c445545e5583d8232",
       "src": "https://github.com/chipsenkbeil/org-roam.nvim"
     },
     "orgmode": {
