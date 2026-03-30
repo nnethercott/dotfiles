@@ -11,6 +11,7 @@ require("gitsigns").setup({
 })
 
 vim.keymap.set("n", "<leader>gb", ":Gitsigns blame<CR>", { desc = "Git blame" })
+vim.keymap.set("v", "<leader>ghr", ":Gitsigns reset_hunk<CR>", { desc = "Git blame" })
 
 -- codediff
 -- util fn for finding common commit between curr branch and origin/main

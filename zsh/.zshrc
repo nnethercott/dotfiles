@@ -70,5 +70,8 @@ source <(carapace _carapace)
 export ATUIN_NOBIND="true"
 eval "$(atuin init zsh)"
 
+# load all ssh keys
+ssh-add --apple-load-keychain 2>/dev/null
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh  ]] || source ~/.p10k.zsh

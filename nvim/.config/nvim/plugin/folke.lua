@@ -1,8 +1,11 @@
 vim.pack.add({
 	"https://github.com/folke/snacks.nvim",
 	"https://github.com/folke/trouble.nvim",
+  "https://github.com/folke/todo-comments.nvim",
 	"https://github.com/folke/noice.nvim",
+  -- dependencies
 	"https://github.com/MunifTanjim/nui.nvim",
+  "https://github.com/nvim-lua/plenary.nvim",
 })
 
 -- snacks
@@ -113,3 +116,8 @@ vim.keymap.set({ "n", "i", "s" }, "<c-b>", function()
 		return "<c-b>"
 	end
 end, { silent = true, expr = true })
+
+-- todo-comments
+require("todo-comments").setup({
+  signs = true,
+})
