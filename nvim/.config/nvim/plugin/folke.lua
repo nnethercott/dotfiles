@@ -11,7 +11,6 @@ vim.pack.add({
 -- snacks
 require("snacks").setup({
 	input = { enabled = true, icon = "" },
-	lazygit = { enabled = true },
 	styles = {
 		input = {
 			relative = "cursor",
