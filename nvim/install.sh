@@ -134,8 +134,15 @@ fi
 install_pkg python3 python3
 install_pkg python3-venv python3-venv
 
+# Build toolchain -- cargo compiles from source; bindgen requires libclang
+case "$PM" in
+  apt)  $SUDO apt-get install -y build-essential libclang-dev ;;
+  dnf)  $SUDO dnf groupinstall -y "Development Tools"; $SUDO dnf install -y clang-devel ;;
+  brew) ;; # Xcode CLT provides cc + libclang
+esac
+
 # Tree sitter
-npm install tree-sitter-cli
+cargo install tree-sitter-cli
 
 # UV 
 curl -LsSf https://astral.sh/uv/install.sh | sh

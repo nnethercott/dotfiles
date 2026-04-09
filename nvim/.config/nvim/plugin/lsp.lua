@@ -19,7 +19,7 @@ require("conform").setup({
 	},
 })
 require("nvim-treesitter").install({
-	"python",
+	-- "python",
 })
 
 -- keymaps

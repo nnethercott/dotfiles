@@ -9,7 +9,6 @@ vim.pack.add({
 
 require("themery").setup({
 	themes = {
-		"base16-black-metal-gorgoroth",
 		"gruvbox",
 	},
 })
