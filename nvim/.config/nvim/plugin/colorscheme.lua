@@ -4,11 +4,12 @@ vim.pack.add({
 	-- dependencies
 	"https://github.com/rktjmp/lush.nvim",
 	-- colors
-	"https://github.com/RRethy/base16-nvim",
+	"https://gitlab.com/motaz-shokry/gruvbox.nvim",
 })
 
 require("themery").setup({
 	themes = {
+		"base16-black-metal-gorgoroth",
 		"gruvbox",
 	},
 })
