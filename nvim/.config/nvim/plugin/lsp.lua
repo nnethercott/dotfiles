@@ -3,8 +3,8 @@ vim.pack.add({
 	"https://github.com/mason-org/mason.nvim",
 	"https://github.com/mason-org/mason-lspconfig.nvim",
 	"https://github.com/stevearc/conform.nvim",
-  "https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
-  "https://github.com/nvim-treesitter/nvim-treesitter",
+	"https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
+	"https://github.com/nvim-treesitter/nvim-treesitter",
 })
 
 -- disable logs
@@ -21,6 +21,15 @@ require("conform").setup({
 		typescript = { "prettier" },
 		html = { "prettier" },
 	},
+})
+require("nvim-treesitter").install({
+	"rust",
+	"python",
+	"yaml",
+	"gotmpl",
+	"helm",
+  "terraform",
+	"typescript",
 })
 
 -- keymaps
@@ -53,15 +62,15 @@ end, { desc = "Toggle lsp diagnostics" })
 vim.diagnostic.config({ virtual_text = true })
 
 vim.keymap.set({ "n", "x", "o" }, "]f", function()
-  require("nvim-treesitter-textobjects.move").goto_next_start("@function.inner", "textobjects")
+	require("nvim-treesitter-textobjects.move").goto_next_start("@function.inner", "textobjects")
 end)
 vim.keymap.set({ "n", "x", "o" }, "]c", function()
-  require("nvim-treesitter-textobjects.move").goto_next_start("@class.inner", "textobjects")
+	require("nvim-treesitter-textobjects.move").goto_next_start("@class.inner", "textobjects")
 end)
 
 vim.keymap.set({ "n", "x", "o" }, "[f", function()
-  require("nvim-treesitter-textobjects.move").goto_previous_start("@function.outer", "textobjects")
+	require("nvim-treesitter-textobjects.move").goto_previous_start("@function.outer", "textobjects")
 end)
 vim.keymap.set({ "n", "x", "o" }, "[c", function()
-  require("nvim-treesitter-textobjects.move").goto_previous_start("@class.outer", "textobjects")
+	require("nvim-treesitter-textobjects.move").goto_previous_start("@class.outer", "textobjects")
 end)

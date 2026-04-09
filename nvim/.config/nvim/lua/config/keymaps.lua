@@ -29,3 +29,6 @@ map("v", "<S-j>", ":m '>+1<CR>gv=gv", { noremap = true, desc = "move selection d
 map("v", "<S-k>", ":m '<-2<CR>gv=gv", { noremap = true, desc = "move selection up" })
 map("v", "p", '"_dP', { noremap = true, desc = "paste without yanking" })
 
+-- undotree
+-- vim.cmd("packadd nvim.undotree")
+-- vim.keymap.set("n", "<leader>ud", require("undotree").open)
