@@ -8,6 +8,7 @@ vim.pack.add({
 	"https://gitlab.com/motaz-shokry/gruvbox.nvim",
 	"https://github.com/zenbones-theme/zenbones.nvim",
 	"https://github.com/folke/tokyonight.nvim",
+	"https://github.com/bavajitu/brellary.nvim",
 })
 
 require("themery").setup({
@@ -18,6 +19,7 @@ require("themery").setup({
 		-- "zenwritten",
 		"base16-black-metal-gorgoroth",
 		"gruvbox",
+    "brellary",
 	},
 })
 
@@ -115,5 +117,14 @@ vim.api.nvim_create_autocmd("OptionSet", {
 		if vim.g.colors_name == "base16-black-metal-gorgoroth" then
 			apply_gorgoroth()
 		end
+	end,
+})
+
+-- brellary
+vim.api.nvim_create_autocmd("ColorScheme", {
+	pattern = "brellary",
+	callback = function()
+		vim.api.nvim_set_hl(0, "Normal", { fg = "#c9c9c9", bg = "#1e1e1e" })
+		vim.api.nvim_set_hl(0, "NormalFloat", { fg = "#c9c9c9", bg = "#1e1e1e" })
 	end,
 })
