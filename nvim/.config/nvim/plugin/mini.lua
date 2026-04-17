@@ -92,7 +92,7 @@ end, {
 local spec_treesitter = require("mini.ai").gen_spec.treesitter
 require("mini.ai").setup({
 	n_lines = 500,
-  search_method = 'cover_or_next',
+	search_method = "cover_or_next",
 	custom_textobjects = {
 		f = spec_treesitter({ a = "@function.outer", i = "@function.inner" }),
 		c = spec_treesitter({ a = "@class.outer", i = "@class.inner" }),
@@ -102,3 +102,13 @@ require("mini.ai").setup({
 		}),
 	},
 })
+
+-- https://github.com/nvim-mini/mini.nvim/blob/3923662bf3d6ca49a9503f8d7196ea0450983e6a/doc/mini-ai.txt#L567-L577
+local map_lsp_selection = function(lhs, desc)
+	local s = vim.startswith(desc, "Increase") and 1 or -1
+	local rhs = function()
+		vim.lsp.buf.selection_range(s * vim.v.count1)
+	end
+	vim.keymap.set("x", lhs, rhs, { desc = desc })
+end
+map_lsp_selection("<Leader>i", "Increase selection")

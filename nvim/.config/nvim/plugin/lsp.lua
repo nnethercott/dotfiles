@@ -28,7 +28,7 @@ require("nvim-treesitter").install({
 	"yaml",
 	"gotmpl",
 	"helm",
-  "terraform",
+	"terraform",
 	"typescript",
 })
 
