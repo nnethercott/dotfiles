@@ -8,7 +8,6 @@ vim.pack.add({
 	"https://gitlab.com/motaz-shokry/gruvbox.nvim",
 	"https://github.com/zenbones-theme/zenbones.nvim",
 	"https://github.com/folke/tokyonight.nvim",
-	"https://github.com/bavajitu/brellary.nvim",
 })
 
 require("themery").setup({
@@ -19,7 +18,6 @@ require("themery").setup({
 		-- "zenwritten",
 		"base16-black-metal-gorgoroth",
 		"gruvbox",
-    "brellary",
 	},
 })
 
@@ -57,7 +55,7 @@ vim.g.neobones = opts
 
 -- gruvbox
 require("gruvbox").setup({
-	dark_variant = "hard",
+	-- dark_variant = "hard",
 	styles = {
 		italic = false,
 	},
