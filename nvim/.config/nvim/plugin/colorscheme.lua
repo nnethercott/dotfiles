@@ -7,15 +7,10 @@ vim.pack.add({
 	"https://github.com/RRethy/base16-nvim",
 	"https://gitlab.com/motaz-shokry/gruvbox.nvim",
 	"https://github.com/zenbones-theme/zenbones.nvim",
-	"https://github.com/folke/tokyonight.nvim",
 })
 
 require("themery").setup({
 	themes = {
-		"tokyonight",
-		-- "neobones",
-		-- "zenbones",
-		-- "zenwritten",
 		"base16-black-metal-gorgoroth",
 		"gruvbox",
 	},
@@ -27,25 +22,6 @@ vim.keymap.set("n", "<leader>t", function()
 end, { desc = "toggle themes" })
 
 -- theme setups
--- tokyonight
-local transparent = true
-require("tokyonight").setup({
-	style = "night",
-	transparent = transparent,
-	styles = {
-		sidebars = transparent and "transparent" or "dark",
-		floats = transparent and "transparent" or "dark",
-	},
-	day_brightness = 0.3,
-
-	-- lualine transparency: https://github.com/folke/tokyonight.nvim/issues/516
-	on_colors = function(colors)
-		if transparent then
-			colors.bg_statusline = colors.none
-		end
-	end,
-})
-
 -- zenbones
 -- https://vimcolorschemes.com/zenbones-theme/zenbones.nvim
 local opts = { italic_strings = false }
@@ -70,59 +46,21 @@ require("gruvbox").setup({
 })
 
 -- base16-black-metal-gorgoroth
-local gorgoroth_palettes = require("colors.gorgoroth")
-
-local gorgoroth_overrides = {
-	dark = function()
-		local hl = vim.api.nvim_set_hl
-		hl(0, "DiagnosticVirtualTextError", { fg = "#912222" })
-		hl(0, "TSComment", { fg = "#6f7b68" })
-		hl(0, "Comment", { fg = "#6f7b68" })
-		hl(0, "Visual", { bg = "#9b8d7f", fg = "#1e1e1e" })
-		hl(0, "Search", { bg = "#9b8d7f", fg = "#1e1e1e" })
-		hl(0, "PmenuSel", { bg = "#9b8d7f", fg = "#1e1e1e" })
-		hl(0, "NormalFloat", { fg = "#c1c1c1", bg = "#121212" })
-	end,
-	light = function()
-		local hl = vim.api.nvim_set_hl
-		hl(0, "DiagnosticVirtualTextError", { fg = "#6b4545" })
-		hl(0, "TSComment", { fg = "#999999" })
-		hl(0, "Comment", { fg = "#999999" })
-		hl(0, "Visual", { bg = "#c8bfb5", fg = "#1e1e1e" })
-		hl(0, "Search", { bg = "#c8bfb5", fg = "#1e1e1e" })
-		hl(0, "PmenuSel", { bg = "#c8bfb5", fg = "#1e1e1e" })
-		hl(0, "NormalFloat", { fg = "#3e3e3e", bg = "#ebe6e0" })
-	end,
-}
-
-local function apply_gorgoroth()
-	local variant = vim.o.background == "light" and "light" or "dark"
-	require("base16-colorscheme").setup(gorgoroth_palettes[variant])
-	gorgoroth_overrides[variant]()
+local gorgoroth_overrides = function()
+	local hl = vim.api.nvim_set_hl
+	hl(0, "DiagnosticVirtualTextError", { fg = "#912222" })
+	hl(0, "TSComment", { fg = "#6f7b68" })
+	hl(0, "Comment", { fg = "#6f7b68" })
+	hl(0, "Visual", { bg = "#9b8d7f", fg = "#1e1e1e" })
+	hl(0, "Search", { bg = "#9b8d7f", fg = "#1e1e1e" })
+	hl(0, "PmenuSel", { bg = "#9b8d7f", fg = "#1e1e1e" })
+	hl(0, "NormalFloat", { fg = "#c1c1c1", bg = "#121212" })
 end
 
 vim.api.nvim_create_autocmd("ColorScheme", {
 	callback = function()
 		if vim.g.colors_name == "base16-black-metal-gorgoroth" then
-			apply_gorgoroth()
+			gorgoroth_overrides()
 		end
-	end,
-})
-
-vim.api.nvim_create_autocmd("OptionSet", {
-	pattern = "background",
-	callback = function()
-		if vim.g.colors_name == "base16-black-metal-gorgoroth" then
-			apply_gorgoroth()
-		end
-	end,
-})
-
--- brellary
-vim.api.nvim_create_autocmd("ColorScheme", {
-	pattern = "brellary",
-	callback = function()
-		vim.api.nvim_set_hl(0, "Normal", { fg = "#c9c9c9", bg = "#1e1e1e" })
-		vim.api.nvim_set_hl(0, "NormalFloat", { fg = "#c9c9c9", bg = "#1e1e1e" })
 	end,
 })
