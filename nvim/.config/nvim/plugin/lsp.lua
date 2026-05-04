@@ -12,7 +12,16 @@ vim.pack.add({
 vim.lsp.log.set_level("off")
 
 require("mason").setup()
-require("mason-lspconfig").setup()
+require("mason-lspconfig").setup({
+	automatic_enable = {
+		exclude = {
+			"ty",
+			"yamlls",
+			"rust_analyzer",
+			"lua_ls",
+		},
+	},
+})
 require("conform").setup({
 	formatters_by_ft = {
 		lua = { "stylua" },

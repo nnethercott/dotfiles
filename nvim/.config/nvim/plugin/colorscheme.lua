@@ -17,6 +17,9 @@ require("themery").setup({
 })
 
 vim.api.nvim_set_keymap("n", "<leader>ts", ":Themery<CR>", { desc = "toggle themes" })
+-- prevent terminal (Ghostty/OSC 11) from overriding vim.o.background on tmux session switch
+pcall(vim.api.nvim_del_augroup_by_name, "nvim.tty")
+
 vim.keymap.set("n", "<leader>t", function()
 	vim.o.background = (vim.o.background == "dark") and "light" or "dark"
 end, { desc = "toggle themes" })

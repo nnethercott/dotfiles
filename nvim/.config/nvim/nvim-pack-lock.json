@@ -1,5 +1,9 @@
 {
   "plugins": {
+    "alpha-nvim": {
+      "rev": "6c6a89d5b068b5251c8bdf0dd57bb921bcfeeb09",
+      "src": "https://github.com/goolord/alpha-nvim"
+    },
     "base16-nvim": {
       "rev": "190397833e53fdfd5cf400c5baaf1a4e533158e5",
       "src": "https://github.com/RRethy/base16-nvim"
@@ -67,6 +71,14 @@
     "mason.nvim": {
       "rev": "44d1e90e1f66e077268191e3ee9d2ac97cc18e65",
       "src": "https://github.com/mason-org/mason.nvim"
+    },
+    "matugen.nvim": {
+      "rev": "835a2f4c7b32e5e0fa57f3595a04a638ff74d8bc",
+      "src": "https://github.com/daedlock/matugen.nvim"
+    },
+    "milli.nvim": {
+      "rev": "48415bf96bf463c5bb1010e02aa03ffbed0cf1a9",
+      "src": "https://github.com/Amansingh-afk/milli.nvim"
     },
     "mini.nvim": {
       "rev": "adeaeac8622b966273bb161977bff1293dd44565",
