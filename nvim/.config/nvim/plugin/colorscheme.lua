@@ -7,12 +7,17 @@ vim.pack.add({
 	"https://github.com/RRethy/base16-nvim",
 	"https://gitlab.com/motaz-shokry/gruvbox.nvim",
 	"https://github.com/zenbones-theme/zenbones.nvim",
+  "https://github.com/datsfilipe/vesper.nvim",
+  "https://github.com/takeshid/plum.nvim",
 })
 
 require("themery").setup({
 	themes = {
 		"base16-black-metal-gorgoroth",
+    "zenbones",
 		"gruvbox",
+    "vesper",
+    "plum",
 	},
 })
 
@@ -66,4 +71,9 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 			gorgoroth_overrides()
 		end
 	end,
+})
+
+-- plum
+require("plum").setup({
+    variant = "light", -- default "auto", selectable: "dark" / "light"
 })
