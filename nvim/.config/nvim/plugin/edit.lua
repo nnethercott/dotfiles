@@ -52,7 +52,7 @@ require("bento").setup(
       ui = {
         mode = "floating",
         floating = {
-          minimal_menu = "filename",
+          minimal_menu = nil,
           position = "top_right",
           -- offset_y = -4,
           border = "none",
