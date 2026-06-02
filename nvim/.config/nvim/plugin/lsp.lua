@@ -33,8 +33,10 @@ require("conform").setup({
 })
 require("nvim-treesitter").install({
 	"rust",
+  "zig",
 	"python",
 	"yaml",
+  "toml",
 	"gotmpl",
 	"helm",
 	"terraform",

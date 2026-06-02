@@ -1,24 +1,24 @@
 vim.pack.add({
-	-- selector
-	"https://github.com/nnethercott/themery.nvim",
-	-- dependencies
-	"https://github.com/rktjmp/lush.nvim",
-	-- colors
-	"https://github.com/RRethy/base16-nvim",
-	"https://gitlab.com/motaz-shokry/gruvbox.nvim",
-	"https://github.com/zenbones-theme/zenbones.nvim",
+  -- selector
+  "https://github.com/nnethercott/themery.nvim",
+  -- dependencies
+  "https://github.com/rktjmp/lush.nvim",
+  -- colors
+  "https://github.com/RRethy/base16-nvim",
+  "https://gitlab.com/motaz-shokry/gruvbox.nvim",
+  "https://github.com/zenbones-theme/zenbones.nvim",
   "https://github.com/datsfilipe/vesper.nvim",
   "https://github.com/takeshid/plum.nvim",
 })
 
 require("themery").setup({
-	themes = {
-		"base16-black-metal-gorgoroth",
+  themes = {
+    "base16-black-metal-gorgoroth",
     "zenbones",
-		"gruvbox",
+    "gruvbox",
     "vesper",
     "plum",
-	},
+  },
 })
 
 vim.api.nvim_set_keymap("n", "<leader>ts", ":Themery<CR>", { desc = "toggle themes" })
@@ -26,7 +26,7 @@ vim.api.nvim_set_keymap("n", "<leader>ts", ":Themery<CR>", { desc = "toggle them
 pcall(vim.api.nvim_del_augroup_by_name, "nvim.tty")
 
 vim.keymap.set("n", "<leader>t", function()
-	vim.o.background = (vim.o.background == "dark") and "light" or "dark"
+  vim.o.background = (vim.o.background == "dark") and "light" or "dark"
 end, { desc = "toggle themes" })
 
 -- theme setups
@@ -39,41 +39,56 @@ vim.g.neobones = opts
 
 -- gruvbox
 require("gruvbox").setup({
-	-- dark_variant = "hard",
-	styles = {
-		italic = false,
-	},
-	-- plugin doesn't recognize mini statusline :(
-	before_highlight = function(group, highlight, _)
-		if group:match("^MiniStatusline") then
-			for k in pairs(highlight) do
-				highlight[k] = nil
-			end
-		end
-	end,
+  -- dark_variant = "hard",
+  styles = {
+    italic = false,
+  },
+  -- plugin doesn't recognize mini statusline :(
+  before_highlight = function(group, highlight, _)
+    if group:match("^MiniStatusline") then
+      for k in pairs(highlight) do
+        highlight[k] = nil
+      end
+    end
+  end,
 })
 
 -- base16-black-metal-gorgoroth
 local gorgoroth_overrides = function()
-	local hl = vim.api.nvim_set_hl
-	hl(0, "DiagnosticVirtualTextError", { fg = "#912222" })
-	hl(0, "TSComment", { fg = "#6f7b68" })
-	hl(0, "Comment", { fg = "#6f7b68" })
-	hl(0, "Visual", { bg = "#9b8d7f", fg = "#1e1e1e" })
-	hl(0, "Search", { bg = "#9b8d7f", fg = "#1e1e1e" })
-	hl(0, "PmenuSel", { bg = "#9b8d7f", fg = "#1e1e1e" })
-	hl(0, "NormalFloat", { fg = "#c1c1c1", bg = "#121212" })
+  local hl = vim.api.nvim_set_hl
+  hl(0, "DiagnosticVirtualTextError", { fg = "#912222" })
+  hl(0, "TSComment", { fg = "#6f7b68" })
+  hl(0, "Comment", { fg = "#6f7b68" })
+  hl(0, "Visual", { bg = "#9b8d7f", fg = "#1e1e1e" })
+  hl(0, "Search", { bg = "#9b8d7f", fg = "#1e1e1e" })
+  hl(0, "PmenuSel", { bg = "#9b8d7f", fg = "#1e1e1e" })
+  hl(0, "NormalFloat", { fg = "#c1c1c1", bg = "#121212" })
 end
 
 vim.api.nvim_create_autocmd("ColorScheme", {
-	callback = function()
-		if vim.g.colors_name == "base16-black-metal-gorgoroth" then
-			gorgoroth_overrides()
-		end
-	end,
+  callback = function()
+    if vim.g.colors_name == "base16-black-metal-gorgoroth" then
+      gorgoroth_overrides()
+    end
+  end,
 })
 
 -- plum
 require("plum").setup({
-    variant = "light", -- default "auto", selectable: "dark" / "light"
+  variant = "light",   -- default "auto", selectable: "dark" / "light"
+})
+
+-- vesper
+require('vesper').setup({
+  italics = {
+    comments = false,      -- Boolean: Italicizes comments
+    keywords = false,      -- Boolean: Italicizes keywords
+    functions = false,     -- Boolean: Italicizes functions
+    strings = false,       -- Boolean: Italicizes strings
+    variables = false,     -- Boolean: Italicizes variables
+  },
+  overrides = {
+    DiffAdd = { bg = "#46452b" },
+    DiffDelete = { bg = "#512e2b" },
+  },
 })
