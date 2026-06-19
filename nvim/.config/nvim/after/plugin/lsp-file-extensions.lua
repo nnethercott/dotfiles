@@ -30,3 +30,10 @@ vim.filetype.add({
     mdx = "markdown",
   },
 })
+
+-- tsx
+vim.filetype.add({
+  extension = {
+    tsx = "typescript",
+  }
+})

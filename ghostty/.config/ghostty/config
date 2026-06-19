@@ -5,9 +5,15 @@ background-opacity=0.6
 background-blur=true
 
 # font-family = JetBrains Mono
+# font-family = Iosevka
 font-family = Myna Nerd Font
 font-size = 15
 font-feature = -calt, -liga, -dlig  # no ligatures
+font-feature = cv02
+# font-feature = cv05
+font-feature = cv11
+font-feature = cv17
+font-feature = ss04
 
 keybind = alt+left=unbind
 macos-option-as-alt = true
@@ -15,7 +21,7 @@ macos-option-as-alt = true
 mouse-hide-while-typing=true
 
 cursor-style = bar
-adjust-cell-height=3%
+adjust-cell-height=6%
 
 window-padding-x = 0
 window-padding-y = 0

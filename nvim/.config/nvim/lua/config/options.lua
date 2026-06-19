@@ -1,7 +1,4 @@
 local o = vim.opt
-local g = vim.g
-
-g.mapleader = " "
 
 o.timeoutlen = 120
 o.hlsearch = false
@@ -28,7 +25,17 @@ o.wrap = true
 o.cmdheight = 0
 o.shortmess:remove("I")
 o.swapfile = false
+o.listchars = {
+  trail = " ",
+  tab = "  ",
+}
+o.undofile = true
 
+o.foldmethod = "expr"
+o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+o.foldlevel = 99
+o.foldlevelstart = 99
+o.fillchars = { fold = " " }
 
 -- fuzzy-find-files on :find
 -- https://www.reddit.com/r/neovim/comments/1q3zzw2/fast_fuzzy_file_picker_with_wildmenu_and/
@@ -42,10 +49,5 @@ function _G.FindFiles(arg, _)
 end
 
 o.findfunc = "v:lua.FindFiles"
--- vim.o.wildoptions = "fuzzy,pum"
--- LazyVim
-g.lazyvim_picker = "fzf"
-o.listchars = {
-  trail = " ",
-  tab = "  ",
-}
+
+
