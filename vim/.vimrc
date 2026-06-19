@@ -28,7 +28,7 @@ Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-fugitive' " needed to display git branch in airline
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'justinmk/vim-dirvish'
+Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
 Plug 'tpope/vim-surround'
 Plug 'christoomey/vim-tmux-navigator'
@@ -108,6 +108,31 @@ let g:context_add_mappings = 0 "don't add keymaps
 " Set signcolumn and foldcolumn to match Normal highlight group
 highlight FoldColumn guibg=NONE ctermbg=NONE
 highlight SignColumn guibg=NONE ctermbg=NONE
+
+" nerdtree
+ nmap <leader>e :NERDTreeToggle<CR>
+ nmap <leader>fe :NERDTreeFind<CR>
+ let g:NERDTreeMapActivateNode = 'l'
+ let g:NERDTreeMapCloseDir = 'h'
+ let g:NERDTreeDirArrowExpandable = '+'
+ let g:NERDTreeDirArrowCollapsible = '-'
+
+" netrw
+"let g:netrw_banner = 0
+"let g:netrw_liststyle = 3
+"let g:netrw_browse_split = 4
+"let g:netrw_altv = 1
+"let g:netrw_winsize = 25
+"nmap <leader>e :Lexplore<CR>
+"nmap <leader>fe :Lexplore %:p:h<CR>
+
+augroup netrw_mappings
+  autocmd!
+  autocmd FileType netrw nmap <buffer> l <CR>
+  autocmd FileType netrw nmap <buffer> h -
+  autocmd FileType netrw nmap <buffer> <C-c> :Lexplore<CR>
+augroup END
+
 
 " indentLine
 let g:indentLine_char = '│'
