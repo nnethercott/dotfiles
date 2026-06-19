@@ -3,8 +3,21 @@ set shell=/bin/zsh
 " Key mappings
 let mapleader = " "
 
+" https://stackoverflow.com/questions/16137623/setting-the-cursor-to-a-vertical-thin-line-in-vim
+if has("autocmd")
+  au VimEnter,InsertLeave * silent execute '!echo -ne "\e[2 q"' | redraw!
+  au InsertEnter,InsertChange *
+\ if v:insertmode == 'i' | 
+\   silent execute '!echo -ne "\e[6 q"' | redraw! |
+\ elseif v:insertmode == 'r' |
+\   silent execute '!echo -ne "\e[4 q"' | redraw! |
+\ endif
+au VimLeave * silent execute '!echo -ne "\e[ q"' | redraw!
+endif
+
 " vim plug
 call plug#begin()
+" code
 Plug 'sheerun/vim-polyglot'
 Plug 'lilydjwg/colorizer'
 Plug 'jiangmiao/auto-pairs'
@@ -12,178 +25,119 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-sensible'
-Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive' " needed to display git branch in airline
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'preservim/nerdtree'
+Plug 'justinmk/vim-dirvish'
 Plug 'ryanoasis/vim-devicons'
 Plug 'tpope/vim-surround'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'justinmk/vim-sneak'
 " themes
-Plug 'ghifarit53/tokyonight-vim'
+Plug 'morhetz/gruvbox'
 Plug 'RRethy/vim-illuminate'
-" Plug 'Yggdroot/indentLine'
-" cool but slow ://
-" Plug 'preservim/tagbar'
-" Plug 'wellle/context.vim'
-
 "language-stuff
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'wuelnerdotexe/vim-astro'
+Plug 'yaegassy/coc-ruff', {'do': 'yarn install --frozen-lockfile'}
+Plug 'yaegassy/coc-ty', {'do': 'yarn install --frozen-lockfile'}
 call plug#end()
 
-" Terminal
+colorscheme gruvbox
+set background=dark
+
+
+" opts
 syntax on
+set nohlsearch
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set expandtab
+set autoindent
 set termguicolors
 set foldcolumn=0
 set signcolumn=yes
-
-let g:tokyonight_style = 'night' " available: night, storm
-let g:tokyonight_enable_italic = 1
-colorscheme tokyonight
-
-" Some nice colors for side cols
-let _green="#50C878"
-let _red = "#FAA0A0	"
-let _blue = "#87CEEB"
-let _yellow = "#fcdb5b"
-
-" Set signcolumn and foldcolumn to match Normal highlight group
-highlight SignColumn guifg=#a9b1d6 guibg=#1a1b26
-highlight FoldColumn guifg=#a9b1d6 guibg=#1a1b26
-
-execute 'highlight GitGutterAdd guibg=NONE guifg=' . _green
-execute 'highlight GitGutterChange guibg=NONE guifg=' . _blue
-execute 'highlight GitGutterDelete guibg=NONE guifg=' . _red
-execute 'highlight CocWarningSign guibg=NONE guifg=' . _yellow
-execute 'highlight CocErrorSign guibg=NONE guifg=' . _red
-execute 'highlight CocInfoSign guibg=NONE guifg=' . _blue
-
-" indentation
-let g:indentLine_char = '│'
-
-" whitespace visualization
-highlight link ExtraWhitespace IncSearch
-
-" symbol highlighting
-" coc-highlight
-" autocmd CursorHold * silent call CocActionAsync('highlight')
-
-" Show function context after scroll
-let g:context_enabled = 1
-let g:context_add_mappings = 0 "don't add keymaps
-
-" airline theme
-let g:vim_airline_theme='tokyonight'
-let g:airline#extensions#ale#enabled = 0 " no warnings in the statusline
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#branch#enabled = 1
-let g:airline#extensions#whitespace#enabled = 0
-let g:airline_powerline_fonts = 1
-
-" Configure airline sections to mimic lightline.vim layout
-let g:airline_section_y = airline#section#create(['%{&readonly ? "RO" : ""}', '%{&modified ? "+" : ""}'])
-let g:airline_section_z = airline#section#create(['%3p%%', ':%l/%L'])
-
-" gitgutter
-autocmd BufWritePost * GitGutter
-let g:gitgutter_sign_allow_clobber=1
-let g:gitgutter_sign_added ='┃'
-let g:gitgutter_sign_modified ='┃'
-let g:gitgutter_sign_removed ='_'
-
-" fzf
-nmap <leader>rg :Rg<CR>
-nmap <leader>f :Files<CR>
-nmap <leader>fr :Files ~<CR>
-"
-" NERDTree
-nnoremap <leader>e :NERDTreeToggle<CR>
-nnoremap <leader>ef :NERDTreeFind<CR>
-let g:NERDTreeWinPos = "left"
-
-" changes the pop up color
-highlight Pmenu ctermbg=236 ctermfg=255 guibg=#2e2e2e guifg=#ffffff
-
-" timeout
-set timeout timeoutlen=150
-
-" Relative line numbers
 set relativenumber
 set number
-
-" Folding
+set timeout timeoutlen=120
 set nofoldenable
-
-" Search settings
 set ignorecase
 set smartcase
-
-" Cursor line
-set nocursorline
-
-" Backspace settings
+"set cursorline
 set backspace=indent,eol,start
-
-" Clipboard
-set clipboard^=unnamedplus,unnamed
-
-" Split windows
+set clipboard=unnamedplus
 set splitright
 set splitbelow
+set wrap
+set shortmess-=I
+set noswapfile
+set undofile
+set foldlevel=99
+set foldlevelstart=99
+set fillchars=fold:\ 
+set pumheight=10
+set pumwidth=50
 
-" Highlight yank
-let g:highlightedyank_highlight_duration = 150
-
-" Normal mode mappings
+" mappings
 nmap <C-d> <C-d>zz
 nmap <C-s> :w<CR>
 nmap <leader>qq <ESC>:qa<CR>
 nmap <S-l> :bnext<cr>
 nmap <S-h> :bprevious<cr>
 nmap <leader>bd :bd<CR>
-
-" Insert mode mappings
-imap jk <ESC>
-imap <C-s> <ESC>:w<CR>
-imap <C-c> <ESC>
-
-
-" Use ctrl-[hjkl] to select the active split!
+nmap <silent> = :vertical resize +5<CR>
+nmap <silent> - :vertical resize -5<CR>
+nmap <silent> <c-q> :close<CR>
 map <C-h> :wincmd h<CR>
 map <C-j> :wincmd j<CR>
 map <C-k> :wincmd k<CR>
 map <C-l> :wincmd l<CR>
-
-" split resizing
-nmap <silent> = :vertical resize +5<CR>
-nmap <silent> - :vertical resize -5<CR>
-
-" Use ctrl-q to close the current split
-nmap <silent> <c-q> :close<CR>
-
-" Insert mode mappings
 imap jk <ESC>
 imap <C-s> <ESC>:w<CR>
 imap <C-c> <ESC>
-
-" visual model mappings
 vnoremap > >gv
 vnoremap < <gv
 
+" globals
+let g:highlightedyank_highlight_duration = 150
+let g:context_enabled = 1
+let g:context_add_mappings = 0 "don't add keymaps
+
+
+" Set signcolumn and foldcolumn to match Normal highlight group
+highlight FoldColumn guibg=NONE ctermbg=NONE
+highlight SignColumn guibg=NONE ctermbg=NONE
+
+" indentLine
+let g:indentLine_char = '│'
+
+" whitespace visualization
+highlight link ExtraWhitespace IncSearch
+
+" airline
+let g:vim_airline_theme='tokyonight'
+let g:airline#extensions#ale#enabled = 0 " no warnings in the statusline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#whitespace#enabled = 0
+let g:airline_powerline_fonts = 1
+let g:airline_section_y = airline#section#create(['%{&readonly ? "RO" : ""}', '%{&modified ? "+" : ""}'])
+let g:airline_section_z = airline#section#create(['%3p%%', ':%l/%L'])
+
+" fzf
+nmap <leader>rg :Rg<CR>
+nmap <leader>f :Files<CR>
+nmap <leader>fr :Files ~<CR>
+
+" changes the pop up color
+highlight Pmenu ctermbg=236 ctermfg=255 guibg=#2e2e2e guifg=#ffffff
+
+
 " Coc
-" May need for Vim (not Neovim) since coc.nvim calculates byte offset by count
-" utf-8 byte sequence
 set encoding=utf-8
-" Some servers have issues with backup files, see #649
 set nobackup
 set nowritebackup
-
-" Having longer updatetime (default is 4000 ms = 4s) leads to noticeable
-" delays and poor user experience
 set updatetime=300
 
 " Always show the signcolumn, otherwise it would shift the text each time
@@ -237,7 +191,7 @@ function! ShowDocumentation()
   if CocAction('hasProvider', 'hover')
     call CocActionAsync('doHover')
   else
-    call feedkeys('K', 'in')
+    echo "No hover provider"
   endif
 endfunction
 
@@ -245,9 +199,7 @@ endfunction
 " autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Symbol renaming
-nmap <leader>rn <Plug>(coc-rename)
-
-" Formatting selected code
+nmap <leader>cr <Plug>(coc-rename)
 xmap <leader>fo  <Plug>(coc-format-selected)
 nmap <leader>fo  <Plug>(coc-format-selected)
 
@@ -262,9 +214,8 @@ augroup end
 " Applying code actions to the selected code block
 " Example: `<leader>aap` for current paragraph
 xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-cursor)
 
-" Remap keys for applying code actions at the cursor position
-nmap <leader>ca  <Plug>(coc-codeaction-cursor)
 " Remap keys for apply code actions affect whole buffer
 " nmap <leader>as  <Plug>(coc-codeaction-source)
 " Apply the most preferred quickfix action to fix diagnostic on the current line
@@ -298,11 +249,6 @@ if has('nvim-0.4.0') || has('patch-8.2.0750')
   vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
   vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
 endif
-
-" Use CTRL-S for selections ranges
-" Requires 'textDocument/selectionRange' support of language server
-" nmap <silent> <C-s> <Plug>(coc-range-select)
-" xmap <silent> <C-s> <Plug>(coc-range-select)
 
 " Add `:Format` command to format current buffer
 command! -nargs=0 Format :call CocActionAsync('format')
@@ -340,12 +286,6 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 let g:coc_snippet_next = '<Tab>'
 let g:coc_snippet_prev = '<S-Tab>'
 
-" Set tab size for Dart files
-autocmd FileType dart setlocal shiftwidth=2 softtabstop=2 expandtab
-
-" Tabs & indentation
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
-set expandtab
-set autoindent
+" symbol highlighting
+" coc-highlight
+" autocmd CursorHold * silent call CocActionAsync('highlight')
