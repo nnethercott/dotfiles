@@ -15,6 +15,13 @@ if has("autocmd")
 au VimLeave * silent execute '!echo -ne "\e[ q"' | redraw!
 endif
 
+" disable
+let g:highlightedyank_highlight_duration = 100
+let g:context_enabled = 1
+let g:context_add_mappings = 0 "don't add keymaps
+
+let g:polyglot_disabled = ['zig']
+
 " vim plug
 call plug#begin()
 " code
@@ -33,7 +40,9 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'tpope/vim-surround'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'machakann/vim-highlightedyank'
 Plug 'justinmk/vim-sneak'
+Plug 'machakann/vim-highlightedyank'
 " themes
 Plug 'morhetz/gruvbox'
 Plug 'RRethy/vim-illuminate'
@@ -66,7 +75,7 @@ set ignorecase
 set smartcase
 "set cursorline
 set backspace=indent,eol,start
-set clipboard=unnamedplus
+set clipboard=unnamed
 set splitright
 set splitbelow
 set wrap
@@ -99,11 +108,6 @@ imap <C-c> <ESC>
 vnoremap > >gv
 vnoremap < <gv
 
-" globals
-let g:highlightedyank_highlight_duration = 150
-let g:context_enabled = 1
-let g:context_add_mappings = 0 "don't add keymaps
-
 
 " Set signcolumn and foldcolumn to match Normal highlight group
 highlight FoldColumn guibg=NONE ctermbg=NONE
@@ -116,6 +120,7 @@ highlight SignColumn guibg=NONE ctermbg=NONE
  let g:NERDTreeMapCloseDir = 'h'
  let g:NERDTreeDirArrowExpandable = '+'
  let g:NERDTreeDirArrowCollapsible = '-'
+ let g:NERDTreeWinPos = 'right'
 
 " netrw
 "let g:netrw_banner = 0
@@ -133,6 +138,8 @@ augroup netrw_mappings
   autocmd FileType netrw nmap <buffer> <C-c> :Lexplore<CR>
 augroup END
 
+"
+nmap <leader>cw :StripWhitespace<CR>
 
 " indentLine
 let g:indentLine_char = '│'
@@ -140,10 +147,11 @@ let g:indentLine_char = '│'
 " whitespace visualization
 highlight link ExtraWhitespace IncSearch
 
+
 " airline
 let g:vim_airline_theme='tokyonight'
 let g:airline#extensions#ale#enabled = 0 " no warnings in the statusline
-let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled = 0
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline_powerline_fonts = 1
@@ -226,7 +234,7 @@ endfunction
 " Symbol renaming
 nmap <leader>cr <Plug>(coc-rename)
 xmap <leader>fo  <Plug>(coc-format-selected)
-nmap <leader>fo  <Plug>(coc-format-selected)
+nmap <leader>fo  :Format<CR>
 
 augroup mygroup
   autocmd!
@@ -291,21 +299,21 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Mappings for CoCList
 " Show all diagnostics
-" nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
+ nnoremap <silent><nowait> <space>sd  :<C-u>CocList diagnostics<cr>
+" Find symbol of current document
+nnoremap <silent><nowait> <space>cs  :<C-u>CocList outline<cr>
 " Manage extensions
 " nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
 " Show commands
-nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
-" Find symbol of current document
-nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
+"nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
 " Search workspace symbols
-nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
+"nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
 " Do default action for next item
-nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
+"nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 " Do default action for previous item
-nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
+"nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
-nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+"nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 " loop over placeholders
 let g:coc_snippet_next = '<Tab>'
