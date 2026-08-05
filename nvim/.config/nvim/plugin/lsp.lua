@@ -66,7 +66,7 @@ vim.keymap.set("n", "gr", function()
   local win = vim.api.nvim_get_current_win()
   vim.lsp.buf.references(nil, {
     on_list = function(items)
----@diagnostic disable-next-line: param-type-mismatch
+      ---@diagnostic disable-next-line: param-type-mismatch
       vim.fn.setqflist({}, " ", items)
       vim.cmd.copen()
       vim.api.nvim_set_current_win(win)
