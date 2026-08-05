@@ -56,6 +56,10 @@
       "rev": "5ad712bbc927c09b6b6ebd3df414669bb80b6c77",
       "src": "https://codeberg.org/andyg/leap.nvim"
     },
+    "lspeek.nvim": {
+      "rev": "d4bba417c27dc84a4ba9900256fd8eea3c8f18c0",
+      "src": "https://github.com/r4ppz/lspeek.nvim"
+    },
     "lush.nvim": {
       "rev": "9c60ec2279d62487d942ce095e49006af28eed6e",
       "src": "https://github.com/rktjmp/lush.nvim"
@@ -71,6 +75,10 @@
     "mini.nvim": {
       "rev": "0f339bf5c93f392dc5d2417d47d7b9edc5f96fe8",
       "src": "https://github.com/nvim-mini/mini.nvim"
+    },
+    "neovim-ayu": {
+      "rev": "e5a9f0fa2918d6b5f57c21b3ac014314ee5e41c8",
+      "src": "https://github.com/shatur/neovim-ayu"
     },
     "noice.nvim": {
       "rev": "7bfd942445fb63089b59f97ca487d605e715f155",
@@ -111,6 +119,10 @@
     "plum.nvim": {
       "rev": "37b546b05ab84058d5ca500555fd12450addbc57",
       "src": "https://github.com/takeshid/plum.nvim"
+    },
+    "real-icons.nvim": {
+      "rev": "9854bee83aa91e7172f0d072b544305129764e30",
+      "src": "https://github.com/Mirsmog/real-icons.nvim"
     },
     "snacks.nvim": {
       "rev": "ad9ede6a9cddf16cedbd31b8932d6dcdee9b716e",

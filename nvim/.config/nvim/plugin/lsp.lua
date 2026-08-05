@@ -1,10 +1,10 @@
 vim.pack.add({
-	"https://github.com/neovim/nvim-lspconfig",
-	"https://github.com/mason-org/mason.nvim",
-	"https://github.com/mason-org/mason-lspconfig.nvim",
-	"https://github.com/stevearc/conform.nvim",
-	"https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
-	"https://github.com/nvim-treesitter/nvim-treesitter",
+  "https://github.com/neovim/nvim-lspconfig",
+  "https://github.com/mason-org/mason.nvim",
+  "https://github.com/mason-org/mason-lspconfig.nvim",
+  "https://github.com/stevearc/conform.nvim",
+  "https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
+  "https://github.com/nvim-treesitter/nvim-treesitter",
 })
 
 -- disable logs
@@ -13,35 +13,45 @@ vim.lsp.log.set_level("off")
 
 require("mason").setup()
 require("mason-lspconfig").setup({
-	automatic_enable = {
-		exclude = {
-			"ty",
-			"yamlls",
-			"rust_analyzer",
-			"lua_ls",
-		},
-	},
+  automatic_enable = {
+    exclude = {
+      "ty",
+      "yamlls",
+      "rust_analyzer",
+      "lua_ls",
+    },
+  },
 })
 require("conform").setup({
-	formatters_by_ft = {
-		lua = { "stylua" },
-		rust = { "rustfmt" },
-		python = { "ruff_format" },
-		typescript = { "prettier" },
-		html = { "prettier" },
-	},
+  formatters_by_ft = {
+    lua = { "stylua" },
+    rust = { "rustfmt" },
+    python = { "ruff_format" },
+    typescript = { "prettier" },
+    html = { "prettier" },
+  },
 })
 require("nvim-treesitter").install({
-	"rust",
+  "authzed",
+  "rust",
   "zig",
-	"python",
-	"yaml",
+  "python",
+  "yaml",
   "toml",
-	"gotmpl",
-	"helm",
-	"terraform",
-	"typescript",
+  "gotmpl",
+  "helm",
+  "terraform",
+  "typescript",
 })
+
+-- custom lsps
+-- spicedb
+vim.lsp.config("spicedb", {
+  cmd = { "spicedb", "lsp", "--stdio" },
+  filetypes = { "authzed" },
+  root_markers = { ".git" },
+})
+vim.lsp.enable("spicedb")
 
 -- keymaps
 vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "Goto Declaration" })
@@ -52,20 +62,20 @@ vim.keymap.set("n", "gr", vim.lsp.buf.references, { desc = "References", nowait 
 vim.keymap.set("n", "]g", vim.diagnostic.get_next, { desc = "Goto T[y]pe Definition" })
 vim.keymap.set("n", "[g", vim.diagnostic.get_prev, { desc = "Goto T[y]pe Definition" })
 vim.keymap.set("n", "<leader>d", function()
-	return vim.lsp.buf.hover()
+  return vim.lsp.buf.hover()
 end, { desc = "Hover" })
 vim.keymap.set("n", "gs", function()
-	vim.cmd("vsplit")
-	vim.lsp.buf.definition()
+  vim.cmd("vsplit")
+  vim.lsp.buf.definition()
 end, { desc = "Goto T[y]pe Definition in new vsplit" })
 
 vim.keymap.set({ "n", "x" }, "<leader>fo", function()
-	require("conform").format({ lsp_fallback = true, async = false, timeout_ms = 500 })
+  require("conform").format({ lsp_fallback = true, async = false, timeout_ms = 500 })
 end, { desc = "Format" })
 
 -- diagnostics
 vim.keymap.set({ "n" }, "<leader>ud", function()
-	vim.diagnostic.enable(not vim.diagnostic.is_enabled())
+  vim.diagnostic.enable(not vim.diagnostic.is_enabled())
 end, { desc = "Toggle lsp diagnostics" })
 
 -- NOTE: virtual_lines is cool too !
@@ -73,15 +83,15 @@ end, { desc = "Toggle lsp diagnostics" })
 vim.diagnostic.config({ virtual_text = true })
 
 vim.keymap.set({ "n", "x", "o" }, "]f", function()
-	require("nvim-treesitter-textobjects.move").goto_next_start("@function.inner", "textobjects")
+  require("nvim-treesitter-textobjects.move").goto_next_start("@function.inner", "textobjects")
 end)
 vim.keymap.set({ "n", "x", "o" }, "]c", function()
-	require("nvim-treesitter-textobjects.move").goto_next_start("@class.inner", "textobjects")
+  require("nvim-treesitter-textobjects.move").goto_next_start("@class.inner", "textobjects")
 end)
 
 vim.keymap.set({ "n", "x", "o" }, "[f", function()
-	require("nvim-treesitter-textobjects.move").goto_previous_start("@function.outer", "textobjects")
+  require("nvim-treesitter-textobjects.move").goto_previous_start("@function.outer", "textobjects")
 end)
 vim.keymap.set({ "n", "x", "o" }, "[c", function()
-	require("nvim-treesitter-textobjects.move").goto_previous_start("@class.outer", "textobjects")
+  require("nvim-treesitter-textobjects.move").goto_previous_start("@class.outer", "textobjects")
 end)

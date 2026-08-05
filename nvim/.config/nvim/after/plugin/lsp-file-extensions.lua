@@ -37,3 +37,14 @@ vim.filetype.add({
     tsx = "typescript",
   }
 })
+
+
+-- authzed
+vim.filetype.add({
+  extension = {
+    authzed = "authzed",
+    azd = "authzed",
+    zed = "authzed",
+  },
+})
+

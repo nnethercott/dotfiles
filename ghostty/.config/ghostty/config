@@ -6,6 +6,9 @@ background-blur=true
 
 # font-family = JetBrains Mono
 # font-family = Iosevka
+# font-family = ProggyClean Nerd Font
+# font-family = Tamzen
+# font-family = CozetteVector
 font-family = Myna Nerd Font
 font-size = 15
 font-feature = -calt, -liga, -dlig  # no ligatures

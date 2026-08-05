@@ -15,7 +15,9 @@ zsh_plugins=$HOME/.zsh_plugins
 antidote load
 
 # https://www.reddit.com/r/linux4noobs/comments/tkvs8o/kitty_terminal_with_ssh_issues/
-export TERM=xterm-256color
+if [[ -z "$TMUX" ]]; then
+  export TERM=xterm-256color
+fi
 
 # history (persists across windows)
 HISTSIZE=5000

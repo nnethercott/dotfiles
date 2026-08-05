@@ -9,16 +9,7 @@ vim.pack.add({
   "https://github.com/zenbones-theme/zenbones.nvim",
   "https://github.com/datsfilipe/vesper.nvim",
   "https://github.com/takeshid/plum.nvim",
-})
-
-require("themery").setup({
-  themes = {
-    "base16-black-metal-gorgoroth",
-    "zenbones",
-    "gruvbox",
-    "vesper",
-    "plum",
-  },
+  "https://github.com/shatur/neovim-ayu",
 })
 
 vim.api.nvim_set_keymap("n", "<leader>ts", ":Themery<CR>", { desc = "toggle themes" })
@@ -65,7 +56,7 @@ local gorgoroth_overrides = function()
   hl(0, "NormalFloat", { fg = "#c1c1c1", bg = "#121212" })
 end
 
-vim.api.nvim_create_autocmd("ColorScheme", {
+vim.api.nvim_create_autocmd("BufEnter", {
   callback = function()
     if vim.g.colors_name == "base16-black-metal-gorgoroth" then
       gorgoroth_overrides()
@@ -90,5 +81,22 @@ require('vesper').setup({
   overrides = {
     DiffAdd = { bg = "#46452b" },
     DiffDelete = { bg = "#512e2b" },
+  },
+})
+
+require('ayu').setup({
+    mirage = true,
+    terminal = true,
+    overrides = {},
+})
+
+require("themery").setup({
+  themes = {
+    "base16-black-metal-gorgoroth",
+    "zenbones",
+    "gruvbox",
+    "vesper",
+    "plum",
+    "ayu",
   },
 })
