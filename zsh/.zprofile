@@ -14,5 +14,5 @@ fi
 ## k9s
 export K9S_CONFIG_DIR="${HOME}/.config/k9s"
 ## fzf: https://github.com/junegunn/fzf.vim/issues/453
-export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow'
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 
