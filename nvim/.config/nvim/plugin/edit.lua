@@ -1,5 +1,4 @@
 vim.pack.add({
-	"https://github.com/terryma/vim-multiple-cursors",
 	"https://codeberg.org/andyg/leap.nvim",
 	"https://github.com/kevinhwang91/nvim-bqf",
 	"https://github.com/ovk/endec.nvim",

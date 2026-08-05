@@ -58,9 +58,21 @@ vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "Goto Declaration" }
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Goto Definition" })
 vim.keymap.set("n", "gy", vim.lsp.buf.type_definition, { desc = "Goto T[y]pe Definition" })
 vim.keymap.set("n", "cr", vim.lsp.buf.rename, { desc = "Rename", nowait = true })
-vim.keymap.set("n", "gr", vim.lsp.buf.references, { desc = "References", nowait = true })
 vim.keymap.set("n", "]g", vim.diagnostic.get_next, { desc = "Goto T[y]pe Definition" })
 vim.keymap.set("n", "[g", vim.diagnostic.get_prev, { desc = "Goto T[y]pe Definition" })
+-- lsp references without focusing on quickfix
+-- https://www.reddit.com/r/neovim/comments/13nvq2l/how_to_get_references_without_focus_on_quickfix/
+vim.keymap.set("n", "gr", function()
+  local win = vim.api.nvim_get_current_win()
+  vim.lsp.buf.references(nil, {
+    on_list = function(items)
+---@diagnostic disable-next-line: param-type-mismatch
+      vim.fn.setqflist({}, " ", items)
+      vim.cmd.copen()
+      vim.api.nvim_set_current_win(win)
+    end,
+  })
+end, { desc = "References", nowait = true })
 vim.keymap.set("n", "<leader>d", function()
   return vim.lsp.buf.hover()
 end, { desc = "Hover" })

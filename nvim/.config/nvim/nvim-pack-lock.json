@@ -148,10 +148,6 @@
       "rev": "2e54952fe91e140a2e69f35f22131219fcd9c5f1",
       "src": "https://github.com/szw/vim-maximizer"
     },
-    "vim-multiple-cursors": {
-      "rev": "6456718e1d30b42c04b920c5413ca44f68f08759",
-      "src": "https://github.com/terryma/vim-multiple-cursors"
-    },
     "vim-tmux-navigator": {
       "rev": "e41c431a0c7b7388ae7ba341f01a0d217eb3a432",
       "src": "https://github.com/christoomey/vim-tmux-navigator"

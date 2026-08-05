@@ -29,6 +29,11 @@ map("v", "<S-j>", ":m '>+1<CR>gv=gv", { noremap = true, desc = "move selection d
 map("v", "<S-k>", ":m '<-2<CR>gv=gv", { noremap = true, desc = "move selection up" })
 map("v", "p", '"_dP', { noremap = true, desc = "paste without yanking" })
 
--- undotree
--- vim.cmd("packadd nvim.undotree")
--- vim.keymap.set("n", "<leader>ud", require("undotree").open)
+-- https://vi.stackexchange.com/questions/8534/make-cnext-and-cprevious-loop-back-to-the-begining
+vim.keymap.set("n", "<C-n>", function()
+  vim.cmd("try | cnext | catch | cfirst | endtry")
+end, { desc = "Next quickfix (cycling)" })
+
+vim.keymap.set("n", "<C-p>", function()
+  vim.cmd("try | cprev | catch | clast | endtry")
+end, { desc = "Prev quickfix (cycling)" })
