@@ -16,8 +16,8 @@ vim.lsp.config("yamlls", {
 					"templates/*.{tpl,yaml,yml}",
 					"!compose*.{yml,yaml}",
 					"!docker-compose*.{yml,yaml}",
-					"!**/.github/actions/**/*.{yml,yaml}",
-					"!**/.github/workflows/**/*.{yml,yaml}",
+					"!**/.{github,forgejo}/actions/**/*.{yml,yaml}",
+					"!**/.{github,forgejo}/workflows/**/*.{yml,yaml}",
 				},
 				-- helm
 				["https://json.schemastore.org/chart.json"] = {
@@ -40,7 +40,7 @@ vim.lsp.config("yamlls", {
 				},
 				-- github workflow
 				["https://json.schemastore.org/github-workflow.json"] = {
-					"**/.github/workflows/**/*.{yml,yaml}",
+					"**/.{github,forgejo}/workflows/**/*.{yml,yaml}",
 				},
 			},
 		},
