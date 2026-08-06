@@ -7,7 +7,7 @@ let mapleader = " "
 if has("autocmd")
   au VimEnter,InsertLeave * silent execute '!echo -ne "\e[2 q"' | redraw!
   au InsertEnter,InsertChange *
-\ if v:insertmode == 'i' | 
+\ if v:insertmode == 'i' |
 \   silent execute '!echo -ne "\e[6 q"' | redraw! |
 \ elseif v:insertmode == 'r' |
 \   silent execute '!echo -ne "\e[4 q"' | redraw! |
@@ -75,7 +75,7 @@ set ignorecase
 set smartcase
 "set cursorline
 set backspace=indent,eol,start
-set clipboard=unnamed
+set clipboard=unnamedplus,unnamed
 set splitright
 set splitbelow
 set wrap
@@ -84,7 +84,7 @@ set noswapfile
 set undofile
 set foldlevel=99
 set foldlevelstart=99
-set fillchars=fold:\ 
+set fillchars=fold:\
 set pumheight=10
 set pumwidth=50
 
@@ -146,6 +146,7 @@ let g:indentLine_char = '│'
 
 " whitespace visualization
 highlight link ExtraWhitespace IncSearch
+nmap <leader>cw :StripWhitespace<CR>
 
 
 " airline
@@ -260,7 +261,7 @@ xmap <silent> <leader>r  <Plug>(coc-codeaction-refactor-selected)
 nmap <silent> <leader>r  <Plug>(coc-codeaction-refactor-selected)
 
 " Run the Code Lens action on the current line
-nmap <leader>cl  <Plug>(coc-codelens-action)
+"nmap <leader>cl  <Plug>(coc-codelens-action)
 
 " Map function and class text objects
 " NOTE: Requires 'textDocument.documentSymbol' support from the language server
