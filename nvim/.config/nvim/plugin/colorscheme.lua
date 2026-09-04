@@ -48,8 +48,8 @@ require("gruvbox").setup({
 local gorgoroth_overrides = function()
   local hl = vim.api.nvim_set_hl
   hl(0, "DiagnosticVirtualTextError", { fg = "#912222" })
-  hl(0, "TSComment", { fg = "#6f7b68" })
-  hl(0, "Comment", { fg = "#6f7b68" })
+  -- hl(0, "TSComment", { fg = "#6f7b68" })
+  -- hl(0, "Comment", { fg = "#6f7b68" })
   hl(0, "Visual", { bg = "#9b8d7f", fg = "#1e1e1e" })
   hl(0, "Search", { bg = "#9b8d7f", fg = "#1e1e1e" })
   hl(0, "PmenuSel", { bg = "#9b8d7f", fg = "#1e1e1e" })

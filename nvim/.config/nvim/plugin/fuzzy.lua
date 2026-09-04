@@ -4,7 +4,6 @@ local fzf = require("fzf-lua")
 
 -- profile 1: top-center compact, no preview (file search)
 local compact = {
-  cwd_prompt = false,
   winopts = {
     width = 35,
     height = 12,
@@ -15,6 +14,8 @@ local compact = {
     preview = { hidden = true },
   },
   fzf_opts = { ["--layout"] = "reverse" },
+  cwd_prompt = false,
+  -- path_shorten = 1,
 }
 
 -- profile 2: centered with preview (default for everything else)
