@@ -54,6 +54,12 @@ local opts = vim.tbl_deep_extend("force", require("fzf-lua.profiles.fzf-vim"), d
   fzf_opts = {
     ["--cycle"] = true,
   },
+  fzf_colors = {
+    true,
+    ["bg+"] = "-1",
+    ["hl"]  = { "bg", "FzfLuaFzfMatch", "reverse" },
+    ["hl+"] = { "bg", "FzfLuaFzfMatch", "reverse", "bold" },
+  },
   previewers = {
     builtin = {
       extensions = {
@@ -74,6 +80,8 @@ local opts = vim.tbl_deep_extend("force", require("fzf-lua.profiles.fzf-vim"), d
 
 fzf.setup(opts)
 fzf.register_ui_select()
+
+vim.api.nvim_set_hl(0, "FzfLuaFzfMatch", { link = "IncSearch" })
 
 vim.keymap.set("n", "f", function() fzf.files(compact) end, { desc = "Find files" })
 vim.keymap.set("n", "<leader>rg", "<cmd>FzfLua live_grep<cr>", { desc = "Ripgrep" })
