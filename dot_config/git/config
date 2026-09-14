@@ -1,0 +1,47 @@
+[core]
+  editor = "nvim"
+[init]
+  defaultBranch = "main"
+# main commands
+[push]
+  autoSetupRemote = true
+  ; followTags = true
+[pull]
+  rebase = true
+[rebase]
+  autoStash = true
+[diff]
+  # using difftastic
+  external = difft
+  context = 3
+  renames = copies
+  interHunkContext = 10
+[merge]
+    tool = codediff
+[mergetool "codediff"]
+    cmd = nvim "$MERGED" -c "CodeDiff merge \"$MERGED\""
+[commit]
+  template = ~/.config/git/template
+[log]
+  abbrevCommit = true  # short commits
+  graphColors = blue,yellow,cyan,magenta,green,red
+[color]
+  ui  = true
+[color "diff"]
+  meta = "11"
+  frag = "magenta bold"
+  func = "146 bold"
+  commit =  "yellow bold"
+  old = "red bold"
+  new = "green bold"
+  whitespace  = "red reverse"
+[color "diff-highlight"]
+  oldNormal = "red bold"
+  oldHighlight = "red bold 52"
+  newNormal = "green bold"
+  newHighlight = "green bold 22"
+[alias]
+    ds = -c diff.external=difft show --ext-diff
+[user]
+	email = natenethercott@gmail.com
+	name = nate

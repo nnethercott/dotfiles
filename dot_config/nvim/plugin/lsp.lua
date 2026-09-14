@@ -1,0 +1,110 @@
+vim.pack.add({
+  "https://github.com/neovim/nvim-lspconfig",
+  "https://github.com/mason-org/mason.nvim",
+  "https://github.com/mason-org/mason-lspconfig.nvim",
+  "https://github.com/stevearc/conform.nvim",
+  "https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
+  "https://github.com/nvim-treesitter/nvim-treesitter",
+})
+
+-- disable logs
+-- https://neovim.io/doc/user/lsp/#_lua-module%3a-vim.lsp.log
+vim.lsp.log.set_level("off")
+
+require("mason").setup()
+require("mason-lspconfig").setup({
+  automatic_enable = {
+    exclude = {
+      "ty",
+      "yamlls",
+      "rust_analyzer",
+      "lua_ls",
+    },
+  },
+})
+require("conform").setup({
+  formatters_by_ft = {
+    lua = { "stylua" },
+    rust = { "rustfmt" },
+    python = { "ruff_format" },
+    typescript = { "prettier" },
+    html = { "prettier" },
+  },
+})
+require("nvim-treesitter").install({
+  "authzed",
+  "rust",
+  "zig",
+  "python",
+  "yaml",
+  "toml",
+  "gotmpl",
+  "helm",
+  "terraform",
+  "typescript",
+})
+
+-- custom lsps
+-- spicedb
+vim.lsp.config("spicedb", {
+  cmd = { "spicedb", "lsp", "--stdio" },
+  filetypes = { "authzed" },
+  root_markers = { ".git" },
+})
+vim.lsp.enable("spicedb")
+
+-- keymaps
+vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "Goto Declaration" })
+vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Goto Definition" })
+vim.keymap.set("n", "gy", vim.lsp.buf.type_definition, { desc = "Goto T[y]pe Definition" })
+vim.keymap.set("n", "cr", vim.lsp.buf.rename, { desc = "Rename", nowait = true })
+vim.keymap.set("n", "]g", vim.diagnostic.get_next, { desc = "Goto T[y]pe Definition" })
+vim.keymap.set("n", "[g", vim.diagnostic.get_prev, { desc = "Goto T[y]pe Definition" })
+-- lsp references without focusing on quickfix
+-- https://www.reddit.com/r/neovim/comments/13nvq2l/how_to_get_references_without_focus_on_quickfix/
+vim.keymap.set("n", "gr", function()
+  local win = vim.api.nvim_get_current_win()
+  vim.lsp.buf.references(nil, {
+    on_list = function(items)
+      ---@diagnostic disable-next-line: param-type-mismatch
+      vim.fn.setqflist({}, " ", items)
+      vim.cmd.copen()
+      vim.api.nvim_set_current_win(win)
+    end,
+  })
+end, { desc = "References", nowait = true })
+vim.keymap.set("n", "<leader>d", function()
+  return vim.lsp.buf.hover()
+end, { desc = "Hover" })
+vim.keymap.set("n", "gs", function()
+  vim.cmd("vsplit")
+  vim.lsp.buf.definition()
+end, { desc = "Goto T[y]pe Definition in new vsplit" })
+
+vim.keymap.set({ "n", "x" }, "<leader>fo", function()
+  require("conform").format({ lsp_fallback = true, async = false, timeout_ms = 500 })
+end, { desc = "Format" })
+
+-- diagnostics
+vim.keymap.set({ "n" }, "<leader>ud", function()
+  vim.diagnostic.enable(not vim.diagnostic.is_enabled())
+end, { desc = "Toggle lsp diagnostics" })
+
+-- NOTE: virtual_lines is cool too !
+-- https://www.reddit.com/r/neovim/comments/1if024i/theres_now_a_builtin_virtual_lines_diagnostic/
+vim.diagnostic.config({ virtual_text = true })
+
+local mv = require("nvim-treesitter-textobjects.move")
+
+vim.keymap.set({ "n", "x", "o" }, "]f", function()
+  mv.goto_next_start("@function.outer", "textobjects")
+end)
+vim.keymap.set({ "n", "x", "o" }, "[f", function()
+  mv.goto_previous_start("@function.outer", "textobjects")
+end)
+vim.keymap.set({ "n", "x", "o" }, "]c", function()
+  mv.goto_next_start("@class.outer", "textobjects")
+end)
+vim.keymap.set({ "n", "x", "o" }, "[c", function()
+  mv.goto_previous_start("@class.outer", "textobjects")
+end)

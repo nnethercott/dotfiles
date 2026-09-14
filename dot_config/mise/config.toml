@@ -1,0 +1,26 @@
+[tools]
+atuin = '18.16.0'
+carapace = '1.6.5'
+difftastic = '0.69.0'
+fd = '10.4.2'
+fzf = '0.72.0'
+gh = '2.96.0'
+helm = '4.1.4'
+helmfile = '1.5.1'
+jj = '0.43.0'
+jq = '1.8.1'
+k9s = '0.50.18'
+kubens = '0.11.0'
+kubectl = '1.37.0'
+kubectx = '0.11.0'
+lazygit = '0.65.1'
+neovim = '0.12.2'
+node = ['26.8.1']
+npm = ['11.19.0']
+rg = '15.2.0'
+terraform = ['1.15.1']
+tmux = '3.6a'
+tree-sitter = '0.26.8'
+uv = ['0.12.1']
+yq = '4.53.6'
+zoxide = '0.9.9'

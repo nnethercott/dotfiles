@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# note: chezmoi hashes this script and runs once per "once_" prefixed items. to indicate that our contents are different we include the hash of the mise.toml
+# mise config: {{ include "dot_config/mise/config.toml" | sha256sum }}
+
+mise install

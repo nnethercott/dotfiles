@@ -1,0 +1,66 @@
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+typeset -U path PATH
+path=(
+  "$HOME/.local/bin"
+  /opt/homebrew/bin
+  $path
+)
+
+eval "$(mise activate zsh)"
+
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git --no-ignore'
+export EDITOR=nvim
+export KUBE_EDITOR=nvim
+
+[[ -r "$HOME/.config/zsh/local.zsh" ]] && source "$HOME/.config/zsh/local.zsh"
+
+# Completions
+fpath+=$HOME/.zfunc
+source "$(brew --prefix antidote)/share/antidote/antidote.zsh"
+antidote load "$HOME/.zsh_plugins.txt"
+zstyle ':completion:*' menu select
+autoload -Uz compinit && compinit
+source <(carapace _carapace zsh)
+autoload -Uz lg sc
+
+if [[ -z "$TMUX" ]]; then
+  export TERM=xterm-256color
+fi
+
+HISTSIZE=5000
+SAVEHIST=$HISTSIZE
+HISTFILE=$HOME/.local/share/zsh/history
+setopt append_history hist_ignore_all_dups hist_ignore_space share_history
+
+bindkey -v
+KEYTIMEOUT=8
+bindkey -M viins 'jk' vi-cmd-mode
+bindkey -M viins '^R' history-incremental-search-backward
+bindkey -M vicmd '^R' history-incremental-search-backward
+
+# Aliases
+alias k='kubectl'
+alias kx='kubectx'
+alias kn='kubens'
+alias gs='git status --short'
+alias ga='git add'
+alias gd='git diff'
+alias gc='git commit'
+alias gl='git log --graph --pretty=format:"%C(magenta)%h %C(yellow) %an  %C(cyan) %ar%C(blue)  %D%n%s%n"'
+alias rgf='rg --files | rg'
+alias ls='ls --color=auto'
+alias cd='z'
+alias cb='pbcopy'
+alias t='terraform'
+
+# Tools
+eval "$(zoxide init zsh)"
+export ATUIN_NOBIND=true
+eval "$(atuin init zsh)"
+
+ssh-add --apple-load-keychain 2>/dev/null
+
+[[ -r "$HOME/.p10k.zsh" ]] && source "$HOME/.p10k.zsh"
