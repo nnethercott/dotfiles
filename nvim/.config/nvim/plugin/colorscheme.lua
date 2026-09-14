@@ -54,6 +54,9 @@ local gorgoroth_overrides = function()
   hl(0, "Search", { bg = "#9b8d7f", fg = "#1e1e1e" })
   hl(0, "PmenuSel", { bg = "#9b8d7f", fg = "#1e1e1e" })
   hl(0, "NormalFloat", { fg = "#c1c1c1", bg = "#121212" })
+
+  hl(0, "CodeDiffLineInsert", { bg = "#1a3a25" })
+  hl(0, "CodeDiffLineDelete", { bg = "#3a1c1c" })
 end
 
 vim.api.nvim_create_autocmd("BufEnter", {
@@ -94,9 +97,9 @@ require("themery").setup({
   themes = {
     "base16-black-metal-gorgoroth",
     "zenbones",
+    "neobones",
     "gruvbox",
     "vesper",
-    "plum",
     "ayu",
   },
 })

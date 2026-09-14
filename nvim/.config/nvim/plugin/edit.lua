@@ -1,9 +1,9 @@
 vim.pack.add({
-	"https://codeberg.org/andyg/leap.nvim",
-	"https://github.com/kevinhwang91/nvim-bqf",
-	"https://github.com/ovk/endec.nvim",
-	"https://github.com/szw/vim-maximizer",
-	"https://github.com/serhez/bento.nvim",
+  "https://codeberg.org/andyg/leap.nvim",
+  "https://github.com/kevinhwang91/nvim-bqf",
+  "https://github.com/ovk/endec.nvim",
+  "https://github.com/szw/vim-maximizer",
+  "https://github.com/serhez/bento.nvim",
 })
 
 -- leap
@@ -13,10 +13,10 @@ vim.keymap.set("n", "gs", "<Plug>(leap-from-window)")
 
 -- quickfix
 require("bqf").setup({
-	---@diagnostic disable-next-line: missing-fields
-	preview = {
-		auto_preview = false,
-	},
+  ---@diagnostic disable-next-line: missing-fields
+  preview = {
+    auto_preview = false,
+  },
 })
 
 -- split maximizer
@@ -24,40 +24,40 @@ vim.keymap.set("n", "<leader>w", ":MaximizerToggle<CR>", { desc = "maximize curr
 
 -- base64
 require("endec").setup({
-	keymaps = {
-		defaults = false,
-	},
-	popup = {
-		enter = true,
-		transparency = 10,
-		close_on = { "<Esc>", "q", "<C-c>" },
-	},
+  keymaps = {
+    defaults = false,
+  },
+  popup = {
+    enter = true,
+    transparency = 10,
+    close_on = { "<Esc>", "q", "<C-c>" },
+  },
 })
 vim.keymap.set("v", "bie", function()
-	require("endec").vencode("base64")
+  require("endec").vencode("base64")
 end, { desc = "base64 encode" })
 vim.keymap.set("v", "bid", function()
-	require("endec").vdecode("base64", true)
+  require("endec").vdecode("base64", true)
 end, { desc = "base64 encode" })
 
 -- buffers
 require("bento").setup(
-{
-      max_open_buffers = 8,
-      lock_char = "*",
-      buffer_deletion_metric = "frequency_access",
-      buffer_notify_on_delete = false,
-      ordering = "access",
-      ui = {
-        mode = "floating",
-        floating = {
-          minimal_menu = nil,
-          position = "top_right",
-          -- offset_y = -4,
-          border = "none",
-        },
+  {
+    max_open_buffers = 8,
+    lock_char = "*",
+    buffer_deletion_metric = "frequency_access",
+    buffer_notify_on_delete = false,
+    ordering = "access",
+    ui = {
+      mode = "floating",
+      floating = {
+        minimal_menu = nil,
+        position = "top_right",
+        -- offset_y = -4,
+        border = "none",
       },
-    }
+    },
+  }
 )
 
 -- register keymap after setup
