@@ -5,9 +5,15 @@ fi
 typeset -U path PATH
 path=(
   "$HOME/.local/bin"
+  $path
+)
+
+{{ if eq .chezmoi.os "darwin" }}
+path=(
   /opt/homebrew/bin
   $path
 )
+{{ end }}
 
 eval "$(mise activate zsh)"
 
