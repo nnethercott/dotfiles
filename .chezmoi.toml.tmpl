@@ -1,5 +1,10 @@
+{{- $tmux := promptBoolOnce . "tmux" "tmux" false -}}
+
+[data]
+tmux = {{ $tmux }}
+
+# exclude scripts from `chezmoi diff` output
 [diff]
 exclude = ["scripts"]
-
 [status]
 exclude = ["scripts"]
