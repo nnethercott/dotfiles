@@ -2,13 +2,20 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-{{- if and (eq .chezmoi.os "darwin") (isExecutable "/opt/homebrew/bin/brew") -}}
 typeset -U path PATH
+path=(
+  $HOME/.local/bin
+  $path
+)
+{{ if and (eq .chezmoi.os "darwin") (isExecutable "/opt/homebrew/bin/brew") }}
 path=(
   /opt/homebrew/bin
   $path
 )
 {{ end }}
+
+source "$HOME/.antidote/antidote.zsh"
+antidote load "$HOME/.zsh_plugins.txt"
 
 eval "$(mise activate zsh)"
 
@@ -20,14 +27,12 @@ export KUBE_EDITOR=nvim
 
 # Completions
 fpath+=$HOME/.zfunc
-source "$(brew --prefix antidote)/share/antidote/antidote.zsh"
-antidote load "$HOME/.zsh_plugins.txt"
 zstyle ':completion:*' menu select
 autoload -Uz compinit && compinit
 source <(carapace _carapace zsh)
 autoload -Uz lg sc
 
-{{- if .tmux -}}
+{{ if .tmux }}
 if [[ -z "$TMUX" ]]; then
   export TERM=xterm-256color
 fi
