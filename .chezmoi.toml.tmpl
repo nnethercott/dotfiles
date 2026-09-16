@@ -1,7 +1,9 @@
 {{- $tmux := promptBoolOnce . "tmux" "tmux" false -}}
+{{- $brew := promptBoolOnce . "brew" "brew" false -}}
 
 [data]
 tmux = {{ $tmux }}
+brew = {{ $brew }}
 
 # exclude scripts from `chezmoi diff` output
 [diff]

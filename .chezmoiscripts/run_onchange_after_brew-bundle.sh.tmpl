@@ -1,0 +1,12 @@
+{{- if .brew }}
+#!/bin/sh
+
+# Brewfile: {{ include "Brewfile" | sha256sum }}
+
+if ! command -v brew >/dev/null 2>&1; then
+  echo "brew flag enabled, but Homebrew is not installed" >&2
+  exit 1
+fi
+
+brew bundle install --file="{{ .chezmoi.homeDir }}/Brewfile"
+{{- end }}

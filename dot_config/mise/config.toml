@@ -22,5 +22,6 @@ terraform = ['1.15.1']
 tmux = '3.6a'
 tree-sitter = '0.26.8'
 uv = ['0.12.1']
+yazi = '26.9.1'
 yq = '4.53.6'
 zoxide = '0.9.9'
