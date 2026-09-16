@@ -14,7 +14,6 @@ kubens = '0.11.0'
 kubectl = '1.37.0'
 kubectx = '0.11.0'
 lazygit = '0.65.1'
-neovim = '0.12.2'
 node = ['26.8.1']
 npm = ['11.19.0']
 rg = '15.2.0'

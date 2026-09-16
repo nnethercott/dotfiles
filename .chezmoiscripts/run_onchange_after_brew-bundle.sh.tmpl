@@ -1,4 +1,4 @@
-{{- if .brew }}
+{{- if .brew -}}
 #!/bin/sh
 
 # Brewfile: {{ include "Brewfile" | sha256sum }}
@@ -8,5 +8,5 @@ if ! command -v brew >/dev/null 2>&1; then
   exit 1
 fi
 
-brew bundle install --file="{{ .chezmoi.homeDir }}/Brewfile"
+brew bundle install --file="{{ .chezmoi.homeDir }}/Brewfile" --verbose
 {{- end }}

@@ -33,5 +33,3 @@ brew "hashicorp/tap/terraform-ls", trusted: true
 cask "bruno"
 # OpenAI's coding agent that runs in your terminal
 cask "codex"
-# Set of tools to manage resources and applications hosted on Google Cloud
-cask "gcloud-cli"
