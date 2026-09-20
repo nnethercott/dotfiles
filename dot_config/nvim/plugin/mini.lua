@@ -103,12 +103,9 @@ require("mini.ai").setup({
 	},
 })
 
--- https://github.com/nvim-mini/mini.nvim/blob/3923662bf3d6ca49a9503f8d7196ea0450983e6a/doc/mini-ai.txt#L567-L577
-local map_lsp_selection = function(lhs, desc)
-	local s = vim.startswith(desc, "Increase") and 1 or -1
-	local rhs = function()
-		vim.lsp.buf.selection_range(s * vim.v.count1)
-	end
-	vim.keymap.set("x", lhs, rhs, { desc = desc })
-end
-map_lsp_selection("<Leader>i", "Increase selection")
+require("mini.move").setup({ -- move selection in visual mode
+	mappings = {
+		down = "J",
+		up = "K",
+	},
+})
