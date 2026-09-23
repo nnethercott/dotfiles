@@ -12,6 +12,7 @@ vim.pack.add({
   "https://github.com/shatur/neovim-ayu",
 })
 
+
 vim.api.nvim_set_keymap("n", "<leader>ts", ":Themery<CR>", { desc = "toggle themes" })
 -- prevent terminal (Ghostty/OSC 11) from overriding vim.o.background on tmux session switch
 pcall(vim.api.nvim_del_augroup_by_name, "nvim.tty")
@@ -30,7 +31,7 @@ vim.g.neobones = opts
 
 -- gruvbox
 require("gruvbox").setup({
-  -- dark_variant = "hard",
+  dark_variant = "soft",
   styles = {
     italic = false,
   },
@@ -54,7 +55,6 @@ local gorgoroth_overrides = function()
   hl(0, "Search", { bg = "#9b8d7f", fg = "#1e1e1e" })
   hl(0, "PmenuSel", { bg = "#9b8d7f", fg = "#1e1e1e" })
   hl(0, "NormalFloat", { fg = "#c1c1c1", bg = "#121212" })
-
   hl(0, "CodeDiffLineInsert", { bg = "#1a3a25" })
   hl(0, "CodeDiffLineDelete", { bg = "#3a1c1c" })
 end

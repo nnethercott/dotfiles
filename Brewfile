@@ -15,6 +15,8 @@ brew "gnupg"
 brew "htop"
 # Next-gen compiler infrastructure
 brew "llvm"
+# tmux session management
+brew "sesh"
 # Display directories as trees (with optional color/HTML output)
 brew "tree"
 # Command-line tool for Vespa.ai

@@ -81,6 +81,10 @@ vim.keymap.set("n", "gs", function()
   vim.lsp.buf.definition()
 end, { desc = "Goto T[y]pe Definition in new vsplit" })
 
+vim.keymap.set({ "n" }, "hi", function()
+  vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+end, { desc = "Format" })
+
 vim.keymap.set({ "n", "x" }, "<leader>fo", function()
   require("conform").format({ lsp_fallback = true, async = false, timeout_ms = 500 })
 end, { desc = "Format" })
