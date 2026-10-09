@@ -41,29 +41,29 @@ vim.keymap.set("v", "bid", function()
 end, { desc = "base64 encode" })
 
 -- buffers
-require("bento").setup(
-  {
-    max_open_buffers = 8,
-    lock_char = "*",
-    buffer_deletion_metric = "frequency_access",
-    buffer_notify_on_delete = false,
-    ordering = "access",
-    ui = {
-      mode = "floating",
-      floating = {
-        minimal_menu = nil,
-        position = "top_right",
-        -- offset_y = -4,
-        border = "none",
-      },
+require("bento").setup({
+  max_open_buffers = 8,
+  lock_char = "*",
+  buffer_deletion_metric = "frecency_access",
+  buffer_notify_on_delete = false,
+  ordering_metric = "access",
+  ui = {
+    mode = "floating",
+    floating = {
+      minimal_menu = nil,
+      position = "top-right",
+      -- offset_y = -4,
+      border = "none",
     },
-  }
-)
+  },
+})
 
--- register keymap after setup
+local bento_api = require("bento.api")
+bento_api.register_expand_key(";")
+bento_api.register_last_buffer_key(";")
+bento_api.register_action("open", { key = "<CR>", action = bento_api.actions.open })
+bento_api.set_default_action("open")
+
 vim.keymap.set("n", "<leader>ba", function()
-  require("bento").close_all_buffers({ locked = false, current = false })
-end)
-vim.keymap.set("n", "<leader>bc", function()
-  vim.cmd(":BentoToggle")
-end)
+  bento_api.close_all_buffers({ locked = false, current = false })
+end, { desc = "Close other unlocked buffers" })

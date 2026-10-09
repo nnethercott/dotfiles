@@ -93,6 +93,9 @@ end, { desc = "Format" })
 vim.keymap.set({ "n" }, "<leader>ud", function()
   vim.diagnostic.enable(not vim.diagnostic.is_enabled())
 end, { desc = "Toggle lsp diagnostics" })
+vim.keymap.set("n", "gl", function()
+  vim.diagnostic.open_float({ scope = "line", wrap = true, max_width = 80 })
+end, { desc = "Show line diagnostics" })
 
 -- NOTE: virtual_lines is cool too !
 -- https://www.reddit.com/r/neovim/comments/1if024i/theres_now_a_builtin_virtual_lines_diagnostic/
