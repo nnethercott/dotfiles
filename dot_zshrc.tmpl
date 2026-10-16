@@ -30,7 +30,7 @@ fpath+=$HOME/.zfunc
 zstyle ':completion:*' menu select
 autoload -Uz compinit && compinit
 source <(carapace _carapace zsh)
-autoload -Uz lg sc
+autoload -Uz lg sc asi
 
 {{ if .tmux }}
 if [[ -z "$TMUX" ]]; then

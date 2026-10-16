@@ -8,8 +8,8 @@ vim.pack.add({
   "https://gitlab.com/motaz-shokry/gruvbox.nvim",
   "https://github.com/zenbones-theme/zenbones.nvim",
   "https://github.com/datsfilipe/vesper.nvim",
-  "https://github.com/takeshid/plum.nvim",
   "https://github.com/shatur/neovim-ayu",
+  "https://github.com/metalelf0/black-metal-theme-neovim",
 })
 
 
@@ -67,19 +67,14 @@ vim.api.nvim_create_autocmd("BufEnter", {
   end,
 })
 
--- plum
-require("plum").setup({
-  variant = "light",   -- default "auto", selectable: "dark" / "light"
-})
-
 -- vesper
 require('vesper').setup({
   italics = {
-    comments = false,      -- Boolean: Italicizes comments
-    keywords = false,      -- Boolean: Italicizes keywords
-    functions = false,     -- Boolean: Italicizes functions
-    strings = false,       -- Boolean: Italicizes strings
-    variables = false,     -- Boolean: Italicizes variables
+    comments = false,  -- Boolean: Italicizes comments
+    keywords = false,  -- Boolean: Italicizes keywords
+    functions = false, -- Boolean: Italicizes functions
+    strings = false,   -- Boolean: Italicizes strings
+    variables = false, -- Boolean: Italicizes variables
   },
   overrides = {
     DiffAdd = { bg = "#46452b" },
@@ -88,11 +83,41 @@ require('vesper').setup({
 })
 
 require('ayu').setup({
-    mirage = true,
-    terminal = true,
-    overrides = {},
+  mirage = true,
+  terminal = true,
+  overrides = {},
 })
 
+require("black-metal").setup({
+  theme = "bathory",
+  variant = "dark",
+  alt_bg = true,
+  -- allow light variants when `trve=false`
+  trve = true,
+  colored_docstrings = true,
+  cursorline_gutter = true,
+  dark_gutter = false,
+  favor_treesitter_hl = false,
+  plain_float = false,
+  show_eob = true,
+  term_colors = true,
+  toggle_variant_key = nil,
+  transparent = false,
+  code_style = {
+    comments = "none",
+    conditionals = "none",
+    functions = "none",
+    keywords = "none",
+    keyword_return = "bold",
+    variables = "none",
+  },
+  -- Overrides
+  colors = {},
+  highlights = {},
+})
+
+
+-- NOTE: this must be last so that overrides are kept
 require("themery").setup({
   themes = {
     "base16-black-metal-gorgoroth",
@@ -101,5 +126,8 @@ require("themery").setup({
     "gruvbox",
     "vesper",
     "ayu",
+    "bathory-alt",
+    "nile-alt",
+    "taake-alt",
   },
 })
